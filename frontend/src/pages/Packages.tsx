@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PackageCard from '../components/PackageCard';
 import { siteData } from '../data/siteData';
@@ -27,11 +26,9 @@ const Packages: React.FC = () => {
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
-      <Navbar />
-
       <main>
         {/* 1. Hero Section — 90vh + Ken Burns */}
-        <section className="relative h-[90vh] flex items-end overflow-hidden">
+        <section className="relative h-[80vh] flex items-end overflow-hidden">
           {/* Ken Burns background */}
           <motion.div
             initial={{ scale: 1.12 }}
@@ -47,29 +44,34 @@ const Packages: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
           </motion.div>
 
-          {/* Content pinned to bottom */}
-          <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-end pb-16">
-            <div className="lg:col-span-2">
-              <motion.h1
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
-                className="text-6xl md:text-9xl font-serif text-white leading-[0.9] drop-shadow-2xl"
-              >
-                Our <br /> Packages
-              </motion.h1>
-            </div>
-
-            <motion.div
+          {/* Content pinned to bottom-right */}
+          <div className="relative z-10 w-full px-6 pb-16 flex flex-col items-end text-right">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-brand-green text-sm font-bold uppercase tracking-[0.3em] mb-3 block"
+            >
+              Tailored for You
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
+              className="text-[3rem] md:text-[4rem] lg:text-[5rem] text-white leading-none drop-shadow-2xl"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}
+            >
+              Our Packages
+            </motion.h1>
+            <motion.p
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.7, ease: 'easeOut' }}
-              className="bg-black/40 backdrop-blur-md p-10 border-l-4 border-brand-green"
+              className="text-white/80 text-xl md:text-2xl max-w-md mt-4 leading-relaxed"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300 }}
             >
-              <p className="text-lg md:text-xl text-white font-serif italic leading-relaxed">
-                {hero.description}
-              </p>
-            </motion.div>
+              {hero.description}
+            </motion.p>
           </div>
 
           {/* Scroll indicator */}
@@ -89,7 +91,7 @@ const Packages: React.FC = () => {
 
         {/* 2. Package Sections by Region */}
         {sections.map((section, sectionIdx) => (
-          <section key={section.title} className="py-24 px-4 bg-[#0c1106]">
+          <section key={section.title} className="px-4 bg-[#0c1106]">
             <div className="max-w-7xl mx-auto">
 
               {/* Section heading */}

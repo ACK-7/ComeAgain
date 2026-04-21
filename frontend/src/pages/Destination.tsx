@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import { siteData } from '../data/siteData';
@@ -33,11 +32,11 @@ const Destination: React.FC = () => {
 
   return (
     <div className="bg-brand-dark min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
-      <Navbar />
+      
       
       <main>
         {/* 1. Hero Section */}
-        <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[80vh] flex items-end overflow-hidden">
           <motion.div 
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
@@ -49,29 +48,39 @@ const Destination: React.FC = () => {
               alt="Destinations Hero" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
           </motion.div>
-          
-          <div className="relative z-10 text-center px-4">
-            <motion.h1 
+
+          {/* Content pinned to bottom-right */}
+          <div className="relative z-10 w-full px-6 pb-10 flex flex-col items-end text-right">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-brand-green text-sm font-bold uppercase tracking-[0.3em] mb-3 block"
+            >
+              Explore Africa
+            </motion.span>
+            <motion.h1
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="text-6xl md:text-8xl lg:text-9xl font-serif text-white mb-8 drop-shadow-2xl"
+              transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+              className="text-[3rem] md:text-[4rem] lg:text-[5rem] text-white leading-none drop-shadow-2xl"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}
             >
               {hero.title}
             </motion.h1>
-            <motion.div 
+            <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ delay: 0.5, duration: 1 }}
-              className="w-24 h-1 bg-brand-green mx-auto" 
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="w-16 h-[2px] bg-brand-green mt-4 origin-right"
             />
           </div>
         </section>
 
         {/* 2. Destinations Grid */}
-        <section className="py-24 px-4 bg-[#0c1106]">
+        <section className="py-8 px-4 bg-[#0c1106]">
           <div className="max-w-7xl mx-auto">
             <motion.div 
               variants={containerVariants}

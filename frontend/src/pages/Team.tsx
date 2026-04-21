@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
 import { motion, type Variants } from 'framer-motion';
@@ -27,11 +26,9 @@ const Team: React.FC = () => {
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
-      <Navbar />
-
       <main>
         {/* 1. Hero Section — 90vh + Ken Burns */}
-        <section className="relative h-[90vh] flex items-end overflow-hidden">
+        <section className="relative h-[80vh] flex items-end overflow-hidden">
           <motion.div
             initial={{ scale: 1.12 }}
             animate={{ scale: 1 }}
@@ -46,37 +43,34 @@ const Team: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
           </motion.div>
 
-          {/* Content pinned to bottom */}
-          <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-end pb-16">
-            <div className="lg:col-span-2">
-              <motion.span
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-brand-green text-sm font-bold uppercase tracking-[0.3em] mb-4 block"
-              >
-                Our People
-              </motion.span>
-              <motion.h1
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
-                className="text-7xl md:text-9xl font-serif text-white leading-[0.9] drop-shadow-2xl"
-              >
-                The Team
-              </motion.h1>
-            </div>
-
-            <motion.div
+          {/* Content pinned to bottom-right */}
+          <div className="relative z-10 w-full px-6 pb-16 flex flex-col items-end text-right">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-brand-green text-sm font-bold uppercase tracking-[0.3em] mb-3 block"
+            >
+              Our People
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
+              className="text-[3rem] md:text-[4rem] lg:text-[5rem] text-white leading-none drop-shadow-2xl"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}
+            >
+              The Team
+            </motion.h1>
+            <motion.p
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.7, ease: 'easeOut' }}
-              className="bg-black/40 backdrop-blur-sm p-10 border-l-4 border-brand-green"
+              className="text-white/80 text-xl md:text-2xl max-w-md mt-4 leading-relaxed"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300 }}
             >
-              <p className="text-white text-lg md:text-xl font-serif italic leading-relaxed">
-                {team.hero.description}
-              </p>
-            </motion.div>
+              {team.hero.description}
+            </motion.p>
           </div>
 
           {/* Scroll indicator */}
@@ -95,7 +89,7 @@ const Team: React.FC = () => {
         </section>
 
         {/* 2. Team Grid */}
-        <section className="relative py-32 px-4 overflow-hidden">
+        <section className="relative py-2 px-4 overflow-hidden">
           {/* Subtle animated mesh backdrop */}
           <div className="absolute inset-0 z-0 bg-[#f8fcf8]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,#ff1493_0%,transparent_50%),radial-gradient(circle_at_80%_20%,#00ffff_0%,transparent_50%),radial-gradient(circle_at_50%_80%,#ffff00_0%,transparent_50%),radial-gradient(circle_at_10%_90%,#32cd32_0%,transparent_50%)] opacity-20 blur-[100px] animate-pulse" />
@@ -185,7 +179,7 @@ const Team: React.FC = () => {
 
         {/* 3. Final CTA Section — fixed background */}
         <section
-          className="relative py-48 px-4 min-h-[600px] flex items-center bg-fixed bg-cover bg-center"
+          className="relative px-4 min-h-[600px] flex items-center bg-fixed bg-cover bg-center"
           style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-20-at-20.30.59.jpeg)` }}
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
@@ -196,7 +190,7 @@ const Team: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9 }}
-              className="text-6xl md:text-8xl font-serif text-brand-green mb-10 leading-[1.1]"
+              className="text-3xl md:text-4xl font-serif text-brand-green mb-10 leading-[1.1]"
             >
               Taking you anywhere you can imagine.
             </motion.h2>

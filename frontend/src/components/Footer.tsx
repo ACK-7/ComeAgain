@@ -19,25 +19,15 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-brand-dark overflow-hidden">
-      {/* Background Image Area */}
-      <div className="relative py-20 px-4 md:px-12 lg:px-20 min-h-[400px]">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={`${import.meta.env.BASE_URL}images/leopard-footer.jpeg`} 
-            alt="Leopard Safari Background" 
-            className="w-full h-full object-cover grayscale-[30%]"
-          />
-          <div className="absolute inset-0 bg-brand-dark/70" />
-        </div>
-
+    <footer className="bg-brand-dark">
+      <div className="py-20 px-4 md:px-12 lg:px-20">
         {/* 4-Column Layout */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-white">
           {/* 1. Quick Links */}
           <div>
             <h4 className="text-3xl font-serif font-bold mb-8">Quick Links</h4>
             <ul className="space-y-4">
-              {['Home', 'Services', 'Packages', 'Contact'].map((link) => (
+              {['Home', 'Services', 'Packages', 'Gallery', 'Contact'].map((link) => (
                 <li key={link}>
                   <Link to={link === 'Home' ? '/' : `/${link.toLowerCase()}`} className="text-white hover:text-brand-green transition-colors text-lg">
                     {link}
@@ -56,6 +46,23 @@ const Footer: React.FC = () => {
               <li>Email: {footerData.contact.email}</li>
               <li>Postal address: {footerData.contact.postal}</li>
               <li>Location: {footerData.contact.location}</li>
+              <li className="pt-4">
+                <a 
+                  href={siteData.home.testimonials.tripadvisorUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 group"
+                >
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-3 h-3 fill-[#34E0A1] text-[#34E0A1]" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-white group-hover:text-[#34E0A1] transition-colors">Tripadvisor 5.0</span>
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -65,7 +72,12 @@ const Footer: React.FC = () => {
             <ul className="space-y-5">
               {footerData.socials.map((social) => (
                 <li key={social.name}>
-                  <a href={social.href} className="flex items-center gap-3 hover:text-brand-green transition-colors text-lg">
+                  <a 
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center gap-3 hover:text-brand-green transition-colors text-lg"
+                  >
                     {getIcon(social.icon)}
                     {social.name}
                   </a>
@@ -93,7 +105,7 @@ const Footer: React.FC = () => {
       {/* Bottom Bar */}
       <div className="bg-[#e8f5e9] py-6 px-4 text-center">
         <p className="text-brand-dark text-[13px] font-bold tracking-tight">
-          © 2026 Come Again Tours and Travels. All Rights Reserved.
+          © 2026 Come Again Tours and Travels. All Rights Reserved. Powered by Harrah Designs 
         </p>
       </div>
     </footer>

@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-brand-dark">
+    <section className="relative h-[calc(90vh-6rem)] w-full overflow-hidden bg-brand-dark">
       {/* Background Slides */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -53,7 +53,8 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="text-5xl md:text-7xl lg:text-[6rem] font-serif text-white mb-4 drop-shadow-2xl leading-tight font-bold max-w-4xl"
+                className="text-[3rem] md:text-[4rem] lg:text-[5rem] text-white mb-2 pt-40 drop-shadow-2xl leading-none max-w-4xl"
+                style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}
                 dangerouslySetInnerHTML={{ __html: slides[currentSlide].title }}
               />
               
@@ -61,10 +62,35 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                className="text-lg md:text-xl lg:text-2xl text-white font-bold font-sans italic drop-shadow-md opacity-90 max-w-2xl"
+                className="text-xl md:text-2xl lg:text-3xl text-white/90 drop-shadow-md max-w-2xl mb-8"
+                style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300 }}
               >
                 {slides[currentSlide].subtitle}
               </motion.p>
+
+              {/* Tripadvisor Trust Badge */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex items-center gap-4 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-colors cursor-pointer group"
+                onClick={() => window.open(siteData.home.testimonials.tripadvisorUrl, '_blank')}
+              >
+                <div className="flex items-center gap-1.5 ">
+                  <span className="text-brand-green font-bold text-sm tracking-tighter">Excellent</span>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-3.5 h-3.5 fill-[#34E0A1] text-[#34E0A1]" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+                <div className="w-[1px] h-4 bg-white/30" />
+                <div className="flex items-center gap-2">
+                  <span className="text-white text-xs font-bold uppercase tracking-widest">Tripadvisor</span>
+                </div>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>

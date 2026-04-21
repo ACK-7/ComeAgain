@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import PackageCard from '../components/PackageCard';
 import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
-import { Star, Users } from 'lucide-react';
+import { Users } from 'lucide-react';
 
 import type { Variants } from 'framer-motion';
 
@@ -31,14 +30,12 @@ const Home: React.FC = () => {
 
   return (
     <div className="bg-brand-dark min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
-      <Navbar />
-      
       <main>
         {/* 1. Hero Section */}
         <Hero />
 
         {/* 2. Packages Intro & Grid */}
-        <section className="py-24 px-4 bg-brand-dark overflow-hidden">
+        <section className="py-4 px-4 bg-brand-dark overflow-hidden">
           <div className="max-w-7xl mx-auto text-left">
             <div className="flex flex-col lg:flex-row items-end lg:items-center justify-between gap-12 mb-20">
               <div className="lg:w-1/3">
@@ -258,13 +255,12 @@ const Home: React.FC = () => {
                  <img src={siteData.home.whyChooseUs.image} alt="Lions in Tree" className="absolute inset-0 w-full h-full object-cover" />
               </motion.div>
 
-              <div className="lg:w-2/3 py-24 px-8 lg:px-20 flex items-center">
+              <div className="lg:w-2/3 py-24 px-8 lg:px-20 flex items-center text-left">
                  <motion.div 
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, ease: "easeOut" }}
-                  className="max-w-4xl text-left"
                  >
                     <span className="text-brand-dark font-bold text-[13px] uppercase tracking-widest mb-4 block">
                        {siteData.home.whyChooseUs.subheading}
@@ -345,22 +341,24 @@ const Home: React.FC = () => {
                    <motion.div 
                      key={idx}
                      variants={itemVariants}
-                     className="flex flex-col bg-white p-10 shadow-sm hover:shadow-xl transition-all duration-300 group"
+                     className="flex flex-col bg-white p-10 shadow-sm hover:shadow-xl transition-all duration-300 group relative border-b-4 border-[#34E0A1]"
                    >
-                      <div className="flex items-center gap-4 mb-6">
-                         <span className="text-brand-green font-bold text-lg">{testimonial.rating}</span>
-                         <div className="flex gap-1">
+                      <div className="flex items-center justify-between mb-6">
+                         <div className="flex gap-0.5">
                             {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-4 h-4 fill-brand-green text-brand-green" />
+                              <svg key={i} className="w-4 h-4 fill-[#34E0A1] text-[#34E0A1]" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                              </svg>
                             ))}
                          </div>
+                         <span className="text-[10px] font-bold text-[#34E0A1] uppercase tracking-tighter">via Tripadvisor</span>
                       </div>
                       <p className="text-gray-700 text-[15px] leading-relaxed mb-10 flex-grow italic">
                          "{testimonial.text}"
                       </p>
                       <div className="border-t border-brand-green/20 pt-8 flex items-center gap-4">
                          <div className="bg-brand-green/10 p-3 rounded-full group-hover:bg-brand-green group-hover:text-white transition-colors duration-300">
-                            <Users className="w-6 h-6" />
+                            <Users className="w-5 h-5" />
                          </div>
                          <span className="font-serif font-bold tracking-widest text-brand-dark uppercase text-sm">
                             {testimonial.author}
@@ -368,6 +366,25 @@ const Home: React.FC = () => {
                       </div>
                    </motion.div>
                  ))}
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mt-20 text-center"
+              >
+                <a 
+                  href={siteData.home.testimonials.tripadvisorUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-4 px-10 py-4 bg-[#34E0A1] text-brand-dark font-bold text-xs tracking-widest uppercase hover:bg-brand-dark hover:text-white transition-all shadow-lg"
+                >
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                  </svg>
+                  View all reviews on Tripadvisor
+                </a>
               </motion.div>
            </div>
         </section>

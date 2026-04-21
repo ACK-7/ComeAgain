@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { Clock, Tag, ArrowRight, ArrowUpRight } from 'lucide-react';
@@ -110,7 +109,7 @@ const cardVariants: Variants = {
   exit:   { opacity: 0, y: -20, transition: { duration: 0.3 } },
 };
 
-// ─── Component ────────────────────────────────────────────────────────────────
+// ─── Component ──────────────────────────────────────────────────────────────
 const Blog: React.FC = () => {
   const [active, setActive] = useState<Category>('All');
 
@@ -122,11 +121,9 @@ const Blog: React.FC = () => {
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
-      <Navbar />
-
       <main>
         {/* ── 1. Hero ─────────────────────────────────────────────────── */}
-        <section className="relative h-[90vh] flex items-end overflow-hidden">
+        <section className="relative h-[80vh] flex items-end overflow-hidden">
           <motion.div
             initial={{ scale: 1.12 }}
             animate={{ scale: 1 }}
@@ -141,29 +138,30 @@ const Blog: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20" />
           </motion.div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pb-16">
+          <div className="relative z-10 w-full px-6 pb-10 flex flex-col items-end text-right">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-brand-green text-sm font-bold uppercase tracking-[0.3em] mb-4 block"
+              className="text-brand-green text-sm font-bold uppercase tracking-[0.3em] mb-3 block"
             >
-              Stories from the wild
+              Stories from the Wild
             </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
-              className="text-7xl md:text-[8rem] lg:text-[10rem] font-serif text-white leading-[0.88] drop-shadow-2xl mb-6"
+              className="text-[3rem] md:text-[4rem] lg:text-[5rem] text-white leading-none drop-shadow-2xl"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}
             >
-              Safari <br />
-              <span className="text-brand-green italic">Journal</span>
+              Safari <span style={{ color: '#6ab43e' }}>Journal</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.7 }}
-              className="text-white/70 text-lg md:text-xl max-w-xl font-serif italic"
+              className="text-white/80 text-xl md:text-2xl max-w-md mt-4 leading-relaxed"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300 }}
             >
               Insights, guides and first-hand accounts from the heart of the East African wilderness.
             </motion.p>
@@ -185,7 +183,7 @@ const Blog: React.FC = () => {
         </section>
 
         {/* ── 2. Featured Post ────────────────────────────────────────── */}
-        <section className="bg-[#f4f7f4] py-20 px-4">
+        <section className="bg-[#f4f7f4] py-8 px-4">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

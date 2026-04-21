@@ -1,40 +1,54 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="bg-brand-dark min-h-screen text-white">
-      <Navbar />
-      
-      {/* Header */}
-      <section className="relative h-[50vh] flex items-center justify-center pt-20">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://comeagaintoursandtravels.com/wp-content/uploads/2023/11/about-hero.jpg" 
-            alt="About Us Hero" 
-            className="w-full h-full object-cover opacity-50"
-          />
-          <div className="absolute inset-0 bg-brand-dark/60" />
-        </div>
-        
-        <div className="relative z-10 text-center px-4">
-          <motion.h1 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="text-6xl md:text-8xl font-serif text-white mb-6"
-          >
-            About <span className="text-brand-accent italic">Us</span>
-          </motion.h1>
-          <p className="text-xl text-brand-green font-bold tracking-[0.2em] uppercase">
-            Come Again Tours & Travels
-          </p>
-        </div>
-      </section>
+    <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
+      <main>
+        {/* 1. Hero Section */}
+        <section className="relative h-[80vh] flex items-end overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={`${import.meta.env.BASE_URL}images/hills.jpeg`} 
+              alt="About Us Hero" 
+              className="w-full h-full object-cover opacity-60"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0c1106] via-transparent to-[#0c1106]/40" />
+          </div>
+          
+          <div className="relative z-10 w-full px-6 pb-10 flex flex-col items-end text-right">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-brand-green text-sm font-bold uppercase tracking-[0.3em] mb-3 block"
+            >
+              Our Heritage
+            </motion.span>
+            <motion.h1 
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-[3rem] md:text-[4rem] lg:text-[5rem] text-white leading-none drop-shadow-2xl"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}
+            >
+              About <span style={{ color: '#6ab43e' }}>Us</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="max-w-md mt-4 text-white/80 text-xl md:text-2xl leading-relaxed"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300 }}
+            >
+              Founded in the heart of Uganda, born from a passion for the African wilderness.
+            </motion.p>
+          </div>
+        </section>
 
-      {/* Main Content */}
-      <section className="py-24 px-4 max-w-7xl mx-auto">
+        {/* 2. Main Content */}
+        <section className="py-8 px-4 max-w-7xl mx-auto bg-[#0c1106]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
             initial={{ x: -50, opacity: 0 }}
@@ -75,7 +89,8 @@ const AboutUs: React.FC = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>

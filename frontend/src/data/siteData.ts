@@ -14,21 +14,22 @@ export const siteData = {
       ]
     },
     { name: 'Blog', href: '/blog' },
+    { name: 'Gallery', href: '/gallery' },
     { name: 'Contact', href: '/contact' }
   ],
   heroSlides: [
     {
-      title: 'Come Again Tours and Travels',
-      subtitle: "More Than a Safari, It's a Story",
+      title: 'Come Again <span style="color:#6ab43e">Tours</span><br/>& Travels',
+      subtitle: "More Than a Safari — It's a Story",
       backgroundImage: `${import.meta.env.BASE_URL}images/gorilla1.jpeg`
     },
     {
-      title: 'Experience Majestic <br/> Encounters',
+      title: 'Experience <span style="color:#6ab43e">Majestic</span><br/>Encounters',
       subtitle: 'Connecting You to the Heart of Africa',
       backgroundImage: `${import.meta.env.BASE_URL}images/Busowoko-fall.jpeg`
     },
     {
-      title: 'Discover The Wild <br/> Spirit',
+      title: 'Discover The <span style="color:#6ab43e">Wild</span><br/>Spirit',
       subtitle: 'Unforgettable Journeys in the Pearl of Africa',
       backgroundImage: `${import.meta.env.BASE_URL}images/scene.jpeg`
     }
@@ -97,22 +98,27 @@ export const siteData = {
     },
     testimonials: {
       heading: 'Reviews from Tripadvisor',
-      subheading: 'At Come Again Tours and Travels, we don\'t just take you on a trip—we help you create memories that last forever.',
+      subheading: "At Come Again Tours and Travels, we don't just take you on a trip—we help you create memories that last forever.",
+      tripadvisorUrl: 'https://www.tripadvisor.com/Attraction_Review-g293841-d23932600-Reviews-Come_Again_Tours_and_Travel-Kampala_Central_Region.html',
+      tripadvisorRating: '5.0',
       items: [
         {
-          rating: '4.5',
+          rating: '5.0',
           text: 'Yes, the tour was excellent, the driver was so cooperative, customer understanding, hassle-free journey, feel like your own, very honest and loyal.',
-          author: 'Jtripaf'
+          author: 'Jtripaf',
+          source: 'Tripadvisor'
         },
         {
-          rating: '4.5',
+          rating: '5.0',
           text: 'I and my friends had an amazing 10 days Safari Tour in Uganda with Come Again Tour and Travel Team. Issa is such a friendly guy! I highly recommended Issa for Safari Tour. Looking forward to traveling with him again.',
-          author: 'Turaf N'
+          author: 'Turaf N',
+          source: 'Tripadvisor'
         },
         {
-          rating: '4.5',
+          rating: '5.0',
           text: 'We spent a beautiful time during our tour in Uganda. All 12 days were well organized and we could enjoy amazing moments there. I recommend to all travelers any tour with Come Again Tours and Travel.',
-          author: 'Rosti'
+          author: 'Rosti',
+          source: 'Tripadvisor'
         }
       ]
     },
@@ -123,7 +129,7 @@ export const siteData = {
       backgroundImage: `${import.meta.env.BASE_URL}images/hills.jpeg`
     },
     footer: {
-      backgroundImage: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-25-at-18.19.43-1.jpeg`,
+      // backgroundImage: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-25-at-18.19.43-1.jpeg`,
       contact: {
         tel: '+256-774-243-747',
         office: '+256-701-281-624',
@@ -133,11 +139,11 @@ export const siteData = {
       },
       socials: [
         // { name: 'Face Book', icon: 'facebook', href: '#' },
-        { name: 'Twitter', icon: 'twitter', href: '#' },
+        { name: 'X', icon: 'twitter', href: 'https://x.com/ComeAgainTours' },
         // { name: 'Instagram', icon: 'instagram', href: '#' },
-        { name: 'Tiktok', icon: 'music', href: '#' },
-        { name: 'LinkedIn', icon: 'linkedin', href: '#' },
-        { name: 'YouTube', icon: 'youtube', href: '#' }
+        { name: 'Tiktok', icon: 'music', href: 'https://www.tiktok.com/@come_again_tours_travel' },
+        { name: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/come-again-tours-travels-14b211404/' },
+        // { name: 'YouTube', icon: 'youtube', href: '#' }
       ]
     }
   },
@@ -165,7 +171,7 @@ export const siteData = {
       {
         name: 'BWINDI IMPENETRABLE FOREST NATIONAL PARK',
         description: 'A UNESCO World Heritage Site famous for mountain gorilla trekking. Expect dense rainforest, breathtaking hills, rare bird species, and unforgettable close encounters with gorillas.',
-        image: `${import.meta.env.BASE_URL}images/bird.jpeg`
+        image: `${import.meta.env.BASE_URL}images/Gorillaa.jpeg`
       },
       {
         name: 'KIDEPO VALLEY NATIONAL PARK',
@@ -199,13 +205,13 @@ export const siteData = {
       },
       {
         name: 'KATONGA GAME RESERVE',
-        description: 'Expect a quiet nature experience with antelopes, wetland birdlife, and guided walking safaris in a peaceful environment.',
-        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.05.20.jpeg`
+        description: 'Expect a quiet nature experience with hippopotamus, antelopes, wetland birdlife, and guided walking safaris in a peaceful environment.',
+        image: `${import.meta.env.BASE_URL}images/image9.jpeg`
       },
       {
-        name: 'BADIDI BUDONGO CHIMP TRACKING',
+        name: 'PADIDI BUDONGO CHIMP TRACKING',
         description: 'Expect guided chimp tracking, mahogany forest walks, birdwatching, and close encounters with playful chimpanzees.',
-        image: `${import.meta.env.BASE_URL}images/yellow-bird1.jpeg`
+        image: `${import.meta.env.BASE_URL}images/chimp.jpeg`
       },
       {
         name: 'BUGOMA FOREST CHIMP TRACKING',
@@ -218,9 +224,9 @@ export const siteData = {
         image: `${import.meta.env.BASE_URL}images/leopard-footer.jpeg`
       },
       {
-        name: 'BOKORA GAME RESERVE',
-        description: 'Expect wildlife such as antelopes, zebras, and opportunities to experience authentic Karamoja culture.',
-        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.05.20.jpeg`
+        name: 'BUKORA GAME RESERVE',
+        description: 'Expect wildlife such as birds, antelopes, zebras, and opportunities to experience authentic Karamoja culture.',
+        image: `${import.meta.env.BASE_URL}images/bird.jpeg`
       },
       {
         name: 'Rwenzori Tracking',
@@ -234,8 +240,8 @@ export const siteData = {
       },
       {
         name: 'Matheniko Game Reserve',
-        description: 'Expect dry savannah wildlife, unique bird species, and cultural experiences with the Karamojong communities.',
-        image: `${import.meta.env.BASE_URL}images/lions-tree.jpeg`
+        description: 'Expect dry savannah wildlife, buffaloes, unique bird species, and cultural experiences with the Karamojong communities.',
+        image: `${import.meta.env.BASE_URL}images/buffaloes.jpeg`
       },
       {
         name: 'AJAI GAME RESERVE',
@@ -250,17 +256,17 @@ export const siteData = {
       {
         name: 'KALINZU FOREST CHIMP TRACKING',
         description: 'Expect chimpanzee tracking, birdwatching, and peaceful forest walks near Queen Elizabeth National Park.',
-        image: `${import.meta.env.BASE_URL}images/bird2.jpeg`
+        image: `${import.meta.env.BASE_URL}images/Baboon.jpeg`
       },
       {
         name: 'Mugahinga National Park',
         description: 'Expect mountain gorillas, golden monkey tracking, volcanic scenery, and stunning views of the Virunga Mountains.',
-        image: `${import.meta.env.BASE_URL}images/Mugahinga.jpeg`
+        image: `${import.meta.env.BASE_URL}images/golden monkey.jpg`
       },
       {
         name: 'Volcano National Park',
         description: 'Expect gorilla trekking, golden monkey tracking, and scenic volcanic mountain views in Rwanda’s premier conservation park.',
-        image: `${import.meta.env.BASE_URL}images/volcano.jpeg`
+        image: `${import.meta.env.BASE_URL}images/gorilla-volcano.jpg`
       },
       {
         name: 'Nyungwe Forest National Park',
@@ -270,7 +276,7 @@ export const siteData = {
       {
         name: 'Akagera National Park',
         description: 'Expect classic savannah safaris with lions, elephants, giraffes, zebras, and boat cruises on Lake Ihema.',
-        image: `${import.meta.env.BASE_URL}images/akagera.jpeg`
+        image: `${import.meta.env.BASE_URL}images/elephant-akagera.jpeg`
       },
       {
         name: 'Kampala City Tour',
@@ -310,14 +316,14 @@ export const siteData = {
       {
         name: 'Batwa and Community Tour',
         description: 'Expect cultural storytelling, traditional dances, forest survival skills demonstrations, and authentic interaction with indigenous communities.',
-        image: `${import.meta.env.BASE_URL}images/Batwa.jpeg`
+        image: `${import.meta.env.BASE_URL}images/batwa.jpg`
       }
     ]
   },
   packagesPage: {
     hero: {
       title: 'Our Packages',
-      description: 'At Come Again Tours and Travels, we offer carefully designed safari packages that suit different travel needs, budgets, and interests. Whether you are looking for a short weekend adventure, gorilla trekking, wildlife experiences, cultural encounters, or a full Uganda tour, we have the perfect package for you.',
+      description: 'Explore our carefully designed safari packages tailored to your needs. From gorilla trekking to full Uganda tours, we have the perfect adventure for every traveler.',
       image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg`
     },
     sections: [
@@ -645,22 +651,22 @@ export const siteData = {
     team: {
       hero: {
         title: 'Team',
-        description: 'At Come Again Tours and Travels, we have a team of dedicated professionals who work together to provide our guests with an unforgettable experience while on safari in Rwanda, Uganda, and the Democratic Republic of Congo. Our staff are experts in creating powerful primate & wildlife safaris across East Africa, and they will help you plan your journey with confidence and feeling respected.',
+        description: 'Our dedicated professionals are committed to providing unforgettable safari experiences. With deep local expertise, we ensure every journey through East Africa is seamless and unique.',
         image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg`
       },
       members: [
         {
-          name: 'Kavanguzi Wilson',
+          name: 'Kawanguzi Wilson',
           position: 'Managing Director',
           image: `${import.meta.env.BASE_URL}images/wilson.jpeg`
         },
         {
-          name: 'Lukibe Hussein',
-          position: 'Operations Director',
+          name: 'Luliibe Hussein',
+          position: 'Operations Manager',
           image: `${import.meta.env.BASE_URL}images/Luliibe.jpeg`
         },
         {
-          name: 'Dorina Ziporah',
+          name: 'Bettina Ziporah',
           position: 'Sales & Marketing Manager',
           image: `${import.meta.env.BASE_URL}images/Bettina.jpeg`
         },
@@ -670,20 +676,30 @@ export const siteData = {
           image: `${import.meta.env.BASE_URL}images/Masitula.jpeg`
         },
         {
-          name: 'Issa Namugula',
-          position: 'Road Manager / Professional Guide',
-          image: `${import.meta.env.BASE_URL}images/Issa.jpeg`
-        },
-        {
-          name: 'Joe Hovsepian',
-          position: 'Client Advisor',
+          name: 'Jan Havlicheck',
+          position: 'Consultant',
           image: `${import.meta.env.BASE_URL}images/Jan.jpeg`
         },
         {
-          name: 'Rachel Namas',
-          position: 'Business Advisor',
+          name: 'Rachael Nasozi',
+          position: 'IT Consultant',
           image: `${import.meta.env.BASE_URL}images/Rachael.jpeg`
-        }
+        },
+        {
+          name: 'Asiima Crisen',
+          position: 'IT & Systems Administrator',
+          image: `${import.meta.env.BASE_URL}images/asiima.png`
+        },
+        {
+          name: 'Issa Ssesanga',
+          position: 'Head Guide',
+          image: `${import.meta.env.BASE_URL}images/Issa.jpeg`
+        },
+        {
+          name: 'Ramathan Muwonge',
+          position: 'Guide',
+          image: `${import.meta.env.BASE_URL}images/Ramathan.jpeg`
+        },
       ]
     }
   },
@@ -691,7 +707,7 @@ export const siteData = {
     hero: {
       title: 'Contact',
       description: 'Come Again Tours and Travels For bookings, inquiries, and customized safari packages, reach out to us today:',
-      image: `${import.meta.env.BASE_URL}images/Busowoko-falls-rafting15-1024x679.jpeg`
+      image: `${import.meta.env.BASE_URL}images/contact.jpg`
     },
     intro: {
       paragraph: 'With Come Again Tours and Travels, you will explore the beauty of Uganda and beyond with confidence, comfort, and joy.',
@@ -813,5 +829,43 @@ export const siteData = {
       twitter: '#',
       instagram: '#'
     }
+  },
+  gallery: {
+    images: [
+      { id: 1, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image1.jpeg` },
+      { id: 2, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image2.jpeg` },
+      { id: 3, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image3.jpeg` },
+      { id: 4, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image4.jpeg` },
+      { id: 5, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image5.jpeg` },
+      { id: 6, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image6.jpeg` },
+      { id: 7, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image7.jpeg` },
+      { id: 8, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image8.jpeg` },
+      { id: 9, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image9.jpeg` },
+      { id: 10, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image10.jpeg` },
+      { id: 11, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image11.jpeg` },
+      { id: 12, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image12.jpeg` },
+      { id: 13, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image13.jpeg` },
+      { id: 14, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image14.jpeg` }
+    ],
+    videos: [
+      { id: 1, title: 'Safari Highlight 1', thumbnail: `${import.meta.env.BASE_URL}images/image1.jpeg`, url: `${import.meta.env.BASE_URL}videos/video1.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 2, title: 'Safari Highlight 2', thumbnail: `${import.meta.env.BASE_URL}images/image2.jpeg`, url: `${import.meta.env.BASE_URL}videos/video2.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 3, title: 'Safari Highlight 3', thumbnail: `${import.meta.env.BASE_URL}images/image3.jpeg`, url: `${import.meta.env.BASE_URL}videos/video3.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 4, title: 'Safari Highlight 4', thumbnail: `${import.meta.env.BASE_URL}images/image4.jpeg`, url: `${import.meta.env.BASE_URL}videos/video4.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 5, title: 'Safari Highlight 5', thumbnail: `${import.meta.env.BASE_URL}images/image5.jpeg`, url: `${import.meta.env.BASE_URL}videos/video5.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 6, title: 'Safari Highlight 6', thumbnail: `${import.meta.env.BASE_URL}images/image6.jpeg`, url: `${import.meta.env.BASE_URL}videos/video6.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 7, title: 'Safari Highlight 7', thumbnail: `${import.meta.env.BASE_URL}images/image7.jpeg`, url: `${import.meta.env.BASE_URL}videos/video7.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 8, title: 'Safari Highlight 8', thumbnail: `${import.meta.env.BASE_URL}images/image8.jpeg`, url: `${import.meta.env.BASE_URL}videos/video8.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 9, title: 'Safari Highlight 9', thumbnail: `${import.meta.env.BASE_URL}images/image9.jpeg`, url: `${import.meta.env.BASE_URL}videos/video9.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 10, title: 'Safari Highlight 10', thumbnail: `${import.meta.env.BASE_URL}images/image10.jpeg`, url: `${import.meta.env.BASE_URL}videos/video10.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 11, title: 'Safari Highlight 11', thumbnail: `${import.meta.env.BASE_URL}images/image11.jpeg`, url: `${import.meta.env.BASE_URL}videos/video11.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 12, title: 'Safari Highlight 12', thumbnail: `${import.meta.env.BASE_URL}images/image12.jpeg`, url: `${import.meta.env.BASE_URL}videos/video12.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 13, title: 'Safari Highlight 13', thumbnail: `${import.meta.env.BASE_URL}images/image13.jpeg`, url: `${import.meta.env.BASE_URL}videos/video 13.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 14, title: 'Safari Highlight 14', thumbnail: `${import.meta.env.BASE_URL}images/image14.jpeg`, url: `${import.meta.env.BASE_URL}videos/video14.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 15, title: 'Safari Highlight 15', thumbnail: `${import.meta.env.BASE_URL}images/image1.jpeg`, url: `${import.meta.env.BASE_URL}videos/video15.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 16, title: 'Safari Highlight 16', thumbnail: `${import.meta.env.BASE_URL}images/image2.jpeg`, url: `${import.meta.env.BASE_URL}videos/video16.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 17, title: 'Safari Highlight 17', thumbnail: `${import.meta.env.BASE_URL}images/image3.jpeg`, url: `${import.meta.env.BASE_URL}videos/video17.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 18, title: 'Safari Highlight 18', thumbnail: `${import.meta.env.BASE_URL}images/image4.jpeg`, url: `${import.meta.env.BASE_URL}videos/video18.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' }
+    ]
   }
 };
