@@ -70,8 +70,13 @@ const Home: React.FC = () => {
               viewport={{ once: true, amount: 0.05 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
             >
-              {siteData.packages.map((pkg) => (
-                <motion.div key={pkg.id} variants={itemVariants}>
+              {siteData.packagesPage.sections[0].packages
+                .filter(pkg => 
+                  ['11-days-classic-uganda-safari', '7-days-fly-pearl-of-africa', '3-days-fly-murchison-falls'].includes(pkg.slug || '')
+                )
+                .slice(0, 3) 
+                .map((pkg, idx) => (
+                <motion.div key={pkg.slug || idx} variants={itemVariants}>
                   <PackageCard packageData={pkg} />
                 </motion.div>
               ))}

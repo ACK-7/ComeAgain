@@ -99,7 +99,7 @@ const Packages: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  viewport={{ once: true, amount: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   {/* Section number accent */}
@@ -123,21 +123,12 @@ const Packages: React.FC = () => {
                 </motion.div>
               </div>
 
-              {/* Animated divider */}
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.9 }}
-                className="w-full h-[1px] bg-brand-green/20 mb-20 -mt-20 origin-left hidden"
-              />
-
               {/* Package cards — staggered wave */}
               <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.05 }}
+                viewport={{ once: true, amount: 0 }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24"
               >
                 {section.packages.map((pkg, idx) => (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 interface PackageProps {
   packageData: {
@@ -11,6 +12,7 @@ interface PackageProps {
     image: string;
     price?: string;
     per?: string;
+    slug?: string;
   };
 }
 
@@ -88,13 +90,22 @@ const PackageCard: React.FC<PackageProps> = ({ packageData }) => {
         <div className="flex-grow" />
 
         {/* ACTION LINK */}
-        <div className="mt-auto">
-          <a 
-            href={`/contact?package=${encodeURIComponent(packageData.title)}`}
-            className="inline-block text-brand-green font-bold text-xs tracking-widest uppercase hover:text-white transition-colors"
-          >
-            BOOK WITH US &rarr;
-          </a>
+        <div className="mt-auto flex flex-col gap-3">
+          {packageData.slug ? (
+            <Link 
+              to={`/package/${packageData.slug}`}
+              className="inline-block text-brand-green font-bold text-xs tracking-widest uppercase hover:text-white transition-colors"
+            >
+              VIEW DETAILS &rarr;
+            </Link>
+          ) : (
+            <a 
+              href={`/contact?package=${encodeURIComponent(packageData.title)}`}
+              className="inline-block text-brand-green font-bold text-xs tracking-widest uppercase hover:text-white transition-colors"
+            >
+              BOOK WITH US &rarr;
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
