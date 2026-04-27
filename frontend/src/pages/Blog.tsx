@@ -40,7 +40,7 @@ const posts: Post[] = [
     date: 'February 28, 2024',
     readTime: '8 min read',
     category: 'Destinations',
-    image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-25-at-18.19.43-1.jpeg`,
+    image: `${import.meta.env.BASE_URL}images/murhison-drone.webp`,
     externalUrl: 'https://comeagaintoursandtravels.com',
   },
   {
@@ -62,7 +62,7 @@ const posts: Post[] = [
     date: 'December 5, 2023',
     readTime: '4 min read',
     category: 'Destinations',
-    image: `${import.meta.env.BASE_URL}images/Busowoko-falls-rafting15-1024x679.jpeg`,
+    image: `${import.meta.env.BASE_URL}images/rafting.jpg`,
     externalUrl: 'https://comeagaintoursandtravels.com',
   },
   {

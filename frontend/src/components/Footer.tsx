@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
       {/* Bottom Bar */}
       <div className="bg-[#e8f5e9] py-6 px-4 text-center">
         <p className="text-brand-dark text-[13px] font-bold tracking-tight">
-          © 2026 Come Again Tours and Travels. All Rights Reserved. Powered by ACK Designs 
+          © 2026 Come Again Tours and Travels. All Rights Reserved. Powered by <a href="https://ack-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green transition-colors underline decoration-brand-green/30 underline-offset-4">ACK Designs</a> 
         </p>
       </div>
     </footer>
