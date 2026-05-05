@@ -4,6 +4,7 @@ import BackToTop from './components/BackToTop';
 import WhatsAppButton from './components/WhatsAppButton';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
+import Analytics from './components/Analytics';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'));
@@ -28,6 +29,7 @@ const PageLoader = () => (
 function App() {
   return (
     <Router>
+      <Analytics />
       <ScrollToTop />
       <BackToTop />
       <WhatsAppButton />
