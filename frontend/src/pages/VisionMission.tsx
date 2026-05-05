@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
 import { motion, type Variants } from 'framer-motion';
 import { Star, Target, Eye, Layers } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const VisionMission: React.FC = () => {
   const { visionMission } = siteData.aboutPage;
@@ -49,6 +50,11 @@ const VisionMission: React.FC = () => {
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
+      <SEO 
+        title="Vision & Mission | Come Again Tours & Travels"
+        description="Learn about the core values, vision, and mission that drive Come Again Tours and Travels to deliver exceptional and sustainable safari experiences in East Africa."
+        url="https://comeagaintoursandtravels.com/vision-mission"
+      />
       <main>
         {/* 1. Hero Section — 90vh + Ken Burns */}
         <section className="relative h-[80vh] flex items-end overflow-hidden">

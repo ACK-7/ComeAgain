@@ -1,10 +1,16 @@
 import React from 'react';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const AboutUs: React.FC = () => {
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
+      <SEO 
+        title="About Us | Come Again Tours & Travels"
+        description="Learn about the story behind Come Again Tours & Travels. Discover our passion for the African wilderness and our commitment to authentic travel experiences."
+        url="https://comeagaintoursandtravels.com/about"
+      />
       <main>
         {/* 1. Hero Section */}
         <section className="relative h-[80vh] flex items-end overflow-hidden">

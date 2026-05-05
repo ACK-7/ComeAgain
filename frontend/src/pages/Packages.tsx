@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import PackageCard from '../components/PackageCard';
 import { siteData } from '../data/siteData';
 import { motion, type Variants } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const Packages: React.FC = () => {
   const { hero, sections } = siteData.packagesPage;
@@ -26,6 +27,11 @@ const Packages: React.FC = () => {
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
+      <SEO 
+        title="Our Safari Packages | Come Again Tours & Travels"
+        description="Explore our bespoke Uganda safari packages including Gorilla Trekking, Wildlife Safaris, and Cultural Tours designed for every type of traveler."
+        url="https://comeagaintoursandtravels.com/packages"
+      />
       <main>
         {/* 1. Hero Section — 90vh + Ken Burns */}
         <section className="relative h-[80vh] flex items-end overflow-hidden">

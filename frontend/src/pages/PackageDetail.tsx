@@ -22,6 +22,7 @@ import {
 import { siteData } from '../data/siteData';
 import Footer from '../components/Footer';
 import RealRouteMap from '../components/RealRouteMap';
+import SEO from '../components/SEO';
 
 // Collapsible text for long itinerary descriptions
 const ExpandableText: React.FC<{ text: string }> = ({ text }) => {
@@ -69,6 +70,7 @@ const PackageDetail: React.FC = () => {
   if (!pkg) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center text-brand-dark">
+        <SEO title="Package Not Found | Come Again Tours" description="The requested safari package could not be found." />
         <div className="text-center">
           <h1 className="text-6xl font-serif mb-4">404</h1>
           <p className="text-xl mb-8 font-serif italic text-brand-dark/60 text-brand-green">Package Not Found</p>
@@ -83,8 +85,43 @@ const PackageDetail: React.FC = () => {
   const details = (pkg as any).details;
   const gallery = details?.gallery || [pkg.image];
 
+  const touristTripSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "name": pkg.title,
+    "description": pkg.description,
+    "image": gallery[0],
+    "touristType": [
+      "Sightseeing",
+      "Wildlife"
+    ],
+    "itinerary": {
+      "@type": "ItemList",
+      "itemListElement": details?.itinerary?.map((day: any, idx: number) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "item": {
+          "@type": "TouristAttraction",
+          "name": day.title,
+          "description": day.description
+        }
+      }))
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": pkg.price.replace(/[^0-9.]/g, '') || "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <div className="bg-[#FDFCFB] min-h-screen text-brand-dark selection:bg-brand-green selection:text-white">
+      <SEO 
+        title={`${pkg.title} | Come Again Tours & Travels`}
+        description={pkg.description}
+        image={gallery[0]}
+        schema={touristTripSchema}
+      />
       <style dangerouslySetInnerHTML={{ __html: `
         @media print {
           /* Reset & Layout */

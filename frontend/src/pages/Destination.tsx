@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import { siteData } from '../data/siteData';
+import SEO from '../components/SEO';
 
 import type { Variants } from 'framer-motion';
 
@@ -32,8 +33,11 @@ const Destination: React.FC = () => {
 
   return (
     <div className="bg-brand-dark min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
-      
-      
+      <SEO 
+        title="Explore Uganda Destinations | Come Again Tours"
+        description="Discover the beauty of Uganda. From the Murchison Falls to the impenetrable forests of Bwindi, explore our top safari destinations."
+        url="https://comeagaintoursandtravels.com/destination"
+      />
       <main>
         {/* 1. Hero Section */}
         <section className="relative h-[80vh] flex items-end overflow-hidden">

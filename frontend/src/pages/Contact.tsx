@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
 import { motion, type Variants } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, CheckCircle } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Contact: React.FC = () => {
   const { contactPage } = siteData;
@@ -89,6 +90,11 @@ const Contact: React.FC = () => {
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
+      <SEO 
+        title="Contact Us | Come Again Tours & Travels"
+        description="Get in touch with Come Again Tours & Travels. Contact us via phone or email to book your unforgettable Uganda safari experience."
+        url="https://comeagaintoursandtravels.com/contact"
+      />
       <main>
         {/* 1. Hero — 90vh + Ken Burns */}
         <section className="relative h-[80vh] flex items-end overflow-hidden">

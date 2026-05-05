@@ -5,6 +5,7 @@ import PackageCard from '../components/PackageCard';
 import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
 import { Users } from 'lucide-react';
+import SEO from '../components/SEO';
 
 import type { Variants } from 'framer-motion';
 
@@ -28,8 +29,29 @@ const Home: React.FC = () => {
     }
   };
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Come Again Tours and Travels",
+    "image": "https://comeagaintoursandtravels.com/images/logo.png",
+    "@id": "",
+    "url": "https://comeagaintoursandtravels.com",
+    "telephone": "+256-774-243-747",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kampala",
+      "addressLocality": "Kampala",
+      "addressCountry": "UG"
+    }
+  };
+
   return (
     <div className="bg-brand-dark min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
+      <SEO 
+        title="Come Again Tours & Travels | Premier Uganda Safaris"
+        description="Experience the ultimate African adventure with Come Again Tours and Travels. We offer bespoke gorilla trekking, wildlife safaris, and cultural tours in Uganda."
+        schema={localBusinessSchema}
+      />
       <main>
         {/* 1. Hero Section */}
         <Hero />

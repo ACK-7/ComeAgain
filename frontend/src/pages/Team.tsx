@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
 import { motion, type Variants } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const Team: React.FC = () => {
   const { team } = siteData.aboutPage;
@@ -26,6 +27,11 @@ const Team: React.FC = () => {
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
+      <SEO 
+        title="Meet Our Team | Come Again Tours & Travels"
+        description="Meet the passionate team behind Come Again Tours & Travels. Our experts are dedicated to crafting unforgettable safari experiences."
+        url="https://comeagaintoursandtravels.com/team"
+      />
       <main>
         {/* 1. Hero Section — 90vh + Ken Burns */}
         <section className="relative h-[80vh] flex items-end overflow-hidden">

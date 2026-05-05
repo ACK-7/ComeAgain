@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { Clock, Tag, ArrowRight, ArrowUpRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 // ─── Blog post data ──────────────────────────────────────────────────────────
 const CATEGORIES = ['All', 'Wildlife', 'Culture', 'Safari Tips', 'Destinations'] as const;
@@ -121,6 +122,11 @@ const Blog: React.FC = () => {
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
+      <SEO 
+        title="Safari Journal & Blog | Come Again Tours & Travels"
+        description="Read the latest insights, safari tips, and wildlife stories from the heart of East Africa in the Come Again Tours and Travels Safari Journal."
+        url="https://comeagaintoursandtravels.com/blog"
+      />
       <main>
         {/* ── 1. Hero ─────────────────────────────────────────────────── */}
         <section className="relative h-[80vh] flex items-end overflow-hidden">

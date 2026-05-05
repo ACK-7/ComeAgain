@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
 import { motion, type Variants } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const Services: React.FC = () => {
 
@@ -17,6 +18,11 @@ const Services: React.FC = () => {
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
+      <SEO 
+        title="Our Services | Come Again Tours & Travels"
+        description="We offer comprehensive safari services including Gorilla Trekking, Wildlife Safaris, Airport Transfers, and customized itineraries across East Africa."
+        url="https://comeagaintoursandtravels.com/services"
+      />
       <main>
         {/* 1. Hero Section — Ken Burns + 90vh */}
         <section className="relative h-[80vh] flex items-end overflow-hidden">
