@@ -410,7 +410,7 @@ export const siteData = {
           {
             slug: '3-days-fly-murchison-falls',
             title: '3 Days Murchison Falls Fly-in Safari',
-            price: '1980$',
+            price: '2320$',
             per: '1 person',
             description: 'Experience the grandeur of Murchison Falls with the ultimate convenience of a scheduled flight. Enjoy aerial views of the Nile, exclusive delta cruises, and a premium stay at the iconic Paraa Safari Lodge.',
             destination: 'Murchison Falls National Park',
@@ -568,7 +568,7 @@ export const siteData = {
           {
             title: '3 Days Bwindi Gorilla Trekking Adventure',
             slug: '3-days-bwindi-gorilla-trekking',
-            price: '1800$',
+            price: '2100$',
             per: '1 person',
             description: 'Famous for mountain gorilla trekking. Expect dense rainforest, breathtaking hills, and unforgettable close encounters.',
             destination: 'Bwindi Impenetrable National Park',
@@ -644,7 +644,7 @@ export const siteData = {
           {
             title: '3 Days Kibale Chimpanzee Safari',
             slug: '3-days-kibale-chimpanzee-tour',
-            price: '1400$',
+            price: '1580$',
             per: '1 person',
             description: "Kibale Forest National Park, nestled in the foothills of the Rwenzori Mountains, is the 'Primate Capital of Africa'. With over 1,500 chimpanzees and 12 other primate species, this 3-day safari offers an immersive encounter with our closest relatives in their natural rainforest habitat.",
             destination: 'Kibale National Park',
@@ -723,7 +723,7 @@ export const siteData = {
           {
             title: '5 Days Gorilla Trekking & Queen Elizabeth Safari',
             slug: '5-days-gorilla-queen-combo',
-            price: '1935$',
+            price: '2600$',
             per: '1 person',
             description: "Experience the ultimate combination of Uganda's wildlife and primates. Track mountain gorillas in the ancient Bwindi Impenetrable Forest and search for the famous tree-climbing lions and massive hippo pods of Queen Elizabeth National Park.",
             destination: 'Bwindi & Queen Elizabeth National Parks',
@@ -926,7 +926,7 @@ export const siteData = {
           {
             title: '7 Days Uganda Wildlife Classic Safari',
             slug: '7-days-uganda-wildlife-classic',
-            price: '2340$',
+            price: '2820$',
             per: '1 person',
             description: "The 7 Days Uganda Wildlife Classic Safari is the definitive one-week Uganda experience — a perfectly paced journey through five of Uganda's most celebrated national parks and wildlife destinations, designed to deliver the full richness of the Pearl of Africa in a single, seamless itinerary. This is Uganda's most popular and best-selling safari package: covering white rhino tracking, the world's most powerful waterfall, Uganda's finest chimpanzee trekking, the tree-climbing lions of Ishasha, mountain gorilla trekking in the ancient Bwindi forest and a final day of relaxation on the breathtaking shores of Lake Bunyonyi.",
             destination: 'Ziwa, Murchison Falls, Kibale, Queen Elizabeth, Bwindi & Bunyonyi',
@@ -1059,7 +1059,7 @@ export const siteData = {
           {
             title: '12 Days Uganda Wildlife & Primate Adventures',
             slug: '12-days-uganda-wildlife-adventure',
-            price: '3850$',
+            price: '4200$',
             per: '1 person',
             description: "The 12 Days Uganda Wildlife & Primate Adventures is the most comprehensive Uganda safari itinerary available — a fully immersive journey through every major national park and wildlife destination in the Pearl of Africa, designed for travellers who want to experience Uganda in its entirety. Over 12 extraordinary days, this safari covers white rhino tracking, the world's most powerful waterfall, the source of the Nile, three separate chimpanzee trekking experiences, the tree-climbing lions of Ishasha, mountain gorilla trekking in Bwindi, golden monkey tracking in Mgahinga, and walking safaris in Lake Mburo.",
             destination: 'Ziwa, Murchison, Jinja, Kibale, QE, Bwindi, Mgahinga, Mburo & Bunyonyi',
@@ -1319,7 +1319,7 @@ export const siteData = {
           {
             title: '2 Days Lake Mburo Getaway',
             slug: '2-days-lake-mburo-safari',
-            price: '750$',
+            price: '900$',
             per: '1 person',
             description: "Uganda's smallest savannah national park, yet it packs an extraordinary variety of wildlife into its acacia woodlands, open savannah, rocky outcrops, seasonal swamps and lakeshores. It is the only national park in Uganda where you can see impalas and Burchell's zebras.",
             destination: 'Lake Mburo National Park',
@@ -1391,7 +1391,7 @@ export const siteData = {
           {
             title: '4 Days Sipi Falls & Mount Elgon Adventure',
             slug: '4-days-sipi-falls-elgon',
-            price: '1280$',
+            price: '1480$',
             per: '1 person',
             description: "Experience the misty heights of Eastern Uganda. From the three cascading waterfalls of Sipi to the ancient extinct caldera of Mount Elgon and the world-class Arabica coffee farms of Kapchorwa, this adventure is a hiker's paradise.",
             destination: 'Mount Elgon National Park - Kapchorwa',
@@ -1492,7 +1492,7 @@ export const siteData = {
           {
             title: '6 Days Rwenzori Mountains Trekking Experience',
             slug: '6-days-rwenzori-trekking',
-            price: '2550$',
+            price: '2800$',
             per: '1 person',
             description: "Journey into the 'Mountains of the Moon' — a UNESCO World Heritage Site featuring snow-capped peaks, ancient glaciers, and extraordinary Afro-alpine vegetation found nowhere else on Earth.",
             destination: 'Rwenzori Mountains National Park - Western Uganda',
@@ -1900,7 +1900,7 @@ export const siteData = {
           {
             title: '3 Days Mount Moroto Adventure',
             slug: '3-days-moroto-adventure',
-            price: '1850$',
+            price: '1920$',
             per: '1 person',
             description: "Uganda's Most Remote & Untouched Mountain Frontier. Rising 3,083m above sea level, Mount Moroto dominates the Karamoja plains, offering a rugged trekking experience and deep cultural engagement with the ancient Tepeth people.",
             destination: 'Karamoja Region - Northeastern Uganda',
@@ -2073,7 +2073,7 @@ export const siteData = {
           {
             slug: '4-days-fly-uganda-gorillas',
             title: '4 Days Uganda Gorillas Fly-in Safari',
-            price: '3150$',
+            price: '3320$',
             per: '1 person',
             description: 'Maximize your time in the rainforest by flying directly to the Bwindi highlands. This premium safari offers breathtaking aerial views of the "Switzerland of Africa" and a seamless journey to meet the majestic mountain gorillas.',
             destination: 'Bwindi Impenetrable National Park',
@@ -2154,7 +2154,7 @@ export const siteData = {
           {
             slug: '7-days-fly-pearl-of-africa',
             title: '7 Days Fly Package: The Pearl of Africa',
-            price: '4450$',
+            price: '5200$',
             per: '1 person',
             description: "The ultimate Ugandan expedition. Fly across the country to witness the Great Blue Turaco in Bigodi, track Chimpanzees in Kibale's rainforests and Kyambura's sunken gorge, and culminate your journey with the legendary mountain gorillas of Bwindi.",
             destination: 'Fort Portal, Queen Elizabeth & Bwindi',
@@ -2261,8 +2261,8 @@ export const siteData = {
           },
           {
             title: '4 Days Rwanda Gorillas Safari',
-            slug: '5-days-rwanda-gorilla-trek',
-            price: '3420$',
+            slug: '4-days-rwanda-gorilla-trek',
+            price: '3700$',
             per: '1 person',
             description: 'An immersive gorilla trekking safari through Rwanda\'s Volcanoes National Park, combining Kigali city highlights, the Genocide Memorial, and a close encounter with mountain gorillas in the Virunga Volcanoes.',
             destination: 'Kigali & Volcanoes National Park, Rwanda',
@@ -2348,7 +2348,7 @@ export const siteData = {
           {
             title: '4 Days Nyungwe Forest Experience',
             slug: '4-days-nyungwe-forest',
-            price: '2630$',
+            price: '2720$',
             per: '1 person',
             description: "Africa's Oldest Montane Rainforest. Experience Rwanda's premier primate sanctuary, featuring the spectacular 160m canopy walkway, chimpanzee trekking, and the largest troop of colobus monkeys in Africa.",
             destination: 'Nyungwe Forest National Park - Southwestern Rwanda',
@@ -2455,7 +2455,7 @@ export const siteData = {
           {
             title: '5 Days Rwanda Safari: Akagera & Volcanoes',
             slug: '5-days-akagera-safari',
-            price: '2150$',
+            price: '3400$',
             per: '1 person',
             description: 'Classic Big Five safari in Akagera National Park combined with gorilla trekking, golden monkeys, and the Volcanoes National Park experience.',
             destination: 'Akagera & Volcanoes National Parks, Rwanda',
@@ -2548,7 +2548,7 @@ export const siteData = {
           {
             title: '7 Days Great Lakes Primates Safari (Uganda Gorillas)',
             slug: '7-days-great-lakes-uganda',
-            price: '3050$',
+            price: '3420$',
             per: '1 person',
             description: 'The ultimate Uganda primates safari combining chimpanzee tracking in Kibale, game drives and boat cruise in Queen Elizabeth NP, and mountain gorilla trekking in Bwindi Impenetrable NP.',
             destination: 'Uganda',
@@ -2791,9 +2791,9 @@ export const siteData = {
             }
           },
           {
-            title: '7 Days Birdwatching Special',
+            title: '7 Days Bird-watching Special',
             slug: 'birdwatching-special',
-            price: '2850$',
+            price: '3850$',
             per: '1 person',
             description: "Africa's Premier Birding Destination. A specialist 7-day expedition targeting 1,090+ bird species, including the prehistoric Shoebill, the elusive Green-breasted Pitta, and 23 Albertine Rift endemics found nowhere else on earth.",
             destination: 'Entebbe, Mabamba, Murchison, Budongo, Kibale & Bwindi',
@@ -2922,7 +2922,7 @@ export const siteData = {
           {
             title: '7 Days Great Lakes Primates Safari (Rwanda Gorillas)',
             slug: '6-days-ug-rw-combo',
-            price: '3450$',
+            price: '3900$',
             per: '1 person',
             description: 'The ultimate Great Lakes primates safari combining chimpanzee tracking in Kibale, game drives and boat cruise in Queen Elizabeth NP, and mountain gorilla trekking in Rwanda\'s Volcanoes National Park.',
             destination: 'Uganda & Rwanda',
@@ -3036,7 +3036,7 @@ export const siteData = {
           {
             title: '10 Days East African Grand Safari',
             slug: '10-days-grand-safari',
-            price: '5450$',
+            price: '6200$',
             per: '1 person',
             description: "The East African Grand Safari is the ultimate East African experience — a carefully crafted 10-day journey through four of the continent's most celebrated wildlife and cultural destinations. Beginning in Uganda's ancient primate forests and traversing through Rwanda's volcanic highlands, Kenya's legendary savannah and Tanzania's incomparable wilderness, this safari delivers the full spectrum of East African adventure: mountain gorilla trekking, chimpanzee encounters, the Big Five, the Great Wildebeest Migration (seasonal), the Ngorongoro Crater, cultural immersion and the warm hospitality of four extraordinary nations. This is the safari that does it all — and does it all properly.",
             destination: 'Uganda, Rwanda, Kenya & Tanzania',
@@ -3183,9 +3183,9 @@ export const siteData = {
             }
           },
           {
-            title: '10 Days Best of Uganda & Gorillas',
+            title: '10 Days Best of Uganda Gorillas',
             slug: '10-days-best-of-uganda-gorillas',
-            price: '3850$',
+            price: '4500$',
             per: '1 person',
             description: 'A deeply immersive 10-day journey covering the absolute best of Uganda: majestic waterfalls, chimpanzee tracking, savannah game drives, and the ultimate mountain gorilla trekking experience.',
             destination: 'Murchison, Kibale, Queen Elizabeth & Bwindi',
@@ -3316,7 +3316,7 @@ export const siteData = {
           {
             slug: '11-days-classic-uganda-safari',
             title: '11 Days Classic Uganda Safari',
-            price: '3950$',
+            price: '4250$',
             per: '1 person',
             description: "A comprehensive 11-day journey through the heart of the Pearl of Africa. From chimpanzee tracking in Kibale to mountain gorillas in Bwindi, and from the savannahs of Queen Elizabeth to the serene waters of Lake Bunyonyi and the unique wildlife of Lake Mburo.",
             destination: 'Kibale, Queen Elizabeth, Bwindi, Bunyonyi & Mburo',
@@ -3684,7 +3684,7 @@ export const siteData = {
           {
             title: '11 Days Best of Uganda & Rwanda Gorillas',
             slug: '11-days-uganda-rwanda-gorillas',
-            price: '4680$',
+            price: '5100$',
             per: '1 person',
             description: 'The ultimate 11-day expedition combining Big Five game drives, chimpanzee tracking, Kazinga channel cruise, tree-climbing lions, and mountain gorilla trekking across Uganda and Rwanda.',
             destination: 'Uganda & Rwanda',
