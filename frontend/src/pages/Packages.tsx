@@ -1,41 +1,82 @@
-import React from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import PackageCard from '../components/PackageCard';
 import { siteData } from '../data/siteData';
-import { motion, type Variants } from 'framer-motion';
+import {
+  PACKAGE_FILTER_THEMES,
+  DURATION_FILTERS,
+  matchesCategoryFilter,
+  matchesDurationFilter,
+  type PackageFilterTheme,
+  type DurationFilterValue,
+} from '../data/packageCategories';
+import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/SEO';
 
 const Packages: React.FC = () => {
   const { hero, sections } = siteData.packagesPage;
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.12 }
-    }
-  };
+  const [activeCategory, setActiveCategory] = useState<PackageFilterTheme>('All');
+  const [activeDuration, setActiveDuration] = useState<DurationFilterValue>('All');
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const skipInitialScroll = useRef(true);
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.55, ease: 'easeOut' }
+  const filteredSections = useMemo(() => {
+    return sections
+      .map((section) => ({
+        ...section,
+        packages: section.packages.filter(
+          (pkg) =>
+            matchesCategoryFilter(pkg, activeCategory) &&
+            matchesDurationFilter(pkg, activeDuration)
+        ),
+      }))
+      .filter((section) => section.packages.length > 0);
+  }, [sections, activeCategory, activeDuration]);
+
+  const totalResults = useMemo(
+    () => filteredSections.reduce((sum, s) => sum + s.packages.length, 0),
+    [filteredSections]
+  );
+
+  const scrollToResults = useCallback(() => {
+    requestAnimationFrame(() => {
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }, []);
+
+  useEffect(() => {
+    if (skipInitialScroll.current) {
+      skipInitialScroll.current = false;
+      return;
     }
+    scrollToResults();
+  }, [activeCategory, activeDuration, scrollToResults]);
+
+  const activeThemeLabel =
+    DURATION_FILTERS.find((d) => d.value === activeDuration)?.label ?? 'Any length';
+
+  const handleClearFilters = () => {
+    setActiveCategory('All');
+    setActiveDuration('All');
   };
 
   return (
-    <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
-      <SEO 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden"
+    >
+      <SEO
         title="Our Safari Packages | Come Again Tours & Travels"
         description="Explore our bespoke Uganda safari packages including Gorilla Trekking, Wildlife Safaris, and Cultural Tours designed for every type of traveler."
         url="https://comeagaintoursandtravels.com/packages"
       />
       <main>
-        {/* 1. Hero Section — 90vh + Ken Burns */}
+        {/* Hero */}
         <section className="relative h-[80vh] flex items-end overflow-hidden">
-          {/* Ken Burns background */}
           <motion.div
             initial={{ scale: 1.12 }}
             animate={{ scale: 1 }}
@@ -47,10 +88,14 @@ const Packages: React.FC = () => {
               alt="Our Packages Hero"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"
+            />
           </motion.div>
 
-          {/* Content pinned to bottom-right */}
           <div className="relative z-10 w-full px-6 pb-16 flex flex-col items-end text-right">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
@@ -74,13 +119,16 @@ const Packages: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.7, ease: 'easeOut' }}
               className="text-white/80 text-xl md:text-2xl max-w-md mt-4 leading-relaxed"
-              style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300 }}
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontStyle: 'italic',
+                fontWeight: 300,
+              }}
             >
               {hero.description}
             </motion.p>
           </div>
 
-          {/* Scroll indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -95,62 +143,201 @@ const Packages: React.FC = () => {
           </motion.div>
         </section>
 
-        {/* 2. Package Sections by Region */}
-        {sections.map((section, sectionIdx) => (
-          <section key={section.title} className="px-4 bg-[#0c1106]">
-            <div className="max-w-7xl mx-auto">
-
-              {/* Section heading */}
-              <div className="flex items-end justify-between mb-20 border-b border-white/10 pb-10">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0 }}
-                  transition={{ duration: 0.8 }}
+        {/* Filter bar — offset below fixed navbar (pt-24 = 6rem) */}
+        <section
+          className="sticky top-24 z-40 bg-[#0c1106]/95 border-y border-white/5 py-6 px-4 backdrop-blur-md"
+          aria-label="Filter safari packages"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="max-w-7xl mx-auto flex flex-col gap-6"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.25 }}
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-center sm:text-left"
+            >
+              <p className="text-white/50 text-xs uppercase tracking-widest">
+                {totalResults === 0
+                  ? 'No safaris match your filters'
+                  : `Showing ${totalResults} safari${totalResults === 1 ? '' : 's'}`}
+                {activeCategory !== 'All' && (
+                  <span className="text-brand-green"> · {activeCategory}</span>
+                )}
+                {activeDuration !== 'All' && (
+                  <span className="text-white/40"> · {activeThemeLabel}</span>
+                )}
+              </p>
+              {(activeCategory !== 'All' || activeDuration !== 'All') && (
+                <button
+                  type="button"
+                  onClick={handleClearFilters}
+                  className="text-brand-green text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors self-center sm:self-auto"
                 >
-                  {/* Section number accent */}
-                  <span className="text-brand-green/20 font-serif text-6xl font-black leading-none block select-none mb-1">
-                    {String(sectionIdx + 1).padStart(2, '0')}
-                  </span>
-                  <h2 className="text-5xl md:text-7xl font-serif text-brand-green leading-tight">
-                    {section.title}
-                  </h2>
-                </motion.div>
+                  Clear filters
+                </button>
+              )}
+            </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.2 }}
-                  className="hidden lg:block text-right"
-                >
-                  <p className="text-brand-green text-xs font-bold uppercase tracking-widest mb-1">Explore</p>
-                  <p className="text-gray-400 text-sm">East Africa Safaris</p>
-                </motion.div>
-              </div>
-
-              {/* Package cards — staggered wave */}
+            <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6">
               <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24"
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.45, delay: 0.2 }}
+                className="flex flex-col gap-3 min-w-0"
               >
-                {section.packages.map((pkg, idx) => (
-                  <motion.div key={idx} variants={itemVariants}>
-                    <PackageCard packageData={pkg as any} />
-                  </motion.div>
-                ))}
+                <span className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">
+                  Safari type
+                </span>
+                <motion.div
+                  className="flex flex-wrap items-center justify-center lg:justify-start gap-2"
+                  role="group"
+                  aria-label="Safari type"
+                >
+                  {PACKAGE_FILTER_THEMES.map((cat) => (
+                    <motion.button
+                      key={cat}
+                      type="button"
+                      aria-pressed={activeCategory === cat}
+                      onClick={() => setActiveCategory(cat)}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      className={`px-3 py-1.5 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wider transition-all duration-300 border ${
+                        activeCategory === cat
+                          ? 'bg-brand-green border-brand-green text-white shadow-lg shadow-brand-green/20'
+                          : 'border-white/10 text-white/40 hover:border-white/30 hover:text-white'
+                      }`}
+                    >
+                      {cat === 'All' ? 'All' : cat}
+                    </motion.button>
+                  ))}
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.45, delay: 0.28 }}
+                className="flex flex-col gap-3 shrink-0"
+              >
+                <span className="text-gray-500 text-[10px] font-bold uppercase tracking-widest text-center lg:text-right">
+                  Trip length
+                </span>
+                <div
+                  className="flex flex-wrap sm:flex-nowrap bg-white/5 p-1 rounded-xl border border-white/10 gap-1 justify-center lg:justify-end"
+                  role="group"
+                  aria-label="Trip length"
+                >
+                  {DURATION_FILTERS.map((dur) => (
+                    <motion.button
+                      key={dur.value}
+                      type="button"
+                      aria-pressed={activeDuration === dur.value}
+                      onClick={() => setActiveDuration(dur.value)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className={`px-3 sm:px-4 py-1.5 rounded-lg text-[10px] sm:text-[11px] font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
+                        activeDuration === dur.value
+                          ? 'bg-brand-green text-white shadow-md shadow-brand-green/25'
+                          : 'text-white/40 hover:text-white/70'
+                      }`}
+                    >
+                      {dur.label}
+                    </motion.button>
+                  ))}
+                </div>
               </motion.div>
             </div>
-          </section>
-        ))}
+          </motion.div>
+        </section>
 
-        {/* 3. Scenic Footer CTA — fixed background */}
+        {/* Results */}
+        <motion.div
+          ref={resultsRef}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="relative min-h-[400px] scroll-mt-28"
+        >
+          {filteredSections.length > 0 ? (
+            filteredSections.map((section, sectionIdx) => (
+              <section
+                key={section.title}
+                className="px-4 bg-[#0c1106] py-16 overflow-hidden"
+              >
+                <div className="max-w-7xl mx-auto">
+                  <div className="flex items-end justify-between mb-16 border-b border-white/10 pb-8">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                      className="flex flex-col"
+                    >
+                      <span className="text-brand-green/10 font-serif text-5xl font-black leading-none block select-none">
+                        {String(sectionIdx + 1).padStart(2, '0')}
+                      </span>
+                      <h2 className="text-4xl md:text-6xl font-serif text-brand-green leading-tight">
+                        {section.title}
+                      </h2>
+                    </motion.div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20">
+                    <AnimatePresence mode="popLayout" initial={false}>
+                      {section.packages.map((pkg, idx) => (
+                        <motion.div
+                          layout
+                          key={pkg.slug || `${section.title}-${idx}`}
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
+                          transition={{
+                            type: 'spring',
+                            stiffness: 300,
+                            damping: 30,
+                            opacity: { duration: 0.2 },
+                          }}
+                        >
+                          <PackageCard packageData={pkg} />
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </section>
+            ))
+          ) : (
+            <motion.div
+              key="no-results"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="py-40 text-center px-4"
+            >
+              <h3 className="text-4xl font-serif text-white/20 mb-4">No match found</h3>
+              <p className="text-white/40 max-w-md mx-auto">
+                Try a different safari type or trip length, or browse all packages.
+              </p>
+              <button
+                type="button"
+                onClick={handleClearFilters}
+                className="mt-8 text-brand-green border-b border-brand-green/30 pb-1 hover:text-white hover:border-white transition-all uppercase text-xs font-bold tracking-widest"
+              >
+                Clear all filters
+              </button>
+            </motion.div>
+          )}
+        </motion.div>
+
+        {/* CTA */}
         <section
-          className="relative py-48 px-4 min-h-[600px] flex items-center bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg)` }}
+          className="relative py-48 px-4 min-h-[600px] flex items-center bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg)`,
+          }}
         >
           <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
 
@@ -172,7 +359,8 @@ const Packages: React.FC = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="text-white text-xl md:text-2xl font-serif max-w-4xl mb-16 leading-relaxed"
             >
-              Experience the wilderness of East Africa like never before. From the mists of Bwindi to the savannas of Murchison Falls.
+              Experience the wilderness of East Africa like never before. From the mists of Bwindi to
+              the savannas of Murchison Falls.
             </motion.p>
 
             <motion.div
@@ -182,17 +370,25 @@ const Packages: React.FC = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="flex flex-col md:flex-row items-start md:items-center gap-10"
             >
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="/contact"
-                className="px-8 py-4 bg-brand-green text-white font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-brand-dark transition-all"
-              >
-                Plan Your Safari
-              </motion.a>
-              <div className="hidden md:block w-[1px] h-12 bg-white/30" />
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/contact"
+                  className="inline-block px-8 py-4 bg-brand-green text-white font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-brand-dark transition-all"
+                >
+                  Plan Your Safari
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                className="hidden md:block w-[1px] h-12 bg-white/30 origin-top"
+              />
               <div className="flex flex-col">
-                <span className="text-white text-[10px] font-bold uppercase tracking-widest mb-1">Call us:</span>
+                <span className="text-white text-[10px] font-bold uppercase tracking-widest mb-1">
+                  Call us:
+                </span>
                 <a
                   href="tel:+256774243747"
                   className="text-brand-green text-3xl font-serif font-bold hover:text-brand-accent transition-colors"
@@ -206,7 +402,7 @@ const Packages: React.FC = () => {
       </main>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { 
   Clock, 
   MapPin, 
@@ -17,7 +17,14 @@ import {
   Star,
   Quote,
   ShieldCheck,
-  Globe
+  Globe,
+  PawPrint,
+  Bird,
+  TreePalm,
+  Mountain,
+  Leaf,
+  MessageCircle,
+  Zap
 } from 'lucide-react';
 import { siteData } from '../data/siteData';
 import Footer from '../components/Footer';
@@ -51,6 +58,16 @@ const ExpandableText: React.FC<{ text: string }> = ({ text }) => {
 
 const PackageDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const [showStickyBar, setShowStickyBar] = useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShowStickyBar(window.scrollY > 600);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -109,7 +126,7 @@ const PackageDetail: React.FC = () => {
     },
     "offers": {
       "@type": "Offer",
-      "price": pkg.price.replace(/[^0-9.]/g, '') || "0",
+      "price": pkg.price?.replace(/[^0-9.]/g, '') || "0",
       "priceCurrency": "USD"
     }
   };
@@ -118,7 +135,7 @@ const PackageDetail: React.FC = () => {
     <div className="bg-[#FDFCFB] min-h-screen text-brand-dark selection:bg-brand-green selection:text-white">
       <SEO 
         title={`${pkg.title} | Come Again Tours & Travels`}
-        description={pkg.description}
+        description={pkg.description ?? `Discover ${pkg.title} with Come Again Tours & Travels.`}
         image={gallery[0]}
         schema={touristTripSchema}
       />
@@ -418,7 +435,7 @@ const PackageDetail: React.FC = () => {
               <div className="flex items-center gap-10">
                 <div>
                   <p className="text-gray-400 text-[10px] uppercase tracking-widest font-bold mb-1">Starting From</p>
-                  <p className="text-4xl text-brand-green font-serif font-black">{pkg.price} <span className="text-sm font-sans font-normal text-gray-400 italic">/ per person</span></p>
+                <p className="text-4xl text-brand-green font-serif font-black">{pkg.price || 'Contact Us'} <span className="text-sm font-sans font-normal text-gray-400 italic">/ per person</span></p>
                 </div>
               </div>
             </div>
@@ -518,6 +535,18 @@ const PackageDetail: React.FC = () => {
                           </h4>
                           <ExpandableText text={day.description} />
                           
+                          {day.image && (
+                            <div className="mt-8 relative overflow-hidden rounded-2xl h-48 md:h-72 lg:h-96 group/img shadow-md">
+                              <img 
+                                src={day.image} 
+                                alt={day.title}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 ring-1 ring-black/5 rounded-2xl pointer-events-none" />
+                            </div>
+                          )}
+
                           <div className="flex flex-wrap items-center gap-10 pt-8 border-t border-gray-50">
                             <div className="flex items-center gap-3 text-brand-green">
                               <Hotel className="w-5 h-5 opacity-40" />
@@ -574,6 +603,56 @@ const PackageDetail: React.FC = () => {
                     </ul>
                   </div>
                 </div>
+
+                {/* Wildlife Sighting Probability (Task 7) */}
+                {(pkg as any).wildlife && (pkg as any).wildlife.length > 0 && (
+                  <div className="mb-32">
+                    <div className="flex items-center justify-between mb-10">
+                      <h3 className="text-3xl font-serif text-brand-dark">Wildlife Sightings</h3>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-brand-green px-3 py-1 bg-brand-green/5 rounded-full flex items-center gap-2">
+                        <Zap className="w-3 h-3" /> Historical Probabilities
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                      {(pkg as any).wildlife.map((animal: string, idx: number) => {
+                         const getProb = () => {
+                           if (animal.toLowerCase().includes('gorilla')) return '99%';
+                           if (animal.toLowerCase().includes('chimp')) return '95%';
+                           if (animal.toLowerCase().includes('lion')) return '82%';
+                           if (animal.toLowerCase().includes('elephant')) return '94%';
+                           if (animal.toLowerCase().includes('hippo')) return '98%';
+                           return '85%';
+                         };
+                         const getIcon = () => {
+                           const a = animal.toLowerCase();
+                           if (a.includes('lion')) return <PawPrint className="w-5 h-5" />;
+                           if (a.includes('bird')) return <Bird className="w-5 h-5" />;
+                           if (a.includes('gorilla') || a.includes('chimp')) return <TreePalm className="w-5 h-5" />;
+                           if (a.includes('rhino') || a.includes('elephant')) return <Mountain className="w-5 h-5" />;
+                           return <Leaf className="w-5 h-5" />;
+                         };
+
+                         return (
+                           <motion.div 
+                             key={idx}
+                             whileHover={{ y: -5 }}
+                             className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col items-center text-center group"
+                           >
+                              <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-brand-green mb-4 group-hover:bg-brand-green group-hover:text-white transition-all">
+                                {getIcon()}
+                              </div>
+                              <h5 className="font-bold text-sm text-brand-dark mb-1">{animal}</h5>
+                              <div className="flex flex-col items-center">
+                                <span className="text-2xl font-serif font-black text-brand-green">{getProb()}</span>
+                                <span className="text-[9px] uppercase font-bold text-gray-300 tracking-widest">Visibility</span>
+                              </div>
+                           </motion.div>
+                         );
+                      })}
+                    </div>
+                  </div>
+                )}
 
                 {/* 4. REVIEWS SECTION - Dynamic */}
                 <section className="mb-24">
@@ -708,6 +787,54 @@ const PackageDetail: React.FC = () => {
           </section>
         </main>
         <Footer />
+        
+        {/* Sticky Booking Bar (Task 6) */}
+        <AnimatePresence>
+          {showStickyBar && (
+            <motion.div
+              initial={{ y: 100 }}
+              animate={{ y: 0 }}
+              exit={{ y: 100 }}
+              className="fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-t border-gray-100 p-4 no-print shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]"
+            >
+              <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
+                <div className="hidden md:flex items-center gap-6">
+                   <div className="flex flex-col">
+                      <span className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">You are viewing</span>
+                      <span className="text-sm font-bold text-brand-dark truncate max-w-[200px]">{pkg.title}</span>
+                   </div>
+                   <div className="h-8 w-[1px] bg-gray-100" />
+                   <div className="flex flex-col">
+                      <span className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Duration</span>
+                      <span className="text-sm font-bold text-brand-dark">{details?.duration}</span>
+                   </div>
+                </div>
+
+                <div className="flex items-center gap-8 flex-1 md:flex-none justify-between md:justify-end">
+                   <div className="flex flex-col text-right">
+                      <span className="text-[10px] uppercase font-bold text-brand-green tracking-widest">Per Person</span>
+                      <p className="text-2xl font-serif font-black text-brand-dark leading-none">{pkg.price}</p>
+                   </div>
+                   
+                   <div className="flex items-center gap-3">
+                      <a 
+                        href={`https://wa.me/256784549282?text=${encodeURIComponent(`Hi, I'm interested in the ${pkg.title}`)}`}
+                        className="p-4 bg-brand-green/10 text-brand-green rounded-xl hover:bg-brand-green hover:text-white transition-all hidden sm:flex"
+                      >
+                         <MessageCircle className="w-5 h-5" />
+                      </a>
+                      <a 
+                        href={`/contact?package=${encodeURIComponent(pkg.title)}`}
+                        className="px-8 py-4 bg-brand-green text-white font-bold text-xs tracking-widest uppercase hover:bg-brand-dark shadow-lg shadow-brand-green/20 transition-all"
+                      >
+                         Inquire Now
+                      </a>
+                   </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
