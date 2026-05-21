@@ -2,6 +2,7 @@ import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, Music } from 'lucide-react';
 import { siteData } from '../data/siteData';
 import { Link } from 'react-router-dom';
+import RegulatoryPartners from './RegulatoryPartners';
 
 const Footer: React.FC = () => {
   const footerData = siteData.home.footer;
@@ -20,6 +21,8 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-brand-dark">
+      <RegulatoryPartners variant="footer" showNote={false} />
+
       <div className="py-20 px-4 md:px-12 lg:px-20">
         {/* 4-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-white">

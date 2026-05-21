@@ -1,5 +1,34 @@
 export const siteData = {
   logo: `${import.meta.env.BASE_URL}images/logo.png`,
+  regulatoryPartners: {
+    heading: 'We Are Proud To Be Associated With',
+    note: 'Come Again Tours & Travels operates in line with Uganda Tourism Board guidelines, Uganda Wildlife Authority park regulations, and as a member of the Uganda Tourism Operators association.',
+    partners: [
+      {
+        id: 'utb',
+        name: 'Uganda Tourism Board',
+        shortName: 'Uganda Tourism Board',
+        logo: `${import.meta.env.BASE_URL}images/UTB.png`,
+        url: 'https://www.visituganda.com/',
+      },
+      {
+        id: 'uwa',
+        name: 'Uganda Wildlife Authority',
+        shortName: 'Uganda Wildlife Authority',
+        logo: `${import.meta.env.BASE_URL}images/uwa.png`,
+        url: 'https://www.ugandawildlife.org/',
+      },
+      {
+        id: 'uto',
+        name: 'Uganda Tourism Operators',
+        shortName: 'Uganda Tourism Operators',
+        logo: `${import.meta.env.BASE_URL}images/UTO.png`,
+        url: 'https://www.ugandatourismoperators.org/',
+      },
+    ],
+    uwaPermitNote:
+      'Gorilla and chimpanzee permits, park entry, and trekking on this safari follow Uganda Wildlife Authority regulations.',
+  },
   navigation: [
     { name: 'Home', href: '/' },
     { name: 'Destination', href: '/destination' },

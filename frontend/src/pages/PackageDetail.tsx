@@ -30,6 +30,7 @@ import { siteData } from '../data/siteData';
 import Footer from '../components/Footer';
 import RealRouteMap from '../components/RealRouteMap';
 import SEO from '../components/SEO';
+import { isUwaRelevantPackage } from '../components/RegulatoryPartners';
 
 // Collapsible text for long itinerary descriptions
 const ExpandableText: React.FC<{ text: string }> = ({ text }) => {
@@ -769,15 +770,24 @@ const PackageDetail: React.FC = () => {
                     <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-green/10 rounded-full blur-3xl pointer-events-none" />
                   </div>
 
-                  {/* Trust Elements */}
-                  <div className="p-8 border border-gray-100 rounded-[2rem] flex items-center gap-6 bg-white">
-                     <div className="w-16 h-16 bg-brand-green/5 rounded-full flex items-center justify-center flex-shrink-0">
+                  {/* Trust & regulatory partners */}
+                  <div className="p-8 border border-gray-100 rounded-[2rem] bg-white space-y-6">
+                    <div className="flex items-center gap-6">
+                      <div className="w-16 h-16 bg-brand-green/5 rounded-full flex items-center justify-center shrink-0">
                         <ShieldCheck className="text-brand-green w-8 h-8" />
-                     </div>
-                     <div className="flex flex-col">
-                        <span className="text-xs font-bold uppercase text-gray-300">Trusted Operator</span>
-                        <span className="text-sm text-gray-600 font-serif leading-tight">Licensed & Insured Safari Services in Uganda</span>
-                     </div>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-xs font-bold uppercase text-gray-300">Trusted operator</span>
+                        <span className="text-sm text-gray-600 font-serif leading-tight">
+                          Licensed safari services in Uganda
+                        </span>
+                      </div>
+                    </div>
+                    {isUwaRelevantPackage((pkg as { category?: string }).category) && (
+                      <p className="text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-6">
+                        {siteData.regulatoryPartners.uwaPermitNote}
+                      </p>
+                    )}
                   </div>
 
                 </div>
