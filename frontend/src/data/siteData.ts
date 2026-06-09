@@ -3778,9 +3778,14 @@ export const siteData = {
           image: `${import.meta.env.BASE_URL}images/Bettina.jpeg`
         },
         {
-          name: 'Nangobi masitula',
+          name: 'Aminah Abu baker',
+          position: 'Reservation manager',
+          image: `${import.meta.env.BASE_URL}images/Aminah.jpeg`
+        },
+        {
+          name: 'Nanyunja Ramlah',
           position: 'Accountant',
-          image: `${import.meta.env.BASE_URL}images/Masitula.jpeg`
+          image: `${import.meta.env.BASE_URL}images/Nanyunja Ramlah.jpeg`
         },
         {
           name: 'Jan Havlicheck',
