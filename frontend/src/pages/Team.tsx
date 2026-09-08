@@ -95,7 +95,7 @@ const Team: React.FC = () => {
         </section>
 
         {/* 2. Team Grid */}
-        <section className="relative py-2 px-4 overflow-hidden">
+        <section className="relative py-16 px-4 overflow-hidden">
           {/* Subtle animated mesh backdrop */}
           <div className="absolute inset-0 z-0 bg-[#f8fcf8]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,#ff1493_0%,transparent_50%),radial-gradient(circle_at_80%_20%,#00ffff_0%,transparent_50%),radial-gradient(circle_at_50%_80%,#ffff00_0%,transparent_50%),radial-gradient(circle_at_10%_90%,#32cd32_0%,transparent_50%)] opacity-20 blur-[100px] animate-pulse" />
@@ -109,7 +109,7 @@ const Team: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="mb-20 text-center"
+              className="mb-12 text-center"
             >
               <span className="text-brand-green font-bold text-sm uppercase tracking-[0.3em] block mb-4">
                 Meet the crew
@@ -133,24 +133,24 @@ const Team: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.05 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
             >
               {team.members.map((member, idx) => (
                 <motion.div
                   key={idx}
                   variants={cardVariants}
-                  whileHover={{ y: -8 }}
+                  whileHover={{ y: -4 }}
                   className="flex flex-col items-center text-center group cursor-default"
                 >
                   {/* Photo */}
-                  <div className="w-full aspect-[4/5] overflow-hidden mb-8 shadow-2xl relative bg-gray-100">
+                  <div className="w-full max-w-[280px] aspect-[3/4] overflow-hidden mb-4 rounded-sm shadow-lg relative bg-gray-100">
                     <img
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
                     />
                     {/* Subtle green border reveal on hover */}
-                    <div className="absolute inset-0 border-4 border-brand-green/0 group-hover:border-brand-green/40 transition-all duration-500" />
+                    <div className="absolute inset-0 border-2 border-brand-green/0 group-hover:border-brand-green/40 transition-all duration-500" />
                   </div>
 
                   {/* Name */}
@@ -159,7 +159,7 @@ const Team: React.FC = () => {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-3xl md:text-4xl font-serif font-black text-brand-dark mb-2 tracking-tight group-hover:text-brand-green transition-colors duration-300"
+                    className="text-lg md:text-xl font-serif font-black text-brand-dark mb-1 tracking-tight group-hover:text-brand-green transition-colors duration-300"
                   >
                     {member.name}
                   </motion.h3>
@@ -170,7 +170,7 @@ const Team: React.FC = () => {
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: idx * 0.05 }}
-                    className="w-12 h-[2px] bg-brand-green mx-auto my-3 origin-center"
+                    className="w-10 h-[2px] bg-brand-green mx-auto my-2 origin-center"
                   />
 
                   {/* Role */}

@@ -3783,6 +3783,11 @@ export const siteData = {
           image: `${import.meta.env.BASE_URL}images/Aminah.jpeg`
         },
         {
+          name: 'Masitula Nangobi',
+          position: 'Reservation officer',
+          image: `${import.meta.env.BASE_URL}images/masitula.jpeg`
+        },
+        {
           name: 'Nanyunja Ramlah',
           position: 'Accountant',
           image: `${import.meta.env.BASE_URL}images/Nanyunja Ramlah.jpeg`
@@ -3792,11 +3797,6 @@ export const siteData = {
           position: 'Consultant',
           image: `${import.meta.env.BASE_URL}images/Jan.jpeg`
         },
-        // {
-        //   name: 'Rachael Nasozi',
-        //   position: 'IT Consultant',
-        //   image: `${import.meta.env.BASE_URL}images/Rachael.jpeg`
-        // },
         {
           name: 'Asiima Crisen',
           position: 'IT & Systems Administrator',
@@ -3811,6 +3811,11 @@ export const siteData = {
           name: 'Ramathan Muwonge',
           position: 'Guide',
           image: `${import.meta.env.BASE_URL}images/Ramathan.jpeg`
+        },
+        {
+          name: 'Patrick kikonyogo',
+          position: 'Guide',
+          image: `${import.meta.env.BASE_URL}images/kikonyogo.jpeg`
         },
       ]
     }
