@@ -31,6 +31,10 @@ import Footer from '../components/Footer';
 import RealRouteMap from '../components/RealRouteMap';
 import SEO from '../components/SEO';
 import { isUwaRelevantPackage } from '../components/RegulatoryPartners';
+import { useCurrency } from '../context/CurrencyContext';
+import { useCustomSafariModal } from '../context/CustomSafariModalContext';
+import GorillaPermitNotice from '../components/GorillaPermitNotice';
+import SafariPackingGuideModal from '../components/SafariPackingGuideModal';
 
 // Collapsible text for long itinerary descriptions
 const ExpandableText: React.FC<{ text: string }> = ({ text }) => {
@@ -60,6 +64,9 @@ const ExpandableText: React.FC<{ text: string }> = ({ text }) => {
 const PackageDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const { formatPrice } = useCurrency();
+  const { openModal, openBookingModal } = useCustomSafariModal();
+  const [isPackingOpen, setIsPackingOpen] = useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -436,7 +443,7 @@ const PackageDetail: React.FC = () => {
               <div className="flex items-center gap-10">
                 <div>
                   <p className="text-gray-400 text-[10px] uppercase tracking-widest font-bold mb-1">Starting From</p>
-                <p className="text-4xl text-brand-green font-serif font-black">{pkg.price || 'Contact Us'} <span className="text-sm font-sans font-normal text-gray-400 italic">/ per person</span></p>
+                <p className="text-4xl text-brand-green font-serif font-black">{formatPrice(pkg.price)} <span className="text-sm font-sans font-normal text-gray-400 italic">/ per person</span></p>
                 </div>
               </div>
             </div>
@@ -501,6 +508,16 @@ const PackageDetail: React.FC = () => {
                   <p className="text-gray-500 leading-relaxed">
                     Experience the heart of Africa with Come Again Tours. Our carefully curated itineraries ensure you witness the most spectacular wildlife, breathtaking landscapes, and authentic cultural encounters that Uganda has to offer.
                   </p>
+
+                  {/* Gorilla & Primate Permit Scarcity Advisory */}
+                  {((pkg.title || '').toLowerCase().includes('gorilla') ||
+                    (pkg.title || '').toLowerCase().includes('bwindi') ||
+                    (pkg.description || '').toLowerCase().includes('gorilla') ||
+                    (details?.highlights || []).some((h: string) => h.toLowerCase().includes('gorilla'))) && (
+                    <div className="mt-8">
+                      <GorillaPermitNotice />
+                    </div>
+                  )}
                 </div>
 
                 {/* Real Map Integration */}
@@ -726,19 +743,35 @@ const PackageDetail: React.FC = () => {
                       <p className="text-white/60 text-sm mb-12">Expertly crafted experiences by Come Again Tours.</p>
                       
                       <div className="space-y-4 mb-16">
-                        <a 
-                          href={`/contact?package=${encodeURIComponent(pkg.title)}`}
-                          className="w-full py-5 bg-brand-green text-white text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover:bg-white hover:text-brand-dark transition-all duration-300"
+                        <button 
+                          type="button"
+                          onClick={() => openBookingModal({
+                            title: pkg.title,
+                            price: pkg.price,
+                            duration: details?.duration || (pkg.durationDays ? `${pkg.durationDays} Days` : undefined),
+                            image: pkg.image,
+                            destination: pkg.destination,
+                            slug: pkg.slug
+                          })}
+                          className="w-full py-5 bg-brand-green text-white text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover:bg-white hover:text-brand-dark transition-all duration-300 rounded-2xl shadow-lg"
                         >
                           <Calendar className="w-4 h-4" />
-                          Check Availability
-                        </a>
+                          Book This Safari Now
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => openModal({ packageTitle: pkg.title, duration: details?.duration })}
+                          className="w-full py-3 text-xs text-white/70 hover:text-brand-green underline transition-colors"
+                        >
+                          Need custom changes? Plan a tailor-made version &rarr;
+                        </button>
                         
                         <a 
-                          href={`https://wa.me/256784549282?text=${encodeURIComponent(`Hi, I'm interested in the ${pkg.title}`)}`}
+                          href={`https://wa.me/256774243747?text=${encodeURIComponent(`Hi Come Again Tours, I'm interested in booking the ${pkg.title}`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover:bg-white hover:text-brand-dark transition-all duration-300"
+                          className="w-full py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover:bg-white hover:text-brand-dark transition-all duration-300 rounded-2xl"
                         >
                           <Phone className="w-4 h-4" />
                           Quick Chat on WhatsApp
@@ -798,14 +831,14 @@ const PackageDetail: React.FC = () => {
         </main>
         <Footer />
         
-        {/* Sticky Booking Bar (Task 6) */}
+        {/* Sticky Booking Bar */}
         <AnimatePresence>
           {showStickyBar && (
             <motion.div
               initial={{ y: 100 }}
               animate={{ y: 0 }}
               exit={{ y: 100 }}
-              className="fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-t border-gray-100 p-4 no-print shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]"
+              className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-t border-gray-100 p-4 no-print shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]"
             >
               <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
                 <div className="hidden md:flex items-center gap-6">
@@ -822,23 +855,32 @@ const PackageDetail: React.FC = () => {
 
                 <div className="flex items-center gap-8 flex-1 md:flex-none justify-between md:justify-end">
                    <div className="flex flex-col text-right">
-                      <span className="text-[10px] uppercase font-bold text-brand-green tracking-widest">Per Person</span>
-                      <p className="text-2xl font-serif font-black text-brand-dark leading-none">{pkg.price}</p>
+                      <span className="text-[10px] uppercase font-bold text-brand-green tracking-widest">Starting From</span>
+                      <p className="text-2xl font-serif font-black text-brand-dark leading-none">{formatPrice(pkg.price)}</p>
                    </div>
                    
                    <div className="flex items-center gap-3">
                       <a 
-                        href={`https://wa.me/256784549282?text=${encodeURIComponent(`Hi, I'm interested in the ${pkg.title}`)}`}
+                        href={`https://wa.me/256774243747?text=${encodeURIComponent(`Hi Come Again Tours, I'm interested in booking the ${pkg.title}`)}`}
                         className="p-4 bg-brand-green/10 text-brand-green rounded-xl hover:bg-brand-green hover:text-white transition-all hidden sm:flex"
+                        title="Chat on WhatsApp"
                       >
                          <MessageCircle className="w-5 h-5" />
                       </a>
-                      <a 
-                        href={`/contact?package=${encodeURIComponent(pkg.title)}`}
-                        className="px-8 py-4 bg-brand-green text-white font-bold text-xs tracking-widest uppercase hover:bg-brand-dark shadow-lg shadow-brand-green/20 transition-all"
+                      <button 
+                        type="button"
+                        onClick={() => openBookingModal({
+                          title: pkg.title,
+                          price: pkg.price,
+                          duration: details?.duration || (pkg.durationDays ? `${pkg.durationDays} Days` : undefined),
+                          image: pkg.image,
+                          destination: pkg.destination,
+                          slug: pkg.slug
+                        })}
+                        className="px-8 py-4 bg-brand-green text-white font-bold text-xs tracking-widest uppercase hover:bg-brand-dark shadow-lg shadow-brand-green/20 transition-all rounded-xl flex items-center gap-2"
                       >
-                         Inquire Now
-                      </a>
+                         <Calendar className="w-4 h-4" /> Book Safari
+                      </button>
                    </div>
                 </div>
               </div>
@@ -846,6 +888,12 @@ const PackageDetail: React.FC = () => {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Safari Packing Checklist Modal */}
+      <SafariPackingGuideModal
+        isOpen={isPackingOpen}
+        onClose={() => setIsPackingOpen(false)}
+      />
     </div>
   );
 };

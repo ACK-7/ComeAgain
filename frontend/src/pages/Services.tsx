@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
 import { motion, type Variants } from 'framer-motion';
 import SEO from '../components/SEO';
+import TripadvisorReviews from '../components/TripadvisorReviews';
 
 const Services: React.FC = () => {
 
@@ -167,7 +168,7 @@ const Services: React.FC = () => {
         </section>
 
         {/* 4. Tripadvisor Reviews Section */}
-        
+        <TripadvisorReviews />
 
         {/* 5. Final CTA Section — fixed background */}
         <section

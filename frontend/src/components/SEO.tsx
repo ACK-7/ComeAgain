@@ -8,7 +8,8 @@ interface SEOProps {
   type?: string;
   url?: string;
   image?: string;
-  schema?: Record<string, any>;
+  schema?: Record<string, any> | Array<Record<string, any>>;
+  canonical?: string;
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -19,12 +20,62 @@ const SEO: React.FC<SEOProps> = ({
   url = "https://comeagaintoursandtravels.com",
   image = "/images/logo.png",
   schema,
+  canonical,
 }) => {
+  const defaultOrganizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Come Again Tours and Travels",
+    "image": "https://comeagaintoursandtravels.com/images/logo.png",
+    "url": "https://comeagaintoursandtravels.com",
+    "telephone": "+256-774-243-747",
+    "priceRange": "$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot 12 Kampala Road",
+      "addressLocality": "Kampala",
+      "addressRegion": "Central Region",
+      "postalCode": "00256",
+      "addressCountry": "UG"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 0.3136,
+      "longitude": 32.5811
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "48",
+      "bestRating": "5"
+    }
+  };
+
+  const schemasToRender = schema 
+    ? (Array.isArray(schema) ? [defaultOrganizationSchema, ...schema] : [defaultOrganizationSchema, schema])
+    : [defaultOrganizationSchema];
+
   return (
     <Helmet>
       {/* Standard metadata tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="robots" content="index, follow" />
+      {canonical && <link rel="canonical" href={canonical} />}
       
       {/* Open Graph tags (Facebook, WhatsApp, LinkedIn) */}
       <meta property="og:type" content={type} />
@@ -41,11 +92,11 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:image" content={image} />
 
       {/* Structured Data (JSON-LD) for Rich Snippets */}
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
+      {schemasToRender.map((s, idx) => (
+        <script key={idx} type="application/ld+json">
+          {JSON.stringify(s)}
         </script>
-      )}
+      ))}
     </Helmet>
   );
 };

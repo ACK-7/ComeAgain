@@ -14,7 +14,7 @@ const WhatsAppButton: React.FC = () => {
       animate={{ opacity: 1, scale: 1, x: 0 }}
       whileHover={{ scale: 1.15 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-8 left-8 z-[60] bg-[#25D366] text-white p-3 rounded-full shadow-2xl transition-all duration-300 hover:shadow-[#25D366]/50 group flex items-center justify-center w-12 h-12"
+      className="fixed bottom-6 left-6 sm:bottom-8 sm:left-8 z-[60] bg-[#25D366] text-white p-3 rounded-full shadow-2xl transition-all duration-300 hover:shadow-[#25D366]/50 group flex items-center justify-center w-12 h-12"
       aria-label="Chat on WhatsApp"
     >
       <div className="relative z-10 flex items-center justify-center w-full h-full">

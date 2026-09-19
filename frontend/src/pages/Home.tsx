@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import PackageCard from '../components/PackageCard';
 import Footer from '../components/Footer';
+import TrustBadges from '../components/TrustBadges';
+import GuideProfiles from '../components/GuideProfiles';
 import { siteData } from '../data/siteData';
-import { Users } from 'lucide-react';
+import { Sparkles, Calculator, Backpack } from 'lucide-react';
 import SEO from '../components/SEO';
+import { useCustomSafariModal } from '../context/CustomSafariModalContext';
+import { Link } from 'react-router-dom';
+import TourismMarquee from '../components/TourismMarquee';
+import TripadvisorReviews from '../components/TripadvisorReviews';
+import GorillaPermitNotice from '../components/GorillaPermitNotice';
+import SafariFAQ from '../components/SafariFAQ';
+import LiveParkWeather from '../components/LiveParkWeather';
+import SafariPackingGuideModal from '../components/SafariPackingGuideModal';
 
 import type { Variants } from 'framer-motion';
 
 const Home: React.FC = () => {
+  const { openModal } = useCustomSafariModal();
+  const [isPackingModalOpen, setIsPackingModalOpen] = useState(false);
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -48,7 +61,7 @@ const Home: React.FC = () => {
   return (
     <div className="bg-brand-dark min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
       <SEO 
-        title="Come Again Tours & Travels | Premier Uganda Safaris"
+        title="Come Again Tours & Travels | Premier Uganda Safaris & Gorilla Trekking"
         description="Experience the ultimate African adventure with Come Again Tours and Travels. We offer bespoke gorilla trekking, wildlife safaris, and cultural tours in Uganda."
         schema={localBusinessSchema}
       />
@@ -56,10 +69,19 @@ const Home: React.FC = () => {
         {/* 1. Hero Section */}
         <Hero />
 
+        {/* Live Uganda Tourism Wire Marquee */}
+        <TourismMarquee />
+
+        {/* Trust Badges Bar */}
+        <TrustBadges variant="dark" />
+
+        {/* Live Real-Time Safari Weather Widget */}
+        <LiveParkWeather />
+
         {/* 2. Packages Intro & Grid */}
-        <section className="py-4 px-4 bg-brand-dark overflow-hidden">
+        <section className="py-16 px-4 bg-brand-dark overflow-hidden">
           <div className="max-w-7xl mx-auto text-left">
-            <div className="flex flex-col lg:flex-row items-end lg:items-center justify-between gap-12 mb-20">
+            <div className="flex flex-col lg:flex-row items-end lg:items-center justify-between gap-12 mb-14">
               <div className="lg:w-1/3">
                 <motion.h2 
                   initial={{ opacity: 0, x: -30 }}
@@ -85,6 +107,11 @@ const Home: React.FC = () => {
               </div>
             </div>
 
+            {/* Gorilla Permit Scarcity & Seasonality Notice */}
+            <div className="mb-12">
+              <GorillaPermitNotice />
+            </div>
+
             <motion.div 
               variants={containerVariants}
               initial="hidden"
@@ -108,16 +135,24 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-16 text-center"
+              className="mt-16 flex flex-wrap items-center justify-center gap-4"
             >
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/packages"
-                className="inline-block px-12 py-4 bg-transparent border-2 border-brand-green hover:bg-brand-green text-brand-green hover:text-white font-bold transition-all uppercase tracking-[0.2em] text-sm shadow-lg"
+                className="inline-block px-10 py-4 bg-transparent border-2 border-brand-green hover:bg-brand-green text-brand-green hover:text-white font-bold transition-all uppercase tracking-[0.2em] text-xs shadow-lg"
               >
                 VIEW ALL PACKAGES
               </motion.a>
+              <button
+                type="button"
+                onClick={() => setIsPackingModalOpen(true)}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/5 border border-white/20 hover:bg-white/10 text-white font-bold transition-all uppercase tracking-[0.2em] text-xs shadow-lg rounded-none cursor-pointer"
+              >
+                <Backpack className="w-4 h-4 text-brand-gold" />
+                <span>Safari Packing Guide</span>
+              </button>
             </motion.div>
           </div>
         </section>
@@ -269,6 +304,39 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* 4.5 Interactive Custom Safari & Cost Estimator Banner */}
+        <section className="py-16 px-4 bg-gradient-to-r from-brand-dark via-brand-dark/95 to-black text-white border-y border-brand-green/20 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 text-left">
+            <div className="max-w-2xl">
+              <span className="text-brand-green font-bold text-xs uppercase tracking-[0.3em] block mb-2 flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4" /> 100% Tailor-Made East Africa Safaris
+              </span>
+              <h3 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-4 leading-tight">
+                Design Your Custom Safari & Calculate Estimated Costs
+              </h3>
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                Whether you want a 3-day private gorilla trek in Bwindi or a 14-day fly-in savanna expedition across Uganda, our local experts will craft a bespoke itinerary tailored to your exact budget and travel style.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
+              <button
+                type="button"
+                onClick={() => openModal({})}
+                className="w-full sm:w-auto px-8 py-4 bg-brand-green text-white font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-brand-dark transition-all shadow-xl flex items-center justify-center gap-2"
+              >
+                <Sparkles className="w-4 h-4" /> Plan Custom Trip (Free Quote)
+              </button>
+              <Link
+                to="/safari-cost-calculator"
+                className="w-full sm:w-auto px-8 py-4 bg-white/10 border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-brand-dark transition-all backdrop-blur-md flex items-center justify-center gap-2"
+              >
+                <Calculator className="w-4 h-4 text-brand-green" /> Try Safari Cost Calculator
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* 5. Why Choose Us Section */}
         <section className="py-0 px-0 bg-white text-brand-dark overflow-hidden">
            <div className="flex flex-col lg:flex-row min-h-[700px]">
@@ -334,88 +402,14 @@ const Home: React.FC = () => {
            </div>
         </section>
 
-        {/* 6. Testimonials Section */}
-        <section className="py-32 px-4 bg-[#eef7ed] text-brand-dark overflow-hidden">
-           <div className="max-w-7xl mx-auto">
-              <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20 text-left">
-                 <motion.h2 
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1 }}
-                  className="text-5xl md:text-7xl font-serif text-brand-green leading-tight max-w-2xl"
-                 >
-                    {siteData.home.testimonials.heading}
-                 </motion.h2>
-                 <motion.p 
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.2 }}
-                  className="text-brand-dark font-medium max-w-md text-sm leading-relaxed pt-4"
-                 >
-                    {siteData.home.testimonials.subheading}
-                 </motion.p>
-              </div>
+        {/* 6. Luxury TripAdvisor Reviews Showcase */}
+        <TripadvisorReviews />
 
-              <motion.div 
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left"
-              >
-                 {siteData.home.testimonials.items.map((testimonial, idx) => (
-                   <motion.div 
-                     key={idx}
-                     variants={itemVariants}
-                     className="flex flex-col bg-white p-10 shadow-sm hover:shadow-xl transition-all duration-300 group relative border-b-4 border-[#34E0A1]"
-                   >
-                      <div className="flex items-center justify-between mb-6">
-                         <div className="flex gap-0.5">
-                            {[...Array(5)].map((_, i) => (
-                              <svg key={i} className="w-4 h-4 fill-[#34E0A1] text-[#34E0A1]" viewBox="0 0 24 24">
-                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                              </svg>
-                            ))}
-                         </div>
-                         <span className="text-[10px] font-bold text-[#34E0A1] uppercase tracking-tighter">via Tripadvisor</span>
-                      </div>
-                      <p className="text-gray-700 text-[15px] leading-relaxed mb-10 flex-grow italic">
-                         "{testimonial.text}"
-                      </p>
-                      <div className="border-t border-brand-green/20 pt-8 flex items-center gap-4">
-                         <div className="bg-brand-green/10 p-3 rounded-full group-hover:bg-brand-green group-hover:text-white transition-colors duration-300">
-                            <Users className="w-5 h-5" />
-                         </div>
-                         <span className="font-serif font-bold tracking-widest text-brand-dark uppercase text-sm">
-                            {testimonial.author}
-                         </span>
-                      </div>
-                   </motion.div>
-                 ))}
-              </motion.div>
+        {/* 7. Essential Safari FAQ Accordion */}
+        <SafariFAQ />
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="mt-20 text-center"
-              >
-                <a 
-                  href={siteData.home.testimonials.tripadvisorUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-4 px-10 py-4 bg-[#34E0A1] text-brand-dark font-bold text-xs tracking-widest uppercase hover:bg-brand-dark hover:text-white transition-all shadow-lg"
-                >
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                  </svg>
-                  View all reviews on Tripadvisor
-                </a>
-              </motion.div>
-           </div>
-        </section>
+        {/* 6.5 Safari Guides & Field Experts */}
+        <GuideProfiles />
 
         {/* 7. Scenic Action Section */}
         <section 
@@ -473,6 +467,12 @@ const Home: React.FC = () => {
       </main>
 
       <Footer />
+
+      {/* Safari Packing Checklist Modal */}
+      <SafariPackingGuideModal
+        isOpen={isPackingModalOpen}
+        onClose={() => setIsPackingModalOpen(false)}
+      />
     </div>
   );
 };

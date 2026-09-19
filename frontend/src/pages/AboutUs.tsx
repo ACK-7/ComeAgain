@@ -82,17 +82,13 @@ const AboutUs: React.FC = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="rounded-[2rem] overflow-hidden border border-white/10 shadow-3xl">
+            {/* <div className="rounded-[2rem] overflow-hidden border border-white/10 shadow-3xl">
               <img 
                 src="https://comeagaintoursandtravels.com/wp-content/uploads/2023/11/story-img.jpg" 
                 alt="Safari Story" 
                 className="w-full h-auto"
               />
-            </div>
-            <div className="absolute -bottom-10 -left-10 bg-brand-green p-10 rounded-3xl hidden md:block">
-               <p className="text-4xl font-serif font-bold text-white mb-2">10+</p>
-               <p className="text-sm text-white/80 font-bold uppercase tracking-widest">Years of Excellence</p>
-            </div>
+            </div> */}
           </motion.div>
         </div>
         </section>

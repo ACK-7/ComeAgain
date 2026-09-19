@@ -104,7 +104,7 @@ const PartnerCarousel: React.FC<{
             </motion.div>
           </AnimatePresence>
         ) : (
-          <div className="flex items-center justify-center gap-12 md:gap-20 lg:gap-28 px-2 flex-wrap">
+          <div className="flex items-center justify-center gap-10 sm:gap-16 md:gap-24 px-2 flex-wrap">
             {partners.map((p) => (
               <PartnerLogo key={p.id} partner={p} logoClass={logoClass} showLabel={showLabel} />
             ))}
@@ -118,9 +118,9 @@ const PartnerCarousel: React.FC<{
           onClick={() => go(1)}
           disabled={index >= maxIndex}
           aria-label="Next partners"
-          className="shrink-0 p-2 text-brand-green hover:text-brand-dark disabled:opacity-25 disabled:cursor-not-allowed transition-colors"
+          className="shrink-0 p-1.5 text-brand-green hover:text-brand-dark disabled:opacity-25 disabled:cursor-not-allowed transition-colors"
         >
-          <ChevronRight className="w-6 h-6 md:w-7 md:h-7 stroke-[2.5]" />
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 stroke-[2.5]" />
         </button>
       )}
     </div>
@@ -134,21 +134,25 @@ const RegulatoryPartners: React.FC<RegulatoryPartnersProps> = ({
 }) => {
   const { heading, note, partners } = siteData.regulatoryPartners;
   const logoClass =
-    variant === 'footer' ? 'h-20 md:h-24 lg:h-28 max-w-[200px] md:max-w-[240px]' : variant === 'compact' ? 'h-14 md:h-16 max-w-[160px]' : 'h-10 max-w-[120px]';
+    variant === 'footer'
+      ? 'h-9 sm:h-11 md:h-12 max-w-[110px] sm:max-w-[140px]'
+      : variant === 'compact'
+      ? 'h-14 md:h-16 max-w-[160px]'
+      : 'h-10 max-w-[120px]';
 
   if (variant === 'footer') {
     return (
       <section
-        className={`bg-white border-b border-gray-200 py-14 md:py-16 px-4 ${className}`}
+        className={`w-full bg-white border-y border-gray-200/80 py-4 sm:py-5 px-4 ${className}`}
         aria-label="Industry and regulatory partners"
       >
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto flex flex-col items-center">
           <motion.p
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 4 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center text-gray-600 text-sm md:text-base font-light tracking-[0.2em] uppercase mb-10 md:mb-12"
+            transition={{ duration: 0.4 }}
+            className="text-center text-gray-500 text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase mb-2.5 sm:mb-3"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             {heading}
@@ -158,13 +162,14 @@ const RegulatoryPartners: React.FC<RegulatoryPartnersProps> = ({
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+            className="w-full flex justify-center"
           >
             <PartnerCarousel partners={partners} logoClass={logoClass} />
           </motion.div>
 
           {note && showNote && (
-            <p className="text-center text-gray-400 text-xs max-w-2xl mx-auto mt-10 leading-relaxed">
+            <p className="text-center text-gray-400 text-xs max-w-xl mx-auto mt-4 leading-relaxed">
               {note}
             </p>
           )}

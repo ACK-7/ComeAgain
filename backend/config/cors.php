@@ -16,6 +16,7 @@ return [
 
     'allowed_origins' => [
         'https://comeagaintoursandtravels.com',
+        'https://www.comeagaintoursandtravels.com',
         'http://localhost:5173',   // local Vite dev server
         'http://127.0.0.1:5173',
     ],

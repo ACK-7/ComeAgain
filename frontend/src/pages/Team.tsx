@@ -135,50 +135,74 @@ const Team: React.FC = () => {
               viewport={{ once: true, amount: 0.05 }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
             >
-              {team.members.map((member, idx) => (
-                <motion.div
-                  key={idx}
-                  variants={cardVariants}
-                  whileHover={{ y: -4 }}
-                  className="flex flex-col items-center text-center group cursor-default"
-                >
-                  {/* Photo */}
-                  <div className="w-full max-w-[280px] aspect-[3/4] overflow-hidden mb-4 rounded-sm shadow-lg relative bg-gray-100">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
-                    />
-                    {/* Subtle green border reveal on hover */}
-                    <div className="absolute inset-0 border-2 border-brand-green/0 group-hover:border-brand-green/40 transition-all duration-500" />
-                  </div>
+              {team.members.map((member, idx) => {
+                // Determine if this member is a safari guide with a dedicated story page
+                let guideSlug: string | null = null;
+                const lowerName = member.name.toLowerCase();
+                if (lowerName.includes('issa') || lowerName.includes('ssesanga')) {
+                  guideSlug = 'issa-ssesanga';
+                } else if (lowerName.includes('ramathan') || lowerName.includes('muwonge')) {
+                  guideSlug = 'ramathan-muwonge';
+                } else if (lowerName.includes('patrick') || lowerName.includes('kikonyogo')) {
+                  guideSlug = 'patrick-kikonyogo';
+                }
 
-                  {/* Name */}
-                  <motion.h3
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    className="text-lg md:text-xl font-serif font-black text-brand-dark mb-1 tracking-tight group-hover:text-brand-green transition-colors duration-300"
-                  >
-                    {member.name}
-                  </motion.h3>
+                const CardWrapper = guideSlug ? 'a' : 'div';
+                const cardProps = guideSlug ? { href: `/guides/${guideSlug}` } : {};
 
-                  {/* Animated underline */}
+                return (
                   <motion.div
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: idx * 0.05 }}
-                    className="w-10 h-[2px] bg-brand-green mx-auto my-2 origin-center"
-                  />
+                    key={idx}
+                    variants={cardVariants}
+                    whileHover={{ y: -4 }}
+                    className="flex flex-col items-center text-center group cursor-pointer"
+                  >
+                    {/* Photo */}
+                    <CardWrapper
+                      {...cardProps}
+                      className="w-full max-w-[280px] aspect-[3/4] overflow-hidden mb-4 rounded-2xl shadow-lg relative bg-gray-100 block"
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        style={{
+                          objectPosition: lowerName.includes('ramathan') ? 'center 38%' : 'center'
+                        }}
+                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-105"
+                      />
+                      {/* Subtle green border reveal on hover */}
+                      <div className="absolute inset-0 border-2 border-brand-green/0 group-hover:border-brand-green/40 transition-all duration-500 rounded-2xl" />
 
-                  {/* Role */}
-                  <p className="text-brand-dark/70 font-bold text-xs uppercase tracking-widest">
-                    {member.position}
-                  </p>
-                </motion.div>
-              ))}
+                      {guideSlug && (
+                        <div className="absolute bottom-3 left-3 right-3 bg-brand-green/90 backdrop-blur-md text-white py-1.5 px-3 rounded-xl text-[10px] font-bold uppercase tracking-wider shadow-md flex items-center justify-center gap-1 opacity-90 group-hover:opacity-100 transition-opacity">
+                          <span>View Story & Bush Tales &rarr;</span>
+                        </div>
+                      )}
+                    </CardWrapper>
+
+                    {/* Name */}
+                    {guideSlug ? (
+                      <a href={`/guides/${guideSlug}`} className="hover:text-brand-green transition-colors">
+                        <h3 className="text-lg md:text-xl font-serif font-black text-brand-dark mb-1 tracking-tight group-hover:text-brand-green transition-colors duration-300">
+                          {member.name}
+                        </h3>
+                      </a>
+                    ) : (
+                      <h3 className="text-lg md:text-xl font-serif font-black text-brand-dark mb-1 tracking-tight group-hover:text-brand-green transition-colors duration-300">
+                        {member.name}
+                      </h3>
+                    )}
+
+                    {/* Animated underline */}
+                    <div className="w-10 h-[2px] bg-brand-green mx-auto my-2 origin-center" />
+
+                    {/* Role */}
+                    <p className="text-brand-dark/70 font-bold text-xs uppercase tracking-widest">
+                      {member.position}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </motion.div>
           </div>
         </section>

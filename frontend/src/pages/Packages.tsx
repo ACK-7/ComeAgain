@@ -1,7 +1,8 @@
 import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Footer from '../components/Footer';
 import PackageCard from '../components/PackageCard';
+import TrustBadges from '../components/TrustBadges';
 import { siteData } from '../data/siteData';
 import {
   PACKAGE_FILTER_THEMES,
@@ -14,13 +15,62 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/SEO';
 
+function matchesDestinationFilter(pkg: { details?: { location?: string }; title?: string }, dest: string): boolean {
+  if (!dest || dest === 'All' || dest === 'all') return true;
+  const loc = (pkg.details?.location || '').toLowerCase();
+  const title = (pkg.title || '').toLowerCase();
+  const d = dest.toLowerCase();
+
+  if (d === 'uganda') {
+    return loc.includes('uganda') || loc.includes('murchison') || loc.includes('bwindi') || loc.includes('queen elizabeth') || loc.includes('kibale') || loc.includes('kidepo') || loc.includes('jinja') || loc.includes('mburo');
+  }
+  if (d === 'rwanda') {
+    return loc.includes('rwanda') || title.includes('rwanda') || loc.includes('volcanoes') || loc.includes('kigali') || loc.includes('akagera');
+  }
+  if (d === 'kenya') {
+    return loc.includes('kenya') || title.includes('kenya') || loc.includes('masai mara') || loc.includes('amboseli') || loc.includes('nairobi');
+  }
+  if (d === 'tanzania') {
+    return loc.includes('tanzania') || title.includes('tanzania') || loc.includes('serengeti') || loc.includes('ngorongoro') || loc.includes('zanzibar');
+  }
+
+  return loc.includes(d) || title.includes(d);
+}
+
 const Packages: React.FC = () => {
   const { hero, sections } = siteData.packagesPage;
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [activeCategory, setActiveCategory] = useState<PackageFilterTheme>('All');
   const [activeDuration, setActiveDuration] = useState<DurationFilterValue>('All');
+  const [activeDestination, setActiveDestination] = useState<string>('All');
   const resultsRef = useRef<HTMLDivElement>(null);
   const skipInitialScroll = useRef(true);
+
+  // Sync URL search parameters (from Hero quick-search bar or direct links)
+  useEffect(() => {
+    const destParam = searchParams.get('destination');
+    const styleParam = searchParams.get('style');
+    const durParam = searchParams.get('duration');
+
+    if (destParam) {
+      setActiveDestination(destParam);
+    }
+    if (styleParam) {
+      if (styleParam === 'gorilla') setActiveCategory('Gorilla & Primate');
+      else if (styleParam === 'big5') setActiveCategory('Wildlife Safaris');
+      else if (styleParam === 'flyin') setActiveCategory('Fly-In & Premium');
+      else if (styleParam === 'birding') setActiveCategory('Birding Safaris');
+      else if (PACKAGE_FILTER_THEMES.includes(styleParam as PackageFilterTheme)) {
+        setActiveCategory(styleParam as PackageFilterTheme);
+      }
+    }
+    if (durParam) {
+      if (durParam === 'short') setActiveDuration('short');
+      else if (durParam === 'medium') setActiveDuration('medium');
+      else if (durParam === 'grand' || durParam === 'ultimate' || durParam === 'long') setActiveDuration('long');
+    }
+  }, [searchParams]);
 
   const filteredSections = useMemo(() => {
     return sections
@@ -29,11 +79,12 @@ const Packages: React.FC = () => {
         packages: section.packages.filter(
           (pkg) =>
             matchesCategoryFilter(pkg, activeCategory) &&
-            matchesDurationFilter(pkg, activeDuration)
+            matchesDurationFilter(pkg, activeDuration) &&
+            matchesDestinationFilter(pkg, activeDestination)
         ),
       }))
       .filter((section) => section.packages.length > 0);
-  }, [sections, activeCategory, activeDuration]);
+  }, [sections, activeCategory, activeDuration, activeDestination]);
 
   const totalResults = useMemo(
     () => filteredSections.reduce((sum, s) => sum + s.packages.length, 0),
@@ -52,7 +103,7 @@ const Packages: React.FC = () => {
       return;
     }
     scrollToResults();
-  }, [activeCategory, activeDuration, scrollToResults]);
+  }, [activeCategory, activeDuration, activeDestination, scrollToResults]);
 
   const activeThemeLabel =
     DURATION_FILTERS.find((d) => d.value === activeDuration)?.label ?? 'Any length';
@@ -60,6 +111,8 @@ const Packages: React.FC = () => {
   const handleClearFilters = () => {
     setActiveCategory('All');
     setActiveDuration('All');
+    setActiveDestination('All');
+    setSearchParams({});
   };
 
   return (
@@ -164,6 +217,9 @@ const Packages: React.FC = () => {
                 {totalResults === 0
                   ? 'No safaris match your filters'
                   : `Showing ${totalResults} safari${totalResults === 1 ? '' : 's'}`}
+                {activeDestination !== 'All' && (
+                  <span className="text-amber-400 capitalize"> · {activeDestination}</span>
+                )}
                 {activeCategory !== 'All' && (
                   <span className="text-brand-green"> · {activeCategory}</span>
                 )}
@@ -171,7 +227,7 @@ const Packages: React.FC = () => {
                   <span className="text-white/40"> · {activeThemeLabel}</span>
                 )}
               </p>
-              {(activeCategory !== 'All' || activeDuration !== 'All') && (
+              {(activeCategory !== 'All' || activeDuration !== 'All' || activeDestination !== 'All') && (
                 <button
                   type="button"
                   onClick={handleClearFilters}
@@ -401,6 +457,7 @@ const Packages: React.FC = () => {
         </section>
       </main>
 
+      <TrustBadges variant="dark" />
       <Footer />
     </motion.div>
   );

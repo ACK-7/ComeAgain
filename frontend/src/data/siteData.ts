@@ -38,8 +38,9 @@ export const siteData = {
       name: 'About Us', 
       href: '/about',
       dropdown: [
+        { name: 'Who We Are', href: '/about' },
         { name: 'Vision & Mission', href: '/about/vision-mission' },
-        { name: 'Team', href: '/about/our-team' }
+        { name: 'Our Team & Guides', href: '/about/our-team' }
       ]
     },
     { name: 'Blog', href: '/blog' },
@@ -168,8 +169,8 @@ export const siteData = {
       },
       socials: [
         { name: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=100080915697458' },
+        { name: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/comeagaintoursandtravels' },
         { name: 'X', icon: 'twitter', href: 'https://x.com/ComeAgainTours' },
-        // { name: 'Instagram', icon: 'instagram', href: '#' },
         { name: 'Tiktok', icon: 'music', href: 'https://www.tiktok.com/@come_again_tours_travel' },
         { name: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/come-again-tours-travels-14b211404/' },
         // { name: 'YouTube', icon: 'youtube', href: '#' }
@@ -3813,8 +3814,8 @@ export const siteData = {
           image: `${import.meta.env.BASE_URL}images/Ramathan.jpeg`
         },
         {
-          name: 'Patrick kikonyogo',
-          position: 'Guide',
+          name: 'Patrick John Kikonyogo',
+          position: 'Professional Driver-Guide',
           image: `${import.meta.env.BASE_URL}images/kikonyogo.jpeg`
         },
       ]
@@ -3944,7 +3945,7 @@ export const siteData = {
     socials: {
       facebook: 'https://www.facebook.com/profile.php?id=100080915697458',
       twitter: '#',
-      instagram: '#'
+      instagram: 'https://www.instagram.com/comeagaintoursandtravels'
     }
   },
   gallery: {

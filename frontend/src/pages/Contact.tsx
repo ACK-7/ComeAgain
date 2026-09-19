@@ -31,7 +31,9 @@ const Contact: React.FC = () => {
     setErrors({});
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
+      const baseUrl = (import.meta.env.VITE_API_URL || 'https://api.comeagaintoursandtravels.com/api').replace(/\/+$/, '');
+      const endpoint = baseUrl.endsWith('/api') ? `${baseUrl}/contact` : `${baseUrl}/api/contact`;
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
