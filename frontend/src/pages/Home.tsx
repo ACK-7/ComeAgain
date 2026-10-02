@@ -61,8 +61,10 @@ const Home: React.FC = () => {
   return (
     <div className="bg-brand-dark min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
       <SEO 
-        title="Come Again Tours & Travels | Premier Uganda Safaris & Gorilla Trekking"
-        description="Experience the ultimate African adventure with Come Again Tours and Travels. We offer bespoke gorilla trekking, wildlife safaris, and cultural tours in Uganda."
+        title="Uganda Safaris, Tours & Car Hire | Come Again Tours and Travels"
+        description="Discover Uganda and East Africa with Come Again Tours & Travels. Bespoke mountain gorilla trekking in Bwindi, wildlife safaris, and 4x4 car hire with professional drivers. Licensed by UTB & AUTO."
+        url="https://comeagaintoursandtravels.com/"
+        canonical="https://comeagaintoursandtravels.com/"
         schema={localBusinessSchema}
       />
       <main>

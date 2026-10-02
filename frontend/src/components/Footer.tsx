@@ -1,11 +1,13 @@
-import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Music } from 'lucide-react';
+import React, { useState } from 'react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Music, ShieldCheck } from 'lucide-react';
 import { siteData } from '../data/siteData';
 import { Link } from 'react-router-dom';
 import RegulatoryPartners from './RegulatoryPartners';
+import SafariTermsModal from './SafariTermsModal';
 
 const Footer: React.FC = () => {
   const footerData = siteData.home.footer;
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -26,17 +28,43 @@ const Footer: React.FC = () => {
       <div className="py-20 px-4 md:px-12 lg:px-20">
         {/* 4-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-white">
-          {/* 1. Quick Links */}
+          {/* 1. Safari Planning & Quick Links */}
           <div>
-            <h4 className="text-3xl font-serif font-bold mb-8">Quick Links</h4>
-            <ul className="space-y-4">
-              {['Home', 'Services', 'Packages', 'Gallery', 'Contact'].map((link) => (
-                <li key={link}>
-                  <Link to={link === 'Home' ? '/' : `/${link.toLowerCase()}`} className="text-white hover:text-brand-green transition-colors text-lg">
-                    {link}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-3xl font-serif font-bold mb-8">Safari Planning</h4>
+            <ul className="space-y-3.5">
+              <li>
+                <Link to="/packages" className="text-white hover:text-brand-green transition-colors text-base font-medium">
+                  Safari Packages
+                </Link>
+              </li>
+              <li>
+                <Link to="/gorilla-permits-guide" className="text-white hover:text-brand-green transition-colors text-base font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Gorilla Permits Guide
+                </Link>
+              </li>
+              <li>
+                <Link to="/safari-cost-calculator" className="text-white hover:text-brand-green transition-colors text-base font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Safari Cost Calculator
+                </Link>
+              </li>
+              <li>
+                <Link to="/best-time-to-visit-uganda" className="text-white hover:text-brand-green transition-colors text-base font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Best Time to Visit
+                </Link>
+              </li>
+              <li>
+                <Link to="/destination" className="text-white hover:text-brand-green transition-colors text-base font-medium">
+                  Destinations
+                </Link>
+              </li>
+              <li>
+                <button 
+                  onClick={() => setIsTermsOpen(true)}
+                  className="text-brand-green hover:underline transition-colors text-base font-medium flex items-center gap-1.5 mt-2"
+                >
+                  <ShieldCheck className="w-4 h-4" /> Booking & Cancellation Terms
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -106,11 +134,28 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-[#e8f5e9] py-6 px-4 text-center">
-        <p className="text-brand-dark text-[13px] font-bold tracking-tight">
-          © 2026 Come Again Tours and Travels. All Rights Reserved. Powered by <a href="https://ack-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green transition-colors underline decoration-brand-green/30 underline-offset-4">ACK Designs</a> 
-        </p>
+      <div className="bg-[#e8f5e9] py-5 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <p className="text-brand-dark text-[13px] font-bold tracking-tight">
+            © 2026 Come Again Tours and Travels. All Rights Reserved. Powered by <a href="https://ack-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green transition-colors underline decoration-brand-green/30 underline-offset-4">ACK Designs</a> 
+          </p>
+          <div className="flex items-center gap-4 text-xs font-semibold text-brand-dark/80">
+            <button 
+              onClick={() => setIsTermsOpen(true)}
+              className="hover:text-brand-green transition-colors underline underline-offset-2"
+            >
+              Booking & Cancellation Policy
+            </button>
+            <span>•</span>
+            <Link to="/contact" className="hover:text-brand-green transition-colors">
+              Support Desk
+            </Link>
+          </div>
+        </div>
       </div>
+
+      {/* Booking Terms & Cancellation Policy Modal */}
+      <SafariTermsModal isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
     </footer>
   );
 };

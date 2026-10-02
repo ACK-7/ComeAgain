@@ -49,8 +49,8 @@ export const siteData = {
   ],
   heroSlides: [
     {
-      title: 'Come Again <span style="color:#6ab43e">Tours</span><br/>& Travels',
-      subtitle: "More Than a Safari — It's a Story",
+      title: 'Discover Uganda <span style="color:#6ab43e">& East Africa</span><br/>Safaris',
+      subtitle: "Bespoke Gorilla Trekking, Wildlife Expeditions & 4x4 Car Hire with Come Again Tours",
       backgroundImage: `${import.meta.env.BASE_URL}images/gorilla1.jpeg`
     },
     {

@@ -1,8 +1,26 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Allow direct access to physical files & directories
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
+</IfModule>
+
+# LiteSpeed Server: Ensure sitemap, robots.txt, and search engine crawlers are never blocked by reCAPTCHA
+<IfModule LiteSpeed>
+    RewriteEngine On
+    # Drop CAPTCHA/bot verification for sitemap and robots.txt
+    RewriteCond %{REQUEST_URI} ^/(robots\.txt|.*sitemap.*\.xml)$ [NC,OR]
+    # Drop CAPTCHA/bot verification for major search engine & social crawlers
+    RewriteCond %{HTTP_USER_AGENT} (googlebot|bingbot|slurp|duckduckbot|baiduspider|yandex|screaming\ frog|applebot|facebookexternalhit|twitterbot|linkedinbot) [NC]
+    RewriteRule .* - [E=verifycaptcha:drop]
+</IfModule>
+
+# Force correct MIME types
+<IfModule mod_mime.c>
+  AddType application/xml .xml
+  AddType text/plain .txt
 </IfModule>

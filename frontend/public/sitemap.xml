@@ -12,9 +12,9 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://comeagaintoursandtravels.com/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://comeagaintoursandtravels.com/destination</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://comeagaintoursandtravels.com/services</loc>
@@ -22,9 +22,24 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://comeagaintoursandtravels.com/contact</loc>
+    <loc>https://comeagaintoursandtravels.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/about/vision-mission</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/about/our-team</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/gallery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://comeagaintoursandtravels.com/blog</loc>
@@ -32,30 +47,246 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://comeagaintoursandtravels.com/plan-my-trip</loc>
+    <loc>https://comeagaintoursandtravels.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- High-Intent Planning Hubs & Tools -->
+  <url>
+    <loc>https://comeagaintoursandtravels.com/gorilla-permits-guide</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/safari-cost-calculator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/best-time-to-visit-uganda</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/plan-my-trip</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Verified Tour Guides & Concierge -->
+  <url>
+    <loc>https://comeagaintoursandtravels.com/guides/issa-kikonyogo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/guides/ramathan-kigozi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/guides/patrick-mugerwa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Featured Tour Packages -->
   <url>
-    <loc>https://comeagaintoursandtravels.com/packages/11-days-classic-uganda-safari</loc>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-murchison-falls-safari</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-fly-murchison-falls</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-queen-elizabeth-safari</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-bwindi-gorilla-trekking</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-kibale-chimpanzee-tour</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/5-days-gorilla-queen-combo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://comeagaintoursandtravels.com/packages/7-days-fly-pearl-of-africa</loc>
+    <loc>https://comeagaintoursandtravels.com/package/5-days-murchison-chimps</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/7-days-uganda-wildlife-classic</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://comeagaintoursandtravels.com/packages/3-days-fly-murchison-falls</loc>
+    <loc>https://comeagaintoursandtravels.com/package/12-days-uganda-wildlife-adventure</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-jinja-adventure</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://comeagaintoursandtravels.com/packages/3-days-gorilla-tracking-bwindi</loc>
+    <loc>https://comeagaintoursandtravels.com/package/2-days-lake-mburo-safari</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/4-days-sipi-falls-elgon</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/6-days-rwenzori-trekking</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-kidepo-wilderness</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/5-days-cultural-heritage</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-semuliki-safari</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-moroto-adventure</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/4-days-uganda-gorillas-safari</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/4-days-fly-uganda-gorillas</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/7-days-fly-pearl-of-africa</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/4-days-rwanda-gorilla-trek</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/4-days-nyungwe-forest</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/5-days-akagera-safari</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/7-days-great-lakes-uganda</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/8-days-adventure-uganda</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/birdwatching-special</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/10-days-best-of-uganda-gorillas</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/11-days-classic-uganda-safari</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/4-days-luxury-honeymoon</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/3-days-bunyonyi-relaxation</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/5-days-cultural-heritage-v2</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/11-days-uganda-rwanda-gorillas</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/package/5-days-dubai-escape</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Authoritative Blog & Safari Guides -->
+  <url>
+    <loc>https://comeagaintoursandtravels.com/blog/tracking-mountain-gorillas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/blog/murchison-falls-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/blog/top-10-safari-tips</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/blog/chimpanzee-trekking</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/blog/white-water-rafting-jinja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comeagaintoursandtravels.com/blog/ugandan-culture-kampala</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

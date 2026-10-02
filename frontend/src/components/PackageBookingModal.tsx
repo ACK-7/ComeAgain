@@ -472,7 +472,7 @@ Special Requests: ${specialRequests}`
                       </span>
                     </div>
                     <p className="text-[11px] text-gray-600 leading-relaxed">
-                      <strong>Zero payment charged today.</strong> We reserve your dates with zero upfront fee while verifying lodge and permit availability. Once verified, you receive your official invoice and payment link via Bank Wire, Credit Card, or Pesapal.
+                      <strong>Zero payment charged today.</strong> We hold your dates with zero upfront fee while verifying lodge and gorilla permit availability. Once confirmed, our reservations desk provides your official booking invoice with verified bank transfer instructions.
                     </p>
                   </div>
                 </div>
