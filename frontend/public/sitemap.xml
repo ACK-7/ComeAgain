@@ -260,6 +260,11 @@
 
   <!-- Authoritative Blog & Safari Guides -->
   <url>
+    <loc>https://comeagaintoursandtravels.com/blog/10-reasons-to-visit-uganda-in-2026-27</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://comeagaintoursandtravels.com/blog/tracking-mountain-gorillas</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>

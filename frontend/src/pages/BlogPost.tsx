@@ -322,7 +322,8 @@ const BlogPost: React.FC = () => {
                   <img
                     src={section.image}
                     alt={section.imageCaption || section.heading || post.title}
-                    className="w-full max-h-[460px] object-cover"
+                    style={{ objectPosition: section.imagePosition || 'center' }}
+                    className="w-full max-h-[500px] object-cover"
                   />
                   {section.imageCaption && (
                     <figcaption className="bg-[#0c1810] p-3 text-center text-xs text-gray-400 font-medium">

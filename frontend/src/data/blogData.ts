@@ -5,6 +5,7 @@ export interface BlogPostSection {
   tips?: string[];
   image?: string;
   imageCaption?: string;
+  imagePosition?: string;
 }
 
 export interface LinkedPackage {
@@ -41,6 +42,216 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: '10-reasons-to-visit-uganda-in-2026-27',
+    title: '10 Reasons to Visit Uganda in 2026/2027',
+    subtitle: 'Uganda Travel Guide | Discover Uganda and East Africa with Come Again Tours & Travels',
+    excerpt: 'From tracking mountain gorillas in Bwindi to thunderous waterfalls, snow-capped Rwenzoris, and warm cultural hospitality — discover why Uganda is your ultimate travel destination in 2026/2027.',
+    metaTitle: '10 Reasons to Visit Uganda in 2026/2027 | Uganda Travel Guide & Safari Tips',
+    metaDescription: 'Planning your African safari in 2026/2027? Discover 10 compelling reasons to visit Uganda, from Bwindi mountain gorillas and Murchison Falls to Kibale chimps, Sipi Falls, and local guided road trips.',
+    category: 'Destinations',
+    readTime: '9 min read',
+    publishedDate: 'October 2, 2026',
+    featured: true,
+    author: {
+      name: 'Kawanguzi Wilson',
+      role: 'Managing Director, Come Again Tours & Travels',
+      image: `${import.meta.env.BASE_URL}images/wilson.jpeg`,
+    },
+    featuredImage: `${import.meta.env.BASE_URL}images/scene.jpeg`,
+    tags: [
+      'Uganda 2027',
+      'Uganda Travel Guide',
+      'Gorilla Trekking',
+      'Murchison Falls',
+      'Queen Elizabeth NP',
+      'Kibale Forest',
+      'Rwenzori Mountains',
+      'Sipi Falls',
+      'East Africa Safari'
+    ],
+    linkedPackage: {
+      title: '11 Days Classic Uganda Safari',
+      slug: '11-days-classic-uganda-safari',
+      duration: '11 Days / 10 Nights',
+      price: '$4,250',
+      image: `${import.meta.env.BASE_URL}images/wildlife.jpeg`,
+      highlights: [
+        'Mountain Gorilla trekking encounter in Bwindi Impenetrable National Park',
+        'Chimpanzee tracking in Kibale Forest, Africa’s primate capital',
+        'Queen Elizabeth savannah game drives, tree-climbing lions & Kazinga boat safari',
+        'Scenic canoeing at Lake Bunyonyi & bush walking safari in Lake Mburo',
+        'Dedicated 4x4 Safari Land Cruiser with professional driver-guide',
+      ],
+    },
+    sections: [
+      {
+        heading: 'Uganda: East Africa’s Most Diverse Safari Destination',
+        paragraphs: [
+          'Uganda is one of East Africa’s most diverse travel destinations, offering incredible wildlife, beautiful landscapes, rich cultures, and unforgettable outdoor experiences. From tracking mountain gorillas in the ancient, mist-shrouded forests of Bwindi to watching wildlife roam the golden savannas of Queen Elizabeth National Park, Uganda offers something transformative for almost every type of traveler.',
+          'Whether you are planning your very first African safari, searching for off-the-beaten-path mountain adventures, or seeking a meaningful cross-cultural journey, Uganda stands out for its biodiversity, intimacy, and heartfelt hospitality. Here are 10 compelling reasons why Uganda should be at the top of your travel plans in 2027.',
+        ],
+      },
+      {
+        heading: '1. Experience Gorilla Trekking in Bwindi Impenetrable National Park',
+        paragraphs: [
+          'One of Uganda’s most iconic and memorable experiences is mountain gorilla trekking in Bwindi Impenetrable National Park. Walking through the primordial, mist-draped rainforest in search of a habituated gorilla family provides an extraordinary opportunity to observe these endangered primates in their natural habitat.',
+          'The encounter combines raw wilderness adventure, conservation in action, and a profound personal connection. Sitting mere metres from a colossal silverback as he gently watches over his family, while playful infants tumble through wild celery, is an experience that stays with you forever.',
+          'For travelers interested in gorilla trekking in 2027, planning ahead is critical. The Uganda Wildlife Authority strictly regulates daily permits to safeguard gorilla health and habitats, making early booking of permits and nearby eco-lodges essential.',
+        ],
+        tips: [
+          'Secure Permits Early: Peak dry season permits (June–September and December–February) sell out months ahead. Always book via an AUTO-accredited operator like Come Again Tours.',
+          'Fitness & Footwear: Bring broken-in waterproof hiking boots with deep tread, long gardening gloves to grasp branches, and lightweight rain gear.',
+        ],
+        image: `${import.meta.env.BASE_URL}images/Gorillaa.jpeg`,
+        imageCaption: 'A habituated mountain gorilla resting serenely in Bwindi Impenetrable National Park.',
+      },
+      {
+        heading: '2. Discover the Abundant Wildlife of Queen Elizabeth National Park',
+        paragraphs: [
+          'Queen Elizabeth National Park is one of Uganda’s best-known and most popular safari destinations. Set against the jagged backdrop of the Rwenzori Mountains, the park encompasses open savannas, volcanic crater lakes, and lush riverine forests.',
+          'The park is home to an impressive variety of wildlife, including elephants, lions, buffaloes, hippos, leopards, hyenas, and over 600 recorded bird species. Visitors can embark on sunrise game drives across the Kasenyi plains or venture into the southern Ishasha sector to spot the rare tree-climbing lions resting in giant fig trees.',
+          'A highlight of any Queen Elizabeth safari is a boat cruise along the Kazinga Channel, an oasis where huge pods of hippopotamuses, Nile crocodiles, and elephant herds gather to drink and bathe under the afternoon sun.',
+          'A safari in Queen Elizabeth National Park can be easily combined with other destinations to create a longer, seamless Uganda adventure.',
+        ],
+        image: `${import.meta.env.BASE_URL}images/tree-lion.jpeg`,
+        imageCaption: 'Tree-climbing lions resting in the giant fig trees of Queen Elizabeth\'s Ishasha sector.',
+        imagePosition: 'center 12%',
+      },
+      {
+        heading: '3. See the Raw Power of Murchison Falls',
+        paragraphs: [
+          'Murchison Falls is another spectacular destination for travelers visiting Uganda. Here, the world’s longest river—the Nile—forces its entire volume through a narrow 7-metre gorge in the Great Rift Valley escarpment before plunging 43 metres into the churning ‘Devil’s Cauldron’.',
+          'The sheer force creates a thunderous roar and permanent rainbows hovering through the rising mist. The surrounding national park, Uganda’s largest conservation reserve, offers exceptional game viewing with Rothschild’s giraffes, elephants, lions, buffaloes, Jackson’s hartebeests, and oribi.',
+          'A Murchison Falls safari seamlessly combines classic savannah game drives, relaxing river boat cruises to the base of the falls, delta cruises to spot the rare prehistoric Shoebill stork, and unforgettable viewpoints from the Top of the Falls.',
+        ],
+        image: `${import.meta.env.BASE_URL}images/Murchison.jpeg`,
+        imageCaption: 'The mighty Victoria Nile River bursting violently through the 7-metre cleft at Murchison Falls.',
+      },
+      {
+        heading: '4. Meet Wild Chimpanzees in Kibale Forest',
+        paragraphs: [
+          'Kibale National Park is widely known as the primate capital of the world and is the undisputed top destination in East Africa for wild chimpanzee trekking.',
+          'The dense evergreen rainforest is home to over 1,500 chimpanzees alongside 12 other primate species—including red colobus, L’Hoest’s monkeys, and grey-cheeked mangabeys—plus hundreds of species of birds, butterflies, and giant forest trees.',
+          'For travelers who enjoy active wilderness exploration, walking in the footsteps of wild chimpanzees as they forage, groom, and echo explosive pant-hoots across the canopy provides a dynamic, immersive experience quite distinct from traditional vehicle game drives.',
+        ],
+        image: `${import.meta.env.BASE_URL}images/chimpazee.jpeg`,
+        imageCaption: 'Tracking wild chimpanzees in their natural canopy habitat in Kibale National Park.',
+      },
+      {
+        heading: '5. Visit the Historic Source of the Nile in Jinja',
+        paragraphs: [
+          'The Source of the Nile in Jinja is one of Africa’s most iconic geographical landmarks. It is here that Lake Victoria, the largest tropical lake in the world, pours out to start the Nile’s 6,600 km epic journey northward toward the Mediterranean Sea.',
+          'Visitors can enjoy relaxing boat cruises to the exact point of the Nile’s source, explore Jinja’s colonial heritage and vibrant artisan markets, or partake in thrilling outdoor adventures including world-renowned Grade 5 white-water rafting, river kayaking, tubing, quad biking, and horseback riding along the riverbank.',
+          'The area is particularly attractive to travelers seeking an exhilarating combination of culture, scenery, and outdoor adventure, and Jinja fits effortlessly into wider Uganda itineraries.',
+        ],
+        image: `${import.meta.env.BASE_URL}images/Nile.jpg`,
+        imageCaption: 'Tranquil sunset waters where the River Nile flows from Lake Victoria in Jinja.',
+      },
+      {
+        heading: '6. Explore the Natural Beauty of Sipi Falls',
+        paragraphs: [
+          'Located in eastern Uganda along the fertile foothills of Mount Elgon, Sipi Falls is celebrated for its series of three dramatic waterfalls tumbling down towering volcanic cliffs.',
+          'Travelers can enjoy scenic guided hikes connecting all three waterfalls, visit local community coffee growers for an authentic bean-to-cup Bugisu Arabica coffee experience, and take in breath-taking panoramas across the vast Karamoja plains below.',
+          'The region provides a peaceful, temperate contrast to Uganda’s bustling cities and major savanna parks, making Sipi Falls an excellent addition to an adventure-focused or photography-driven Uganda itinerary.',
+        ],
+        image: `${import.meta.env.BASE_URL}images/sipifalls.jpg`,
+        imageCaption: 'The majestic cascades of Sipi Falls framed by lush green terraces on Mount Elgon.',
+      },
+      {
+        heading: '7. Discover the Rwenzori Mountains of the Moon',
+        paragraphs: [
+          'The Rwenzori Mountains, historically hailed as the legendary ‘Mountains of the Moon’, offer spectacular, otherworldly scenery for travelers interested in hiking and alpine mountaineering.',
+          'Rising to glaciated peaks exceeding 5,100 metres—including Margherita Peak on Mount Stanley—the region features ancient bamboo forests, cascading waterfalls, glacial rivers, and surreal afro-alpine valleys blanketed with giant lobelias and groundsels.',
+          'Both gentle day hikes through the lower foothill valleys and challenging multi-day summit trekking expeditions can be arranged for travelers who want to explore these mystical mountains at their own pace.',
+        ],
+        image: `${import.meta.env.BASE_URL}images/Rwenzori.jpg`,
+        imageCaption: 'The snow-capped peaks and pristine glacial valleys of the Rwenzori Mountains.',
+      },
+      {
+        heading: '8. Experience Uganda’s Vibrant Culture & Warm Hospitality',
+        paragraphs: [
+          'Uganda is home to more than 50 distinct cultural communities, languages, traditions, and musical heritage. Often referred to as one of the friendliest countries on earth, visitors are greeted everywhere with genuine smiles and welcoming hospitality.',
+          'Travelers can meet local communities, experience traditional drumming and dance, savor authentic Ugandan cuisine such as matooke, groundnut stew, and the famous street-style Rolex, and delve into the fascinating histories of ancient kingdoms like Buganda, Bunyoro, and Toro.',
+          'Including cultural experiences in your safari itinerary makes your journey deeply personal and meaningful, giving you an authentic appreciation of Uganda far beyond its wildlife.',
+        ],
+        quote: 'Uganda is not just a destination you visit; it is a feeling of genuine warmth, breathtaking wildlife, and pristine nature that stays with you forever.',
+        image: `${import.meta.env.BASE_URL}images/culture.jpg`,
+        imageCaption: 'Celebrating Uganda’s vibrant heritage, traditional music, and joyful community spirit.',
+      },
+      {
+        heading: '9. Enjoy a Scenic Road Trip Across the Country in a Private 4x4',
+        paragraphs: [
+          'Uganda is an extraordinary country for road trip enthusiasts. A journey overland takes you from the vibrant streets of Kampala to misty volcanic highlands, lush tea estates, papyrus wetlands, and wide open savannas dotted with wildlife.',
+          'Traveling by road allows you to experience the authentic rhythm of Ugandan daily life, stopping at roadside fruit markets for sweet pineapples and roasted plantains, and crossing the Equator line for iconic photo opportunities.',
+          'For travelers who prioritize comfort, safety, and convenience, car hire with a professional local driver-guide makes exploring between destinations effortless—especially during multi-day circuits across the country.',
+        ],
+        image: `${import.meta.env.BASE_URL}images/cars.jpeg`,
+        imageCaption: 'Our rugged, custom-fitted 4x4 Safari Land Cruisers ready for overland discovery.',
+      },
+      {
+        heading: '10. Explore Uganda with a Local Tour Company: Come Again Tours & Travels',
+        paragraphs: [
+          'One of the greatest benefits of working with a local tour operator is having knowledgeable experts on the ground who intimately understand the destinations, seasonal game movements, park logistics, and travel arrangements.',
+          'Based in Kampala, Come Again Tours & Travels provides authentic, tailor-made Uganda travel experiences for solo travelers, couples, families, and private groups. We pride ourselves on transparent advice, personal attention, and flawless on-the-ground safari execution.',
+          'Our core services include:',
+        ],
+        tips: [
+          'Bespoke Uganda Safari Tours: Private itineraries customized to your interests, available time, and budget.',
+          'Guaranteed Gorilla & Chimpanzee Trekking Permits: Seamless reservation and logistics handled directly with the Uganda Wildlife Authority.',
+          'Big Five Wildlife & Savanna Game Drives: Guided by expert trackers with decades of field knowledge.',
+          'Comfortable 4x4 Car Hire & Professional Driver Services: Reliable safari vehicles with pop-up viewing roofs and charging ports.',
+          'Cultural & Community Immersions: Respectful, community-centered experiences that directly benefit local families.',
+          'Regional East Africa Expeditions: Seamless cross-border safari circuits across Uganda, Rwanda, Kenya, and Tanzania.',
+        ],
+      },
+      {
+        heading: 'Popular Uganda Destinations to Consider for Your 2027 Itinerary',
+        paragraphs: [
+          'When planning your 2027 Uganda trip, you can effortlessly combine several iconic destinations into a single cohesive journey. Top destinations to consider include:',
+          '• Bwindi Impenetrable National Park (Mountain Gorilla Trekking)\n• Queen Elizabeth National Park (Tree-Climbing Lions & Kazinga Boat Safari)\n• Murchison Falls National Park (The Nile Waterfall & Big Game)\n• Kibale Forest National Park (Chimpanzee Capital of the World)\n• Sipi Falls & Mount Elgon (Cascading Waterfalls & Arabica Coffee)\n• Rwenzori Mountains (Alpine Peaks & High-Altitude Trekking)\n• Source of the Nile & Jinja (River Adventures & Relaxation)',
+          'A customized itinerary allows you to experience the very best of Uganda’s wildlife, primates, landscapes, and culture in a relaxed, well-paced circuit.',
+        ],
+      },
+      {
+        heading: 'Plan Your Uganda Adventure with Come Again Tours & Travels',
+        paragraphs: [
+          'Whether you are looking for an action-packed wildlife safari, an intimate gorilla trekking adventure, a rich cultural experience, a scenic overland road trip, or a luxurious private holiday, Uganda in 2027 offers boundless opportunities to create unforgettable memories.',
+          'At Come Again Tours & Travels, we welcome travelers from around the world and work passionately to deliver organized, safe, and deeply personal safari experiences.',
+          'Ready to discover the Pearl of Africa? Contact our Kampala team today to begin planning your bespoke 2027 adventure.',
+        ],
+        tips: [
+          'Location: Kampala, Uganda',
+          'WhatsApp: +256 786 016031',
+          'Phone: +256 774 243747',
+          'Email: info@comeagaintoursandtravels.com',
+          'Website: www.comeagaintoursandtravels.com',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Why should I visit Uganda in 2027?',
+        answer: 'Uganda provides one of Africa’s most diverse, authentic, and uncrowded safari experiences. From endangered mountain gorillas and wild chimpanzees to Big Five savannas and snow-capped mountains, Uganda combines world-class wildlife with exceptional value and warm hospitality.',
+      },
+      {
+        question: 'How far in advance should I book gorilla permits for 2027?',
+        answer: 'Because the Uganda Wildlife Authority strictly limits permits to 8 visitors per gorilla group per day, permits for peak seasons (June–September and December–February) frequently sell out 4 to 6 months in advance. We recommend booking early to secure your preferred dates and sector.',
+      },
+      {
+        question: 'Can I combine wildlife game drives with gorilla trekking in one trip?',
+        answer: 'Yes! Most travelers choose a multi-day circuit combining Queen Elizabeth National Park or Murchison Falls with chimpanzee tracking in Kibale and gorilla trekking in Bwindi. Our 7-day and 11-day itineraries are specifically designed for this seamless combination.',
+      },
+      {
+        question: 'What is the advantage of traveling with Come Again Tours & Travels?',
+        answer: 'As an accredited on-the-ground Ugandan operator based in Kampala, we provide dedicated private 4x4 safari vehicles, certified local driver-guides, 24/7 on-trip support, and direct permit handling with UWA, ensuring unmatched personal care and safety throughout your journey.',
+      },
+      {
+        question: 'What is the best time of year to visit Uganda in 2027?',
+        answer: 'Uganda is a year-round destination with pleasant equatorial temperatures. The optimal dry seasons for trekking and savanna game drives are December to February and June to September. However, green-season travel (March–May and October–November) offers lush scenery, fewer tourists, and excellent birding.',
+      },
+    ],
+  },
+  {
     slug: 'tracking-mountain-gorillas',
     title: 'Tracking the Majestic Mountain Gorillas of Bwindi',
     subtitle: 'Everything you need to know about permit booking, fitness levels, and the magical 60-minute encounter in the mist.',
@@ -50,7 +261,6 @@ export const blogPosts: BlogPost[] = [
     category: 'Wildlife',
     readTime: '6 min read',
     publishedDate: 'March 15, 2026',
-    featured: true,
     author: {
       name: 'Asiima & Senior Ranger Team',
       role: 'Lead Safari Expedition Planners',
