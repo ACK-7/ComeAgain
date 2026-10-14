@@ -1,29 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Playfair Display", serif;
-  --font-sans: Montserrat, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: Montserrat, system-ui, -apple-system, sans-serif;
   
   --color-brand-dark: #0c1106;
   --color-brand-green: #5cb85c;
   --color-brand-accent: #c6e300;
   --color-brand-muted: #1b2a12;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD7K6E1n0fjtJSm6m1u92qcIyYC_FqX7_fT6X.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2') format('woff2');
 }
 
 :root {

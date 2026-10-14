@@ -14,6 +14,7 @@ import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import RegulatoryPartners from '../components/RegulatoryPartners';
 import SafariPlannerWizard from '../components/SafariPlannerWizard';
+import { businessConfig } from '../data/businessConfig';
 
 const PlanMyTrip: React.FC = () => {
   const schema = {
@@ -173,12 +174,12 @@ const PlanMyTrip: React.FC = () => {
                   Chat directly with our reservations team right now:
                 </p>
                 <a
-                  href="https://wa.me/256774243747?text=Hello%20Come%20Again%20Tours!%20I%20would%20like%20to%20plan%20a%20safari."
+                  href={businessConfig.whatsapp.getLink('Hello Come Again Tours! I would like to plan a safari.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#25D366] text-white rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-[#1EBE5D] transition-colors"
                 >
-                  <Phone className="w-4 h-4" /> WhatsApp: +256 774 243 747
+                  <Phone className="w-4 h-4" /> WhatsApp: {businessConfig.whatsapp.display}
                 </a>
               </div>
             </div>

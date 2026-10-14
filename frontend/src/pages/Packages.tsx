@@ -392,7 +392,7 @@ const Packages: React.FC = () => {
         <section
           className="relative py-48 px-4 min-h-[600px] flex items-center bg-cover bg-center"
           style={{
-            backgroundImage: `url(${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg)`,
+            backgroundImage: `url(${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.webp)`,
           }}
         >
           <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />

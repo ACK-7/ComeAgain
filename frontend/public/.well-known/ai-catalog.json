@@ -1,0 +1,99 @@
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Come Again Tours and Travels",
+  "legalName": "Come Again Tours and Travels Ltd",
+  "alternateName": "Come Again Safaris",
+  "url": "https://www.comeagaintoursandtravels.com",
+  "description": "Licensed Uganda tour operator for Mountain Gorilla Trekking in Bwindi, Queen Elizabeth & Murchison Falls wildlife safaris, chimpanzee tracking in Kibale, and 4x4 car hire.",
+  "logo": "https://www.comeagaintoursandtravels.com/images/logo.png",
+  "image": "https://www.comeagaintoursandtravels.com/images/WhatsApp-Image-2026-02-24-at-15.00.50-1.jpeg",
+  "telephone": "+256-774-243-747",
+  "email": "info@comeagaintoursandtravels.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plot 12 Kampala Road",
+    "addressLocality": "Kampala",
+    "addressRegion": "Central Region",
+    "postalCode": "00256",
+    "addressCountry": "UG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 0.3136,
+    "longitude": 32.5811
+  },
+  "areaServed": [
+    "Uganda",
+    "Rwanda",
+    "Kenya",
+    "Tanzania"
+  ],
+  "priceRange": "$$$",
+  "currenciesAccepted": "USD, EUR, GBP, UGX",
+  "paymentAccepted": "Bank Wire Transfer, Credit Card, Cash",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "48",
+    "bestRating": "5"
+  },
+  "sameAs": [
+    "https://www.tripadvisor.com/Attraction_Review-g293841-d23932600-Reviews-Come_Again_Tours_and_Travel-Kampala_Central_Region.html",
+    "https://www.instagram.com/comeagain_safaris/",
+    "https://www.facebook.com/Comeagaintoursandtravels"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "3 Days Bwindi Gorilla Trekking Safari",
+      "description": "Unforgettable encounter with endangered mountain gorillas in Bwindi Impenetrable National Park, including private 4x4 safari transport and guaranteed gorilla permit reservations.",
+      "price": "1350",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.comeagaintoursandtravels.com/package/3-days-bwindi-gorilla-trekking"
+    },
+    {
+      "@type": "Offer",
+      "name": "3 Days Murchison Falls National Park Safari",
+      "description": "Classic savannah game drives, boat cruise to the base of the world's most powerful waterfall, top of the falls hike, and Big Five wildlife viewing.",
+      "price": "850",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.comeagaintoursandtravels.com/package/3-days-murchison-falls-safari"
+    },
+    {
+      "@type": "Offer",
+      "name": "3 Days Queen Elizabeth National Park Safari",
+      "description": "Tree-climbing lions of Ishasha, boat safari along the Kazinga Channel with thousands of hippos, and savannah wildlife game drives.",
+      "price": "890",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.comeagaintoursandtravels.com/package/3-days-queen-elizabeth-safari"
+    },
+    {
+      "@type": "Offer",
+      "name": "5 Days Gorilla & Queen Elizabeth Wildlife Combo",
+      "description": "Combine Bwindi mountain gorilla trekking with Queen Elizabeth lion tracking and Kazinga Channel boat safari in one seamless 5-day adventure.",
+      "price": "1850",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.comeagaintoursandtravels.com/package/5-days-gorilla-queen-combo"
+    },
+    {
+      "@type": "Offer",
+      "name": "4x4 Safari Land Cruiser Hire with Driver-Guide",
+      "description": "Customized 4x4 safari vehicle equipped with pop-up photography roof, high-lift jack, fridge, and professional English-speaking driver-guide.",
+      "price": "150",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "150",
+        "priceCurrency": "USD",
+        "unitText": "DAY"
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.comeagaintoursandtravels.com/car-hire-uganda"
+    }
+  ]
+}

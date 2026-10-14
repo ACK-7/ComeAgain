@@ -66,7 +66,7 @@ const GorillaPermitsGuide: React.FC = () => {
       <section className="relative py-24 px-4 bg-brand-dark text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={`${import.meta.env.BASE_URL}images/gorilla1.jpeg`}
+            src={`${import.meta.env.BASE_URL}images/gorilla1.webp`}
             alt="Mountain Gorilla Uganda"
             className="w-full h-full object-cover opacity-25"
           />

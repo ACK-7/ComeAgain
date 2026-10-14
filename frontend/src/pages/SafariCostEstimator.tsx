@@ -16,6 +16,7 @@ import Footer from '../components/Footer';
 import TrustBadges from '../components/TrustBadges';
 import { useCurrency } from '../context/CurrencyContext';
 import { useCustomSafariModal } from '../context/CustomSafariModalContext';
+import { businessConfig } from '../data/businessConfig';
 
 const SafariCostEstimator: React.FC = () => {
   const { formatPrice, currency } = useCurrency();
@@ -69,7 +70,7 @@ const SafariCostEstimator: React.FC = () => {
 ----------------------------------------
 Hello Come Again Tours, I just calculated this safari estimate on your website and would like to confirm availability and discuss our custom itinerary!`;
 
-    const waUrl = `https://wa.me/256774243747?text=${encodeURIComponent(text)}`;
+    const waUrl = businessConfig.whatsapp.getLink(text);
     window.open(waUrl, '_blank');
   };
 

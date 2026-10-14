@@ -28,6 +28,7 @@ import {
   Coffee, 
   Award
 } from 'lucide-react';
+import { businessConfig } from '../data/businessConfig';
 
 // --- Destination Data ---
 export const DESTINATIONS = [
@@ -229,8 +230,8 @@ export const SafariPlannerWizard: React.FC<SafariPlannerWizardProps> = ({
 
   const handleWhatsAppSend = () => {
     const summary = formatSummaryMessage();
-    // Official WhatsApp line for Come Again Tours
-    const waUrl = `https://wa.me/256774243747?text=${encodeURIComponent(summary)}`;
+    // Official WhatsApp line for Come Again Tours (0786016031)
+    const waUrl = businessConfig.whatsapp.getLink(summary);
     window.open(waUrl, '_blank');
   };
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { siteData } from '../data/siteData';
+import { heroSlides, homeContent } from '../data/homeData';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   Sparkles, 
@@ -19,7 +19,7 @@ import { useCustomSafariModal } from '../context/CustomSafariModalContext';
 
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = siteData.heroSlides;
+  const slides = heroSlides;
   const { openModal } = useCustomSafariModal();
   const navigate = useNavigate();
 
@@ -50,32 +50,36 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-brand-dark flex flex-col justify-between pt-24 sm:pt-32 lg:pt-36 pb-8 sm:pb-12">
       
-      {/* 1. Cinematic Background Slides with Optimized Mobile Framing */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.4, ease: 'easeInOut' }}
-          className="absolute top-0 left-0 right-0 h-[68vh] min-h-[500px] max-h-[640px] lg:h-full lg:max-h-none lg:min-h-0 lg:bottom-0 z-0 overflow-hidden"
-        >
+      {/* 1. Cinematic Background Slides with Optimized Mobile Framing & Instant LCP */}
+      <div className="absolute top-0 left-0 right-0 h-[68vh] min-h-[500px] max-h-[640px] lg:h-full lg:max-h-none lg:min-h-0 lg:bottom-0 z-0 overflow-hidden">
+        <AnimatePresence mode="wait">
           <motion.div
-            initial={{ scale: 1.02 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 8, ease: 'easeOut' }}
-            className="absolute inset-0 bg-cover bg-[center_25%] sm:bg-center"
-            style={{ backgroundImage: `url(${slides[currentSlide].backgroundImage})` }}
+            key={currentSlide}
+            initial={currentSlide === 0 ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
+            className="absolute inset-0"
           >
+            <img
+              src={slides[currentSlide].backgroundImage}
+              alt="Come Again Tours - Uganda Safaris and Gorilla Trekking"
+              fetchPriority={currentSlide === 0 ? "high" : "low"}
+              loading={currentSlide === 0 ? "eager" : "lazy"}
+              decoding={currentSlide === 0 ? "sync" : "async"}
+              width="1920"
+              height="1080"
+              className="absolute inset-0 w-full h-full object-cover object-[center_25%] sm:object-center"
+            />
             {/* Multi-layered cinematic gradient for high text contrast & rich wildlife visibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-transparent sm:bg-gradient-to-r sm:from-black/90 sm:via-black/65 sm:to-black/35" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#060e09] via-[#060e09]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-transparent sm:bg-gradient-to-r sm:from-black/90 sm:via-black/65 sm:to-black/35 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060e09] via-[#060e09]/40 to-transparent pointer-events-none" />
             
             {/* Smooth transition into brand-dark on mobile before search console */}
-            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-brand-dark via-brand-dark/90 to-transparent lg:hidden" />
+            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-brand-dark via-brand-dark/90 to-transparent lg:hidden pointer-events-none" />
           </motion.div>
-        </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
+      </div>
 
       {/* 2. Main Hero Stage (2-Column Grid) */}
       <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 my-auto">
@@ -93,12 +97,12 @@ const Hero: React.FC = () => {
                 className="flex flex-col items-start w-full"
               >
                 {/* Tripadvisor Trust Badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="flex items-center gap-2.5 sm:gap-3 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/20 hover:bg-white/20 transition-all cursor-pointer mb-3 sm:mb-5 shadow-lg group"
-                  onClick={() => window.open(siteData.home.testimonials.tripadvisorUrl, '_blank')}
+                <a
+                  href={homeContent.testimonials.tripadvisorUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Come Again Tours 5.0 Star Rating on TripAdvisor (opens in new tab)"
+                  className="flex items-center gap-2.5 sm:gap-3 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/20 hover:bg-white/20 transition-all cursor-pointer mb-3 sm:mb-5 shadow-lg group no-underline"
                 >
                   <div className="flex items-center gap-1.5">
                     <span className="text-brand-green font-bold text-[11px] sm:text-xs tracking-tight">Excellent</span>
@@ -114,7 +118,7 @@ const Hero: React.FC = () => {
                   <span className="text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-wider group-hover:text-brand-green transition-colors">
                     Tripadvisor 5.0
                   </span>
-                </motion.div>
+                </a>
 
                 {/* Main Headline */}
                 <motion.h1
@@ -232,11 +236,12 @@ const Hero: React.FC = () => {
                       const isActive = currentSlide === slideIdx;
 
                       return (
-                        <div
+                        <button
+                          type="button"
                           key={slideIdx}
                           onClick={() => setCurrentSlide(slideIdx)}
-                          className="relative flex items-center cursor-pointer"
-                          aria-label={`Jump to slide ${slideIdx + 1}`}
+                          className="relative flex items-center cursor-pointer bg-transparent border-0 p-0 text-left focus:outline-none"
+                          aria-label={`Jump to safari highlight ${slideIdx + 1}: ${slide.subtitle || 'Uganda Safari'}`}
                         >
                           <div className={`relative w-[46px] h-[46px] flex items-center justify-center transition-all duration-300 ${
                             isActive ? 'scale-105 drop-shadow-[0_0_12px_rgba(106,180,62,0.5)]' : 'opacity-60 scale-90'
@@ -273,12 +278,14 @@ const Hero: React.FC = () => {
                             <div className="w-[34px] h-[34px] rounded-full overflow-hidden border-2 border-white/60 shadow-inner">
                               <img 
                                 src={slide.backgroundImage} 
-                                alt=""
+                                alt={`Thumbnail preview for safari slide ${slideIdx + 1}`}
+                                width="34"
+                                height="34"
                                 className="w-full h-full object-cover" 
                               />
                             </div>
                           </div>
-                        </div>
+                        </button>
                       );
                     })}
                   </div>
@@ -332,11 +339,12 @@ const Hero: React.FC = () => {
                 const isActive = currentSlide === slideIdx;
 
                 return (
-                  <div
+                  <button
+                    type="button"
                     key={slideIdx}
                     onClick={() => setCurrentSlide(slideIdx)}
-                    className="group relative flex items-center cursor-pointer"
-                    aria-label={`Jump to slide ${slideIdx + 1}`}
+                    className="group relative flex items-center cursor-pointer bg-transparent border-0 p-0 text-left focus:outline-none"
+                    aria-label={`Jump to safari highlight ${slideIdx + 1}: ${slide.subtitle || 'Uganda Safari'}`}
                   >
                     {/* Subtle Hover Tooltip (Floats to the left on hover) */}
                     <span className="absolute right-[calc(100%+14px)] opacity-0 group-hover:opacity-100 transition-all duration-300 bg-[#0c1810]/95 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold px-3 py-1.5 rounded-full whitespace-nowrap pointer-events-none shadow-xl transform translate-x-2 group-hover:translate-x-0">
@@ -385,12 +393,14 @@ const Hero: React.FC = () => {
                       <div className="w-[58px] h-[58px] rounded-full overflow-hidden border-2 border-white/50 shadow-inner group-hover:border-brand-green transition-colors">
                         <img 
                           src={slide.backgroundImage} 
-                          alt=""
+                          alt={`Thumbnail preview for safari slide ${slideIdx + 1}`}
+                          width="58"
+                          height="58"
                           className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-500" 
                         />
                       </div>
                     </div>
-                  </div>
+                  </button>
                 );
               })}
             </div>

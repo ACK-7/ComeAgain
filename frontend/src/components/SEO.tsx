@@ -18,7 +18,7 @@ const SEO: React.FC<SEOProps> = ({
   name = "Come Again Tours and Travels",
   type = "website",
   url = "https://comeagaintoursandtravels.com",
-  image = "/images/logo.png",
+  image = "/images/logo.webp",
   schema,
   canonical,
 }) => {
@@ -26,7 +26,7 @@ const SEO: React.FC<SEOProps> = ({
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "name": "Come Again Tours and Travels",
-    "image": "https://comeagaintoursandtravels.com/images/logo.png",
+    "image": "https://comeagaintoursandtravels.com/images/logo.webp",
     "url": "https://comeagaintoursandtravels.com",
     "telephone": "+256-774-243-747",
     "priceRange": "$$$",

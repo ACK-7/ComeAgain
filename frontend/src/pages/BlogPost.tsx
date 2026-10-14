@@ -99,7 +99,7 @@ const BlogPost: React.FC = () => {
       "name": "Come Again Tours and Travels",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://comeagaintoursandtravels.com/images/logo.png"
+        "url": "https://comeagaintoursandtravels.com/images/logo.webp"
       }
     },
     "mainEntityOfPage": {

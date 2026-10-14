@@ -95,7 +95,7 @@ const BwindiGorillaTrekking: React.FC = () => {
         <section className="relative min-h-[78vh] lg:min-h-[85vh] flex items-end overflow-hidden pb-16 pt-32">
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/gorilla1.jpeg"
+              src="/images/gorilla1.webp"
               alt="Mountain gorilla trekking in Bwindi Impenetrable National Park Uganda"
               className="w-full h-full object-cover"
             />
@@ -189,7 +189,7 @@ const BwindiGorillaTrekking: React.FC = () => {
             <div className="lg:col-span-5 space-y-6">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <img
-                  src="/images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg"
+                  src="/images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.webp"
                   alt="Mountain gorilla family close up encounter"
                   className="w-full h-80 object-cover"
                 />

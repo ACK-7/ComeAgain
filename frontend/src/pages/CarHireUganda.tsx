@@ -60,7 +60,7 @@ const CarHireUganda: React.FC = () => {
       luggage: 'Spacious Trunk + Roof Rack',
       features: 'Pop-up roof for 360° wildlife photography, on-board charging ports (USB/inverter), cooler box, high-clearance 4WD, dual spare tyres.',
       bestFor: 'Extended Uganda safaris, wildlife photographers, family groups & rough terrain.',
-      image: '/images/vehicle1.jpeg',
+      image: '/images/vehicle1.webp',
       rate: 'From $150 – $180 / day (Includes driver-guide)',
     },
     {
@@ -69,7 +69,7 @@ const CarHireUganda: React.FC = () => {
       luggage: 'Generous Luggage Space',
       features: 'Pop-up viewing roof, air conditioning, power steering, raised suspension for national park tracks, radio communication.',
       bestFor: 'Midrange wildlife tours, budget family travel & group airport transfers.',
-      image: '/images/vehicle2.jpeg',
+      image: '/images/vehicle2.webp',
       rate: 'From $90 – $110 / day (Includes driver-guide)',
     },
     {
@@ -78,7 +78,7 @@ const CarHireUganda: React.FC = () => {
       luggage: 'Standard Luggage',
       features: 'Full-time 4WD, comfortable leather interior, roof rack or optional rooftop tent, fuel-efficient diesel engine.',
       bestFor: 'Couples, corporate travel in Kampala, self-drive enthusiasts & business visitors.',
-      image: '/images/vehicle3.jpeg',
+      image: '/images/vehicle3.webp',
       rate: 'From $70 – $90 / day (Self-drive or with driver)',
     },
     {
@@ -87,7 +87,7 @@ const CarHireUganda: React.FC = () => {
       luggage: 'Compact Luggage',
       features: 'Full-time 4WD, automatic transmission, outstanding fuel economy, air conditioning.',
       bestFor: 'Budget couples, solo adventurers & city tours across Uganda.',
-      image: '/images/vehicle4.jpeg',
+      image: '/images/vehicle4.webp',
       rate: 'From $45 – $55 / day (Self-drive)',
     },
   ];
@@ -107,7 +107,7 @@ const CarHireUganda: React.FC = () => {
         <section className="relative min-h-[75vh] lg:min-h-[82vh] flex items-end overflow-hidden pb-16 pt-32">
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/vehicle1.jpeg"
+              src="/images/vehicle1.webp"
               alt="4x4 safari car hire in Uganda with professional driver"
               className="w-full h-full object-cover"
             />
@@ -196,7 +196,7 @@ const CarHireUganda: React.FC = () => {
             <div className="lg:col-span-5 space-y-6">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <img
-                  src="/images/vehicle2.jpeg"
+                  src="/images/vehicle2.webp"
                   alt="4x4 safari vehicle with pop up roof in Uganda"
                   className="w-full h-80 object-cover"
                 />

@@ -74,7 +74,7 @@ const KibaleChimpanzeeSafaris: React.FC = () => {
         <section className="relative min-h-[75vh] lg:min-h-[82vh] flex items-end overflow-hidden pb-16 pt-32">
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/chimp.jpeg"
+              src="/images/chimp.webp"
               alt="Kibale chimpanzee trekking safari in Uganda tropical rainforest"
               className="w-full h-full object-cover"
             />
@@ -164,7 +164,7 @@ const KibaleChimpanzeeSafaris: React.FC = () => {
             <div className="lg:col-span-5 space-y-6">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <img
-                  src="/images/pic5.jpg"
+                  src="/images/pic5.webp"
                   alt="Uganda rainforest primate trekking experience"
                   className="w-full h-80 object-cover"
                 />

@@ -5,8 +5,8 @@ import WhatsAppButton from './components/WhatsAppButton';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Analytics from './components/Analytics';
-import CustomSafariModal from './components/CustomSafariModal';
-import PackageBookingModal from './components/PackageBookingModal';
+const CustomSafariModal = lazy(() => import('./components/CustomSafariModal'));
+const PackageBookingModal = lazy(() => import('./components/PackageBookingModal'));
 import { CurrencyProvider } from './context/CurrencyContext';
 import { CustomSafariModalProvider } from './context/CustomSafariModalContext';
 
@@ -98,8 +98,10 @@ function App() {
           <BackToTop />
           <WhatsAppButton />
           <Navbar />
-          <CustomSafariModal />
-          <PackageBookingModal />
+          <Suspense fallback={null}>
+            <CustomSafariModal />
+            <PackageBookingModal />
+          </Suspense>
           <ContentWrapper />
         </Router>
       </CustomSafariModalProvider>

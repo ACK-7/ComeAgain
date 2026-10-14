@@ -74,7 +74,7 @@ const QueenElizabethSafaris: React.FC = () => {
         <section className="relative min-h-[75vh] lg:min-h-[82vh] flex items-end overflow-hidden pb-16 pt-32">
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/lions-tree.jpeg"
+              src="/images/lions-tree.webp"
               alt="Tree climbing lions Queen Elizabeth National Park Uganda"
               className="w-full h-full object-cover"
             />
@@ -164,7 +164,7 @@ const QueenElizabethSafaris: React.FC = () => {
             <div className="lg:col-span-5 space-y-6">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <img
-                  src="/images/image7.jpeg"
+                  src="/images/image7.webp"
                   alt="Wildlife safari in Queen Elizabeth National Park"
                   className="w-full h-80 object-cover"
                 />

@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useCustomSafariModal } from '../context/CustomSafariModalContext';
 import { useCurrency } from '../context/CurrencyContext';
+import { businessConfig } from '../data/businessConfig';
 
 const PackageBookingModal: React.FC = () => {
   const { isBookingOpen, bookingData, closeBookingModal } = useCustomSafariModal();
@@ -93,7 +94,7 @@ Hello Come Again Tours, I would like to confirm availability and lock in our res
   const handleWhatsAppBooking = () => {
     const ref = bookingRef || `CAT-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
     const text = formatWhatsAppMessage(ref);
-    const waUrl = `https://wa.me/256774243747?text=${encodeURIComponent(text)}`;
+    const waUrl = businessConfig.whatsapp.getLink(text);
     window.open(waUrl, '_blank');
   };
 

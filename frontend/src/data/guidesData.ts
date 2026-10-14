@@ -50,9 +50,9 @@ export const guidesData: GuideDetailData[] = [
     favoriteWildlife: ['Aardvark', 'Mongoose', 'Eland', 'Mountain Gorillas', 'Tree-Climbing Lions'],
     favoriteBirds: ['African Paradise Flycatcher', 'Northern Red Bishop', 'African Pied Wagtail', 'Shoebill Stork'],
     favoriteParks: ['Bwindi Impenetrable National Park', 'Kidepo Valley', 'Queen Elizabeth (Ishasha)'],
-    portraitImage: `${import.meta.env.BASE_URL}images/Issa.jpeg`,
-    fieldImage: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg`,
-    actionImage: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg`,
+    portraitImage: `${import.meta.env.BASE_URL}images/Issa.webp`,
+    fieldImage: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.webp`,
+    actionImage: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.webp`,
     imagePosition: 'center 35%',
     summary: 'With over 20 years of hands-on experience in the field, Ssesanga Issa is a master tracker, multilingual naturalist, and Come Again Tours’ Head Guide.',
     fullBio: [
@@ -85,13 +85,13 @@ export const guidesData: GuideDetailData[] = [
         title: '11 Days Classic Uganda Safari',
         slug: '11-days-classic-uganda-safari',
         duration: '11 Days',
-        image: `${import.meta.env.BASE_URL}images/gorilla1.jpeg`
+        image: `${import.meta.env.BASE_URL}images/gorilla1.webp`
       },
       {
         title: '3 Days Gorilla Trekking Express',
         slug: '3-days-fly-murchison-falls',
         duration: '3 Days',
-        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.jpeg`
+        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.webp`
       }
     ]
   },
@@ -106,7 +106,7 @@ export const guidesData: GuideDetailData[] = [
     favoriteWildlife: ['Leopards', 'Rothschild Giraffes', 'Elephants', 'Cape Buffalo'],
     favoriteBirds: ['Shoebill Stork', 'African Fish Eagle', 'Goliath Heron', 'Crested Crane'],
     favoriteParks: ['Murchison Falls National Park', 'Kidepo Valley', 'Lake Mburo'],
-    portraitImage: `${import.meta.env.BASE_URL}images/Ramathan.jpeg`,
+    portraitImage: `${import.meta.env.BASE_URL}images/Ramathan.webp`,
     fieldImage: `${import.meta.env.BASE_URL}images/murhison-drone.webp`,
     actionImage: `${import.meta.env.BASE_URL}images/murhison-drone.webp`,
     imagePosition: 'center 38%',
@@ -131,7 +131,7 @@ export const guidesData: GuideDetailData[] = [
         title: '7 Days Fly The Pearl of Africa',
         slug: '7-days-fly-pearl-of-africa',
         duration: '7 Days',
-        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.05.20.jpeg`
+        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.05.20.webp`
       }
     ]
   },
@@ -146,9 +146,9 @@ export const guidesData: GuideDetailData[] = [
     favoriteWildlife: ['Mountain Gorillas', 'Tree-Climbing Lions', 'African Elephants', 'Chimpanzees'],
     favoriteBirds: ['Great Blue Turaco', 'Crested Crane', 'African Fish Eagle'],
     favoriteParks: ['Murchison Falls National Park', 'Queen Elizabeth National Park', 'Bwindi Impenetrable', 'Volcanoes National Park (Rwanda)', 'Akagera National Park (Rwanda)'],
-    portraitImage: `${import.meta.env.BASE_URL}images/kikonyogo.jpeg`,
-    fieldImage: `${import.meta.env.BASE_URL}images/adventure11.jpg`,
-    actionImage: `${import.meta.env.BASE_URL}images/adventure11.jpg`,
+    portraitImage: `${import.meta.env.BASE_URL}images/kikonyogo.webp`,
+    fieldImage: `${import.meta.env.BASE_URL}images/adventure11.webp`,
+    actionImage: `${import.meta.env.BASE_URL}images/adventure11.webp`,
     imagePosition: 'center 35%',
     summary: 'A dedicated Ugandan certified professional driver-guide from Kakiri, Wakiso District with active operational knowledge of game parks across Uganda and Rwanda.',
     fullBio: [
@@ -171,7 +171,7 @@ export const guidesData: GuideDetailData[] = [
         title: '11 Days Classic Uganda Safari',
         slug: '11-days-classic-uganda-safari',
         duration: '11 Days',
-        image: `${import.meta.env.BASE_URL}images/pic5.jpg`
+        image: `${import.meta.env.BASE_URL}images/pic5.webp`
       }
     ]
   }

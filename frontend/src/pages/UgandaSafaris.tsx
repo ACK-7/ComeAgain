@@ -57,42 +57,42 @@ const UgandaSafaris: React.FC = () => {
     {
       title: 'Bwindi Gorilla Trekking',
       slug: '/bwindi-gorilla-trekking',
-      image: '/images/gorilla1.jpeg',
+      image: '/images/gorilla1.webp',
       description: 'Face-to-face encounters with endangered mountain gorillas in the ancient misty rainforests of Bwindi Impenetrable National Park.',
       badge: 'Most Popular',
     },
     {
       title: 'Queen Elizabeth Wildlife Safaris',
       slug: '/queen-elizabeth-national-park-safaris',
-      image: '/images/lions-tree.jpeg',
+      image: '/images/lions-tree.webp',
       description: 'Famous tree-climbing lions in Ishasha, hippos and elephants along the Kazinga Channel boat safari, and vast savannah plains.',
       badge: 'Savanna & Cruise',
     },
     {
       title: 'Murchison Falls Expeditions',
       slug: '/murchison-falls-safaris',
-      image: '/images/elephant.jpeg',
+      image: '/images/elephant.webp',
       description: 'Witness the world’s most powerful surge of water through a 7-meter gorge, accompanied by Big Four game drives and Victoria Nile cruises.',
       badge: 'Mighty Nile',
     },
     {
       title: 'Kibale Chimpanzee Tracking',
       slug: '/kibale-chimpanzee-safaris',
-      image: '/images/chimp.jpeg',
+      image: '/images/chimp.webp',
       description: 'Trek through the Primate Capital of the World housing 13 primate species and the largest population of habituated chimpanzees.',
       badge: 'Primate Capital',
     },
     {
       title: 'Savannah Wildlife Safaris',
       slug: '/uganda-wildlife-safaris',
-      image: '/images/scene.jpeg',
+      image: '/images/scene.webp',
       description: 'Classic African game drives across Kidepo Valley, Lake Mburo, and Semuliki for zebras, giraffes, leopards, and rare bird species.',
       badge: 'Big Five & Birds',
     },
     {
       title: '4x4 Car Hire & Professional Drivers',
       slug: '/car-hire-uganda',
-      image: '/images/vehicle1.jpeg',
+      image: '/images/vehicle1.webp',
       description: 'Custom safari Land Cruisers and vans equipped with pop-up roofs, driven by licensed Uganda naturalist driver-guides.',
       badge: 'Transport & Guides',
     },
@@ -113,7 +113,7 @@ const UgandaSafaris: React.FC = () => {
         <section className="relative min-h-[75vh] lg:min-h-[82vh] flex items-end overflow-hidden pb-16 pt-32">
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/scene.jpeg"
+              src="/images/scene.webp"
               alt="Uganda Safaris and Wildlife Tours"
               className="w-full h-full object-cover"
             />
@@ -202,7 +202,7 @@ const UgandaSafaris: React.FC = () => {
             <div className="lg:col-span-5 relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                 <img
-                  src="/images/lions-tree.jpeg"
+                  src="/images/lions-tree.webp"
                   alt="Uganda safari wildlife tree climbing lions"
                   className="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-700"
                 />

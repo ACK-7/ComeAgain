@@ -1,5 +1,5 @@
 export const siteData = {
-  logo: `${import.meta.env.BASE_URL}images/logo.png`,
+  logo: `${import.meta.env.BASE_URL}images/logo.webp`,
   regulatoryPartners: {
     heading: 'We Are Proud To Be Associated With',
     note: 'Come Again Tours & Travels operates in line with Uganda Tourism Board guidelines, Uganda Wildlife Authority park regulations, and as a member of the Uganda Tourism Operators association.',
@@ -8,21 +8,21 @@ export const siteData = {
         id: 'utb',
         name: 'Uganda Tourism Board',
         shortName: 'Uganda Tourism Board',
-        logo: `${import.meta.env.BASE_URL}images/UTB.png`,
+        logo: `${import.meta.env.BASE_URL}images/UTB.webp`,
         url: 'https://www.visituganda.com/',
       },
       {
         id: 'uwa',
         name: 'Uganda Wildlife Authority',
         shortName: 'Uganda Wildlife Authority',
-        logo: `${import.meta.env.BASE_URL}images/uwa.png`,
+        logo: `${import.meta.env.BASE_URL}images/uwa.webp`,
         url: 'https://www.ugandawildlife.org/',
       },
       {
         id: 'uto',
         name: 'Uganda Tourism Operators',
         shortName: 'Uganda Tourism Operators',
-        logo: `${import.meta.env.BASE_URL}images/UTO.png`,
+        logo: `${import.meta.env.BASE_URL}images/UTO.webp`,
         url: 'https://www.ugandatourismoperators.org/',
       },
     ],
@@ -51,17 +51,17 @@ export const siteData = {
     {
       title: 'Discover Uganda <span style="color:#6ab43e">& East Africa</span><br/>Safaris',
       subtitle: "Bespoke Gorilla Trekking, Wildlife Expeditions & 4x4 Car Hire with Come Again Tours",
-      backgroundImage: `${import.meta.env.BASE_URL}images/gorilla1.jpeg`
+      backgroundImage: `${import.meta.env.BASE_URL}images/gorilla1.webp`
     },
     {
       title: 'Experience <span style="color:#6ab43e">Majestic</span><br/>Encounters',
       subtitle: 'Connecting You to the Heart of Africa',
-      backgroundImage: `${import.meta.env.BASE_URL}images/hero1.jpg`
+      backgroundImage: `${import.meta.env.BASE_URL}images/hero1.webp`
     },
     {
       title: 'Discover The <span style="color:#6ab43e">Wild</span><br/>Spirit',
       subtitle: 'Unforgettable Journeys in the Pearl of Africa',
-      backgroundImage: `${import.meta.env.BASE_URL}images/scene.jpeg`
+      backgroundImage: `${import.meta.env.BASE_URL}images/scene.webp`
     }
   ],
   home: {
@@ -73,7 +73,7 @@ export const siteData = {
       heading: 'Discover The World With Us',
       subheading: 'ABOUT US',
       description: 'Come Again Tours and Travels is a tour and travel company based in Uganda. We offer a wide range of services including tour packages, car hire, hotel bookings, and airport transfers. We are dedicated to providing our clients with the best travel experiences in Uganda and beyond.',
-      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-20-at-20.30.59.jpeg`
+      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-20-at-20.30.59.webp`
     },
     services: {
       header: 'Our Services',
@@ -82,38 +82,38 @@ export const siteData = {
         {
           title: 'Gorilla Trekking Safaris',
           description: 'Uganda is home to the rare and endangered mountain gorillas found in Bwindi Impenetrable National Park and Mgahinga Gorilla National Park. Come Again Tours and Travels organizes well-planned gorilla trekking packages.',
-          image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.jpeg`
+          image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.webp`
         },
         {
           title: 'Wildlife Safaris',
           description: 'We offer classic wildlife safaris to Uganda\'s most famous national parks including:',
           bullets: ['Queen Elizabeth National Park', 'Murchison Falls National Park', 'Kidepo Valley National Park'],
-          image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.05.20.jpeg`
+          image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.05.20.webp`
         },
         {
           title: 'Chimpanzee Tracking and Primate Safaris',
           description: 'Uganda is known as the primate capital of the world. We provide thrilling chimpanzee tracking experiences in:',
           bullets: ['Kibale Forest National Park'],
-          image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.jpeg`
+          image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.webp`
         },
         {
           title: 'Airport Pickups and Transportation Services',
           description: 'We provide reliable transport services with professional drivers and well-maintained vehicles. Our transport services include:',
           bullets: ['Airport transfers (Entebbe International Airport)'],
-          image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg`
+          image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.webp`
         },
         {
           title: 'Adventure and Leisure Travel',
           description: 'For thrill seekers and fun lovers, we offer adventure packages including:',
           bullets: ['White water rafting in Jinja', 'Bungee jumping and zip-lining'],
-          image: `${import.meta.env.BASE_URL}images/adventure11.jpg`
+          image: `${import.meta.env.BASE_URL}images/adventure11.webp`
         }
       ]
     },
     whyChooseUs: {
       heading: 'Choosing Come Again Tours and Travels means choosing quality, reliability, and a unique experience. We stand out because',
       subheading: 'Why Choose Come Again Tours and travels?',
-      image: `${import.meta.env.BASE_URL}images/lions-tree.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/lions-tree.webp`,
       featuresColumn1: [
         'We offer personalized safari packages tailored to your needs',
         'We have experienced guides and professional drivers',
@@ -156,7 +156,7 @@ export const siteData = {
       heading: 'Taking you anywhere you can imagine.',
       description: 'Come Again Tours and Travels proudly offers tours across Uganda and selected destinations in East Africa, including: Uganda Rwanda Kenya Tanzania Burundi and others',
       phone: '+256-774-243-747',
-      backgroundImage: `${import.meta.env.BASE_URL}images/hills.jpeg`
+      backgroundImage: `${import.meta.env.BASE_URL}images/hills.webp`
     },
     footer: {
       // backgroundImage: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-25-at-18.19.43-1.jpeg`,
@@ -180,88 +180,88 @@ export const siteData = {
   destinationPage: {
     hero: {
       title: 'Our Destinations',
-      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg`
+      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.webp`
     },
     destinations: [
       {
         name: 'MURCHISON FALL NATIONAL PARK',
         description: 'Expect powerful waterfalls where the Nile squeezes through a narrow gorge, exciting game drives with elephants, giraffes, lions and buffaloes, and a scenic boat cruise to the base of the falls filled with hippos and crocodiles.',
-        image: `${import.meta.env.BASE_URL}images/Murchison.jpeg`
+        image: `${import.meta.env.BASE_URL}images/Murchison.webp`
       },
       {
         name: 'QUEEN ELIZABETH NATIONAL PARK',
         description: 'Expect diverse wildlife, the famous tree-climbing lions of Ishasha, boat cruises along the Kazinga Channel, crater lakes, and beautiful savannah landscapes rich in elephants, antelopes and birdlife.',
-        image: `${import.meta.env.BASE_URL}images/tree-lion.jpeg`
+        image: `${import.meta.env.BASE_URL}images/tree-lion.webp`
       },
       {
         name: 'KIBALE FOREST NATIONAL PARK',
         description: 'Known as the primate capital of the world. Expect chimpanzee tracking, forest walks, monkeys, birds, and the beautiful Bigodi Wetland Sanctuary experience.',
-        image: `${import.meta.env.BASE_URL}images/monkey.jpeg`
+        image: `${import.meta.env.BASE_URL}images/monkey.webp`
       },
       {
         name: 'BWINDI IMPENETRABLE FOREST NATIONAL PARK',
         description: 'A UNESCO World Heritage Site famous for mountain gorilla trekking. Expect dense rainforest, breathtaking hills, rare bird species, and unforgettable close encounters with gorillas.',
-        image: `${import.meta.env.BASE_URL}images/Gorillaa.jpeg`
+        image: `${import.meta.env.BASE_URL}images/Gorillaa.webp`
       },
       {
         name: 'KIDEPO VALLEY NATIONAL PARK',
         description: 'Uganda’s most remote and wild park. Expect untouched wilderness, large herds of buffaloes, lions, cheetahs, ostriches, and cultural encounters with the Karamojong people.',
-        image: `${import.meta.env.BASE_URL}images/buffaloes.jpeg`
+        image: `${import.meta.env.BASE_URL}images/buffaloes.webp`
       },
       {
         name: 'TORO SEMULIKI GAME RESERVE',
         description: 'Expect hot springs, tropical lowland forest, unique bird species, and wildlife such as elephants and antelopes in a less crowded, peaceful setting.',
-        image: `${import.meta.env.BASE_URL}images/antelope.jpeg`
+        image: `${import.meta.env.BASE_URL}images/antelope.webp`
       },
       {
         name: 'SEMPAYA HOT SPRINGS',
         description: 'Expect boiling hot natural springs, scenic forest surroundings, and the unique experience of seeing water bubble from deep underground.',
-        image: `${import.meta.env.BASE_URL}images/Sempaya.jpeg`
+        image: `${import.meta.env.BASE_URL}images/Sempaya.webp`
       },
       {
         name: 'JINJA WHITE NILE WATER RAFTING',
         description: 'Expect thrilling white-water rafting adventures, boat cruises to the Source of the Nile, bungee jumping, quad biking, and beautiful river views.',
-        image: `${import.meta.env.BASE_URL}images/Nile.jpg`
+        image: `${import.meta.env.BASE_URL}images/Nile.webp`
       },
       {
         name: 'SIPI FALLS AND COFFEE TOURS',
         description: 'Expect stunning waterfalls, hiking trails with panoramic views of Mount Elgon, and authentic Arabica coffee tours with local farmers.',
-        image: `${import.meta.env.BASE_URL}images/sipifalls.jpg`
+        image: `${import.meta.env.BASE_URL}images/sipifalls.webp`
       },
       {
         name: 'LAKE MBURO NATIONAL PARK',
         description: 'Expect zebras, impalas, giraffes, horseback safaris, cycling tours, boat rides, and a relaxed, scenic savannah experience.',
-        image: `${import.meta.env.BASE_URL}images/girrafe.jpeg`
+        image: `${import.meta.env.BASE_URL}images/girrafe.webp`
       },
       {
         name: 'KATONGA GAME RESERVE',
         description: 'Expect a quiet nature experience with hippopotamus, antelopes, wetland birdlife, and guided walking safaris in a peaceful environment.',
-        image: `${import.meta.env.BASE_URL}images/image9.jpeg`
+        image: `${import.meta.env.BASE_URL}images/image9.webp`
       },
       {
         name: 'PADIDI BUDONGO CHIMP TRACKING',
         description: 'Expect guided chimp tracking, mahogany forest walks, birdwatching, and close encounters with playful chimpanzees.',
-        image: `${import.meta.env.BASE_URL}images/chimp.jpeg`
+        image: `${import.meta.env.BASE_URL}images/chimp.webp`
       },
       {
         name: 'BUGOMA FOREST CHIMP TRACKING',
         description: 'Expect chimp tracking adventures, scenic forest trails, and birdlife in one of Uganda’s emerging eco-tourism forests.',
-        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.jpeg`
+        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.webp`
       },
       {
         name: 'PIAN UPE GAME RESERVE',
         description: 'Expect open plains, ostriches, cheetahs, antelopes, and breathtaking semi-arid landscapes ideal for photography.',
-        image: `${import.meta.env.BASE_URL}images/leopard-footer.jpeg`
+        image: `${import.meta.env.BASE_URL}images/leopard-footer.webp`
       },
       {
         name: 'BUKORA GAME RESERVE',
         description: 'Expect wildlife such as birds, antelopes, zebras, and opportunities to experience authentic Karamoja culture.',
-        image: `${import.meta.env.BASE_URL}images/bird.jpeg`
+        image: `${import.meta.env.BASE_URL}images/bird.webp`
       },
       {
         name: 'Rwenzori Tracking',
         description: 'Expect snow-capped peaks, glacier views, alpine vegetation, waterfalls, and challenging but rewarding mountain trekking.',
-        image: `${import.meta.env.BASE_URL}images/Rwenzori.jpg`
+        image: `${import.meta.env.BASE_URL}images/Rwenzori.webp`
       },
       {
         name: 'Elgon Tracking',
@@ -271,62 +271,62 @@ export const siteData = {
       {
         name: 'Matheniko Game Reserve',
         description: 'Expect dry savannah wildlife, buffaloes, unique bird species, and cultural experiences with the Karamojong communities.',
-        image: `${import.meta.env.BASE_URL}images/buffaloes.jpeg`
+        image: `${import.meta.env.BASE_URL}images/buffaloes.webp`
       },
       {
         name: 'AJAI GAME RESERVE',
         description: 'Expect rhinos (in nearby conservation areas), antelopes, and scenic river landscapes near the Nile region.',
-        image: `${import.meta.env.BASE_URL}images/rhino.jpeg`
+        image: `${import.meta.env.BASE_URL}images/rhino.webp`
       },
       {
         name: 'KYAMBURA GAME RESERVE',
         description: 'Expect chimpanzee tracking in a dramatic underground forest gorge within Queen Elizabeth National Park.',
-        image: `${import.meta.env.BASE_URL}images/chimpazee.jpeg`
+        image: `${import.meta.env.BASE_URL}images/chimpazee.webp`
       },
       {
         name: 'KALINZU FOREST CHIMP TRACKING',
         description: 'Expect chimpanzee tracking, birdwatching, and peaceful forest walks near Queen Elizabeth National Park.',
-        image: `${import.meta.env.BASE_URL}images/Baboon.jpeg`
+        image: `${import.meta.env.BASE_URL}images/Baboon.webp`
       },
       {
         name: 'Mugahinga National Park',
         description: 'Expect mountain gorillas, golden monkey tracking, volcanic scenery, and stunning views of the Virunga Mountains.',
-        image: `${import.meta.env.BASE_URL}images/golden monkey.jpg`
+        image: `${import.meta.env.BASE_URL}images/golden monkey.webp`
       },
       {
         name: 'Volcano National Park',
         description: 'Expect gorilla trekking, golden monkey tracking, and scenic volcanic mountain views in Rwanda’s premier conservation park.',
-        image: `${import.meta.env.BASE_URL}images/gorilla-volcano.jpg`
+        image: `${import.meta.env.BASE_URL}images/gorilla-volcano.webp`
       },
       {
         name: 'Nyungwe Forest National Park',
         description: 'Expect chimpanzee tracking, canopy walks high above the forest, waterfalls, and rich biodiversity.',
-        image: `${import.meta.env.BASE_URL}images/nyungwe.jpeg`
+        image: `${import.meta.env.BASE_URL}images/nyungwe.webp`
       },
       {
         name: 'Akagera National Park',
         description: 'Expect classic savannah safaris with lions, elephants, giraffes, zebras, and boat cruises on Lake Ihema.',
-        image: `${import.meta.env.BASE_URL}images/elephant-akagera.jpeg`
+        image: `${import.meta.env.BASE_URL}images/elephant-akagera.webp`
       },
       {
         name: 'Kampala City Tour',
         description: 'Expect visits to cultural landmarks, markets, mosques, temples, Kabaka’s Palace, museums, and vibrant city life.',
-        image: `${import.meta.env.BASE_URL}images/Kampala.jpg`
+        image: `${import.meta.env.BASE_URL}images/Kampala.webp`
       },
       {
         name: 'Kigali City Tour',
         description: 'Expect a clean, modern African city experience with cultural sites, art centers, local markets, and the Kigali Genocide Memorial.',
-        image: `${import.meta.env.BASE_URL}images/kigali.jpg`
+        image: `${import.meta.env.BASE_URL}images/kigali.webp`
       },
       {
         name: 'Kasubi Tombs',
         description: 'Expect a UNESCO cultural heritage site and royal burial grounds of Buganda kings, rich in tradition and history.',
-        image: `${import.meta.env.BASE_URL}images/kasubi.jpeg`
+        image: `${import.meta.env.BASE_URL}images/kasubi.webp`
       },
       {
         name: 'Mt Moroto Tracking',
         description: 'Expect rugged mountain hikes, scenic Karamoja landscapes, and authentic cultural interactions.',
-        image: `${import.meta.env.BASE_URL}images/Moroto.jpg`
+        image: `${import.meta.env.BASE_URL}images/Moroto.webp`
       },
       {
         name: 'Kasenda Craters',
@@ -336,7 +336,7 @@ export const siteData = {
       {
         name: 'Kings Palaces',
         description: 'Expect royal heritage tours, traditional architecture, and insights into Uganda’s kingdoms and cultural leadership systems.',
-        image: `${import.meta.env.BASE_URL}images/palace.jpg`
+        image: `${import.meta.env.BASE_URL}images/palace.webp`
       },
       {
         name: 'Tea Farm Tours',
@@ -346,7 +346,7 @@ export const siteData = {
       {
         name: 'Batwa and Community Tour',
         description: 'Expect cultural storytelling, traditional dances, forest survival skills demonstrations, and authentic interaction with indigenous communities.',
-        image: `${import.meta.env.BASE_URL}images/batwa.jpg`
+        image: `${import.meta.env.BASE_URL}images/batwa.webp`
       }
     ]
   },
@@ -354,7 +354,7 @@ export const siteData = {
     hero: {
       title: 'Our Packages',
       description: 'Explore our carefully designed safari packages tailored to your needs. From gorilla trekking to full Uganda tours, we have the perfect adventure for every traveler.',
-      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg`
+      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.webp`
     },
     sections: [
       {
@@ -369,7 +369,7 @@ export const siteData = {
             durationDays: 3,
             wildlife: ['Lion', 'Elephant', 'Giraffe', 'Hippo', 'Crocodile'],
             highlights: ['Game drives (lions, elephants, giraffes)', 'Boat cruise to the base of the falls', 'Top of the falls hike', 'Optional rhino tracking at Ziwa'],
-            image: `${import.meta.env.BASE_URL}images/Murchison.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/Murchison.webp`,
             details: {
               duration: '3 Days',
               location: 'Murchison Falls National Park',
@@ -382,10 +382,10 @@ export const siteData = {
                 { name: 'Northern Sector (Lodge)', lat: 2.2921, lng: 31.5451, description: 'Day 1 & 2 Stay' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/Murchison.jpeg`,
-                `${import.meta.env.BASE_URL}images/pic11.jpg`,
-                `${import.meta.env.BASE_URL}images/pic1.jpg`,
-                `${import.meta.env.BASE_URL}images/pic8.jpg`
+                `${import.meta.env.BASE_URL}images/Murchison.webp`,
+                `${import.meta.env.BASE_URL}images/pic11.webp`,
+                `${import.meta.env.BASE_URL}images/pic1.webp`,
+                `${import.meta.env.BASE_URL}images/pic8.webp`
               ],
               itinerary: [
                 {
@@ -462,9 +462,9 @@ export const siteData = {
               ],
               gallery: [
                 `${import.meta.env.BASE_URL}images/murhison-drone.webp`,
-                `${import.meta.env.BASE_URL}images/pic1.jpg`,
-                `${import.meta.env.BASE_URL}images/pic11.jpg`,
-                `${import.meta.env.BASE_URL}images/pic8.jpg`
+                `${import.meta.env.BASE_URL}images/pic1.webp`,
+                `${import.meta.env.BASE_URL}images/pic11.webp`,
+                `${import.meta.env.BASE_URL}images/pic8.webp`
               ],
               itinerary: [
                 {
@@ -524,7 +524,7 @@ export const siteData = {
             durationDays: 3,
             wildlife: ['Lion', 'Elephant', 'Hippo', 'Crocodile', 'Buffalo'],
             highlights: ['Tree-climbing lions (Ishasha sector)', 'Kazinga Channel boat cruise', 'Volcanic Crater Lakes', 'Savannah mammal tracking'],
-            image: `${import.meta.env.BASE_URL}images/Elizabeth.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/Elizabeth.webp`,
             details: {
               duration: '3 Days',
               location: 'Queen Elizabeth National Park',
@@ -540,10 +540,10 @@ export const siteData = {
                 { name: 'Twin Lakes (Rubirizi)', lat: -0.2312, lng: 30.1111, description: 'Scenic Crater Lakes' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/Elizabeth.jpeg`,
-                `${import.meta.env.BASE_URL}images/pic14.jpg`,
-                `${import.meta.env.BASE_URL}images/pic21.jpg`,
-                `${import.meta.env.BASE_URL}images/pic9.jpg`
+                `${import.meta.env.BASE_URL}images/Elizabeth.webp`,
+                `${import.meta.env.BASE_URL}images/pic14.webp`,
+                `${import.meta.env.BASE_URL}images/pic21.webp`,
+                `${import.meta.env.BASE_URL}images/pic9.webp`
               ],
               itinerary: [
                 {
@@ -604,7 +604,7 @@ export const siteData = {
             durationDays: 3,
             wildlife: ['Gorilla', 'Monkey', 'Bird'],
             highlights: ['Gorilla trekking experience', 'Batwa cultural visit', 'Scenic mountain landscapes'],
-            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.webp`,
             details: {
               duration: '3 Days',
               location: 'Bwindi Impenetrable Forest National Park',
@@ -618,10 +618,10 @@ export const siteData = {
                 { name: 'Bwindi (Rushaga)', lat: -1.0475, lng: 29.7022, description: 'Gorilla Trekking' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.jpeg`,
-                `${import.meta.env.BASE_URL}images/pic5.jpg`,
-                `${import.meta.env.BASE_URL}images/batwa.jpg`,
-                `${import.meta.env.BASE_URL}images/pic4.jpg`
+                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.webp`,
+                `${import.meta.env.BASE_URL}images/pic5.webp`,
+                `${import.meta.env.BASE_URL}images/batwa.webp`,
+                `${import.meta.env.BASE_URL}images/pic4.webp`
               ],
               itinerary: [
                 {
@@ -680,7 +680,7 @@ export const siteData = {
             durationDays: 3,
             wildlife: ['Chimpanzee', 'Monkey', 'Bird'],
             highlights: ['Chimpanzee Tracking (1,500+ population)', 'Bigodi Wetland Sanctuary Walk', 'Amabere Caves & Crater Lakes', '12 Primate Species'],
-            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.webp`,
             details: {
               duration: '3 Days',
               location: 'Kibale Forest & Fort Portal',
@@ -694,9 +694,9 @@ export const siteData = {
                 { name: 'Bigodi Wetland', lat: 0.3800, lng: 30.4100, description: 'Birding & Nature Walk' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/pic3.jpg`,
-                `${import.meta.env.BASE_URL}images/pic20.jpg`,
-                `${import.meta.env.BASE_URL}images/pic22.jpg`,
+                `${import.meta.env.BASE_URL}images/pic3.webp`,
+                `${import.meta.env.BASE_URL}images/pic20.webp`,
+                `${import.meta.env.BASE_URL}images/pic22.webp`,
                 `${import.meta.env.BASE_URL}images/tea.webp`
               ],
               itinerary: [
@@ -759,7 +759,7 @@ export const siteData = {
             durationDays: 5,
             wildlife: ['Gorilla', 'Lion', 'Elephant', 'Hippo'],
             highlights: ['Mountain Gorilla Trekking (Bwindi)', 'Kazinga Channel Boat Cruise', 'Ishasha Tree-Climbing Lions', 'Kyambura Gorge Chimpanzee Tracking'],
-            image: `${import.meta.env.BASE_URL}images/goril.jpg`,
+            image: `${import.meta.env.BASE_URL}images/goril.webp`,
             details: {
               duration: '5 Days',
               location: 'Southwestern Uganda',
@@ -774,10 +774,10 @@ export const siteData = {
                 { name: 'Buhoma (Bwindi)', lat: -0.9900, lng: 29.6100, description: 'Gorilla Trekking Base' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.jpeg`,
-                `${import.meta.env.BASE_URL}images/Elizabeth.jpeg`,
-                `${import.meta.env.BASE_URL}images/lions-tree.jpeg`,
-                `${import.meta.env.BASE_URL}images/image3.jpeg`
+                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.webp`,
+                `${import.meta.env.BASE_URL}images/Elizabeth.webp`,
+                `${import.meta.env.BASE_URL}images/lions-tree.webp`,
+                `${import.meta.env.BASE_URL}images/image3.webp`
               ],
               itinerary: [
                 {
@@ -876,9 +876,9 @@ export const siteData = {
               ],
               gallery: [
                 `${import.meta.env.BASE_URL}images/murchison1.webp`,
-                `${import.meta.env.BASE_URL}images/pic1.jpg`,
-                `${import.meta.env.BASE_URL}images/pic11.jpg`,
-                `${import.meta.env.BASE_URL}images/pic3.jpg`
+                `${import.meta.env.BASE_URL}images/pic1.webp`,
+                `${import.meta.env.BASE_URL}images/pic11.webp`,
+                `${import.meta.env.BASE_URL}images/pic3.webp`
               ],
               itinerary: [
                 {
@@ -962,7 +962,7 @@ export const siteData = {
             durationDays: 7,
             wildlife: ['Gorilla', 'Chimpanzee', 'Lion', 'Elephant', 'Hippo'],
             highlights: ['On-foot Rhino Tracking', 'Murchison Falls (World\'s Most Powerful)', 'Chimpanzee Trekking (Kibale)', 'Tree-climbing Lions (Ishasha)', 'Mountain Gorilla Trekking (Bwindi)', 'Lake Bunyonyi Relaxation'],
-            image: `${import.meta.env.BASE_URL}images/pearl.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/pearl.webp`,
             details: {
               duration: '7 Days',
               location: 'Uganda Safari Circuit',
@@ -979,12 +979,12 @@ export const siteData = {
                 { name: 'Lake Bunyonyi', lat: -1.2833, lng: 29.9167, description: 'Switzerland of Africa' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/pic11.jpg`,
-                `${import.meta.env.BASE_URL}images/pic1.jpg`,
-                `${import.meta.env.BASE_URL}images/pic3.jpg`,
-                `${import.meta.env.BASE_URL}images/pic14.jpg`,
-                `${import.meta.env.BASE_URL}images/pic5.jpg`,
-                `${import.meta.env.BASE_URL}images/pic21.jpg`
+                `${import.meta.env.BASE_URL}images/pic11.webp`,
+                `${import.meta.env.BASE_URL}images/pic1.webp`,
+                `${import.meta.env.BASE_URL}images/pic3.webp`,
+                `${import.meta.env.BASE_URL}images/pic14.webp`,
+                `${import.meta.env.BASE_URL}images/pic5.webp`,
+                `${import.meta.env.BASE_URL}images/pic21.webp`
               ],
               itinerary: [
                 {
@@ -1099,7 +1099,7 @@ export const siteData = {
             durationDays: 12,
             wildlife: ['Gorilla', 'Chimpanzee', 'Lion', 'Elephant', 'Rhino', 'Leopard'],
             highlights: ['Every Major National Park', 'Every Major Primate', 'Source of the Nile', 'Three Chimp Trekking Sites', 'Mountain Gorilla Trekking', 'Golden Monkey Tracking'],
-            image: `${import.meta.env.BASE_URL}images/adventure.jpg`,
+            image: `${import.meta.env.BASE_URL}images/adventure.webp`,
             details: {
               duration: '12 Days',
               location: 'Uganda Full Circuit',
@@ -1120,21 +1120,21 @@ export const siteData = {
                 { name: 'Lake Bunyonyi', lat: -1.2833, lng: 29.9167, description: 'Relaxation' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/rhino.jpeg`,
-                `${import.meta.env.BASE_URL}images/waterfalls.jpg`,
-                `${import.meta.env.BASE_URL}images/rafting.jpg`,
-                `${import.meta.env.BASE_URL}images/chimp.jpeg`,
-                `${import.meta.env.BASE_URL}images/lions-tree.jpeg`,
-                `${import.meta.env.BASE_URL}images/ug-gorilla.jpg`,
-                `${import.meta.env.BASE_URL}images/golden monkey.jpg`,
+                `${import.meta.env.BASE_URL}images/rhino.webp`,
+                `${import.meta.env.BASE_URL}images/waterfalls.webp`,
+                `${import.meta.env.BASE_URL}images/rafting.webp`,
+                `${import.meta.env.BASE_URL}images/chimp.webp`,
+                `${import.meta.env.BASE_URL}images/lions-tree.webp`,
+                `${import.meta.env.BASE_URL}images/ug-gorilla.webp`,
+                `${import.meta.env.BASE_URL}images/golden monkey.webp`,
                 `${import.meta.env.BASE_URL}images/Mburo.webp`,
-                `${import.meta.env.BASE_URL}images/bunyonyi.jpg`
+                `${import.meta.env.BASE_URL}images/bunyonyi.webp`
               ],
               itinerary: [
                 {
                   day: 1,
                   title: 'ENTEBBE/KAMPALA – ZIWA RHINO SAN – MURCHISON FALLS',
-                  image: `${import.meta.env.BASE_URL}images/rhino.jpeg`,
+                  image: `${import.meta.env.BASE_URL}images/rhino.webp`,
                   description: "Depart Entebbe or Kampala northward for Murchison Falls National Park. En route, stop at Ziwa Rhino Sanctuary — the only place in Uganda to track wild Southern White Rhinos on foot. Walk with armed UWA rangers through open savannah to observe rhinos at close range. Continue to Masindi for lunch and proceed to Murchison Falls National Park. Stop at the top of the falls — the world's most powerful waterfall, where the entire volume of the Nile forces through an 8-metre rock cleft. Transfer to your lodge for dinner.",
                   meals: 'Lunch, Dinner',
                   stay: 'Paraa Safari Lodge / Nile Safari Lodge (Luxury) / Murchison River Lodge (Mid-range) / Red Chilli Rest Camp (Budget)'
@@ -1142,7 +1142,7 @@ export const siteData = {
                 {
                   day: 2,
                   title: 'MURCHISON FALLS – GAME DRIVE – NILE BOAT CRUISE – BUDONGO CHIMPS',
-                  image: `${import.meta.env.BASE_URL}images/waterfalls.jpg`,
+                  image: `${import.meta.env.BASE_URL}images/waterfalls.webp`,
                   description: "Pre-dawn game drive on the northern savannah bank to spot Rothschild's giraffes, elephants, lions, and leopards. After breakfast, board the park launch for the famous 2–3 hour Nile boat cruise to the base of Murchison Falls. After lunch, cross the Nile ferry and drive to Budongo Central Forest Reserve for an afternoon chimpanzee trekking experience along the Royal Mile trail.",
                   meals: 'Breakfast, Lunch, Dinner',
                   stay: 'Paraa Safari Lodge / Nile Safari Lodge (Luxury) / Murchison River Lodge (Mid-range) / Red Chilli Rest Camp (Budget)'
@@ -1150,7 +1150,7 @@ export const siteData = {
                 {
                   day: 3,
                   title: 'MURCHISON FALLS – TRANSFER TO JINJA – SOURCE OF THE NILE',
-                  image: `${import.meta.env.BASE_URL}images/Nile.jpg`,
+                  image: `${import.meta.env.BASE_URL}images/Nile.webp`,
                   description: "Final dawn game drive before driving eastward toward Jinja — Uganda's Adventure Capital. Pass through Mabira Forest, stopping for a roadside birding walk. Arrive in Jinja in the late afternoon. Board a sunset boat cruise to the Source of the Nile — the exact point where the river begins its 6,650 km journey to the Mediterranean. Watch fish eagles and pelicans over the water as the sun sets over Lake Victoria.",
                   meals: 'Breakfast, Lunch, Dinner',
                   stay: 'Nile Safari Lodge / Jinja Nile Resort (Luxury) / Haven Lodge / Nile Porch (Mid-range) / Jinja Backpackers (Budget)'
@@ -1158,7 +1158,7 @@ export const siteData = {
                 {
                   day: 4,
                   title: 'JINJA – MABAMBA SWAMP SHOEBILL – KIBALE FOREST',
-                  image: `${import.meta.env.BASE_URL}images/bird.jpeg`,
+                  image: `${import.meta.env.BASE_URL}images/bird.webp`,
                   description: "Depart early for Mabamba Bay Wetland on Lake Victoria—one of Africa's most reliable sites for the prehistoric Shoebill Stork. Board traditional wooden canoes to find this Vulnerable giant in the papyrus channels. Afterward, begin the drive westward to Kibale Forest NP via Fort Portal. The route climbs into the Rwenzori foothills and crater lake region.",
                   meals: 'Breakfast, Lunch, Dinner',
                   stay: 'Primate Lodge / Papaya Lake Lodge (Luxury) / Kibale Forest Camp / Isunga Lodge (Mid-range) / Chimpanzee Forest Guesthouse (Budget)'
@@ -1166,7 +1166,7 @@ export const siteData = {
                 {
                   day: 5,
                   title: 'KIBALE FOREST – CHIMPANZEE TREKKING – BIGODI WALK',
-                  image: `${import.meta.env.BASE_URL}images/chimp.jpeg`,
+                  image: `${import.meta.env.BASE_URL}images/chimp.webp`,
                   description: "Track chimpanzees in Kibale Forest (home to over 1,500 chimps). Spend one unforgettable hour with a habituated community, observing their social interactions at close range. Return for lunch before the Bigodi Wetland Sanctuary community walk—a 3-hour trail through papyrus swamp. Spot up to five additional primate species.",
                   meals: 'Breakfast, Lunch, Dinner',
                   stay: 'Primate Lodge / Papaya Lake Lodge (Luxury) / Kibale Forest Camp / Isunga Lodge (Mid-range) / Chimpanzee Forest Guesthouse (Budget)'
@@ -1174,7 +1174,7 @@ export const siteData = {
                 {
                   day: 6,
                   title: 'QUEEN ELIZABETH NP – KASENYI GAME DRIVE – KAZINGA CRUISE',
-                  image: `${import.meta.env.BASE_URL}images/Elizabeth.jpeg`,
+                  image: `${import.meta.env.BASE_URL}images/Elizabeth.webp`,
                   description: "Drive to Queen Elizabeth NP, descending into the Rift Valley. Enjoy an afternoon game drive through the Kasenyi Plains to spot lions and elephants. Later, embark on a 2-hour Kazinga Channel boat cruise. Pass extraordinary concentrations of hippos and crocodiles.",
                   meals: 'Breakfast, Lunch, Dinner',
                   stay: 'Mweya Safari Lodge (Luxury) / Enganzi Lodge / Ihamba Lakeside Safari Lodge (Mid-range) / Pumba Safari Cottages (Budget)'
@@ -1182,7 +1182,7 @@ export const siteData = {
                 {
                   day: 7,
                   title: 'QUEEN ELIZABETH – KYAMBURA GORGE CHIMPS – ISHASHA LIONS',
-                  image: `${import.meta.env.BASE_URL}images/lions-tree.jpeg`,
+                  image: `${import.meta.env.BASE_URL}images/lions-tree.webp`,
                   description: "Track chimpanzees in the dramatic 100-metre-deep Kyambura Gorge ('Valley of Apes'). In the late afternoon, drive to the Ishasha sector to search for the famous tree-climbing lions draped across giant fig trees.",
                   meals: 'Breakfast, Lunch, Dinner',
                   stay: 'Ishasha Wilderness Camp / Kyambura Gorge Lodge (Luxury/Mid-range) / Ishasha Jungle Lodge (Budget)'
@@ -1190,7 +1190,7 @@ export const siteData = {
                 {
                   day: 8,
                   title: 'ISHASHA – TRANSFER TO BWINDI IMPENETRABLE FOREST',
-                  image: `${import.meta.env.BASE_URL}images/tree-lion.jpeg`,
+                  image: `${import.meta.env.BASE_URL}images/tree-lion.webp`,
                   description: "Final Ishasha dawn game drive to spot lions. After breakfast, drive southward through the dramatic Kigezi highlands toward Bwindi. The landscape transitions from savannah to montane forest. Arrive in the early afternoon for an optional community walk.",
                   meals: 'Breakfast, Lunch, Dinner',
                   stay: 'Mahogany Springs Lodge / Bwindi Lodge / Clouds Mountain Gorilla Lodge (Luxury) / Silverback Lodge / Chameleon Hill Lodge (Mid-range) / Buhoma Community Rest Camp (Budget)'
@@ -1198,7 +1198,7 @@ export const siteData = {
                 {
                   day: 9,
                   title: 'BWINDI FOREST – MOUNTAIN GORILLA TREKKING',
-                  image: `${import.meta.env.BASE_URL}images/ug-gorilla.jpg`,
+                  image: `${import.meta.env.BASE_URL}images/ug-gorilla.webp`,
                   description: "The defining day. Trek through Bwindi's dense, ancient rainforest to find your assigned gorilla family. Spend one irreplaceable hour at close range watching silverbacks and juveniles. Receive your completion certificate before an afternoon Batwa Cultural Experience.",
                   meals: 'Breakfast, Lunch, Dinner',
                   stay: 'Mahogany Springs Lodge / Bwindi Lodge / Clouds Mountain Gorilla Lodge (Luxury) / Silverback Lodge / Chameleon Hill Lodge (Mid-range) / Buhoma Community Rest Camp (Budget)'
@@ -1206,7 +1206,7 @@ export const siteData = {
                 {
                   day: 10,
                   title: 'MGAHINGA GORILLA NP – GOLDEN MONKEY TRACKING',
-                  image: `${import.meta.env.BASE_URL}images/golden monkey.jpg`,
+                  image: `${import.meta.env.BASE_URL}images/golden monkey.webp`,
                   description: "Drive to Mgahinga Gorilla NP, nestled at the base of the Virunga Volcanoes. Afternoon: Track the Endangered Golden Monkey into the bamboo forest at 3,000 metres. Watch these energetic, golden-orange primates leap through the canopy.",
                   meals: 'Breakfast, Lunch, Dinner',
                   stay: 'Mount Gahinga Safari Lodge (Luxury/Mid-range) / Kisoro Tourist Hotel / Amajambere Iwacu Community Camp (Budget)'
@@ -1222,7 +1222,7 @@ export const siteData = {
                 {
                   day: 12,
                   title: 'LAKE BUNYONYI – CANOE CRUISE – RETURN',
-                  image: `${import.meta.env.BASE_URL}images/bunyonyi.jpg`,
+                  image: `${import.meta.env.BASE_URL}images/bunyonyi.webp`,
                   description: "Explore the 29 islands of Lake Bunyonyi in a traditional wooden canoe. After a lakeside lunch, begin the 7–8 hour return drive to Kampala or Entebbe, stopping at the Equator for final photos.",
                   meals: 'Breakfast, Lunch',
                   stay: 'N/A'
@@ -1300,7 +1300,7 @@ export const siteData = {
             destination: 'Jinja - The Adventure Capital',
             bestFor: 'Adrenaline junkies, youth groups, and adventure-seeking travelers.',
             highlights: ['Grade 5 White Water Rafting', 'Source of the Nile Boat Cruise', 'Sezibwa Falls Cultural Tour', 'Mabira Forest Canopy Walk'],
-            image: `${import.meta.env.BASE_URL}images/rafting.jpg`,
+            image: `${import.meta.env.BASE_URL}images/rafting.webp`,
             details: {
               duration: '3 Days',
               location: 'Jinja & Eastern Uganda',
@@ -1314,10 +1314,10 @@ export const siteData = {
                 { name: 'Bujagali (Rafting Base)', lat: 0.4833, lng: 33.1833, description: 'Rapid Central' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/pic23.jpg`,
-                `${import.meta.env.BASE_URL}images/pic24.jpg`,
-                `${import.meta.env.BASE_URL}images/pic1.jpg`,
-                `${import.meta.env.BASE_URL}images/image5.jpeg`
+                `${import.meta.env.BASE_URL}images/pic23.webp`,
+                `${import.meta.env.BASE_URL}images/pic24.webp`,
+                `${import.meta.env.BASE_URL}images/pic1.webp`,
+                `${import.meta.env.BASE_URL}images/image5.webp`
               ],
               itinerary: [
                 {
@@ -1397,10 +1397,10 @@ export const siteData = {
                 { name: 'Salt Lick', lat: -0.6167, lng: 30.9167, description: 'Wildlife Viewing' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/pic12.jpg`,
-                `${import.meta.env.BASE_URL}images/pic2.jpg`,
-                `${import.meta.env.BASE_URL}images/pic17.jpg`,
-                `${import.meta.env.BASE_URL}images/pic13.jpg`
+                `${import.meta.env.BASE_URL}images/pic12.webp`,
+                `${import.meta.env.BASE_URL}images/pic2.webp`,
+                `${import.meta.env.BASE_URL}images/pic17.webp`,
+                `${import.meta.env.BASE_URL}images/pic13.webp`
               ],
               itinerary: [
                 {
@@ -1473,9 +1473,9 @@ export const siteData = {
               ],
               gallery: [
                 `${import.meta.env.BASE_URL}images/sipii.webp`,
-                `${import.meta.env.BASE_URL}images/sipifalls.jpg`,
+                `${import.meta.env.BASE_URL}images/sipifalls.webp`,
                 `${import.meta.env.BASE_URL}images/tea.webp`,
-                `${import.meta.env.BASE_URL}images/image5.jpeg`
+                `${import.meta.env.BASE_URL}images/image5.webp`
               ],
               itinerary: [
                 {
@@ -1561,7 +1561,7 @@ export const siteData = {
             destination: 'Rwenzori Mountains National Park - Western Uganda',
             bestFor: 'Serious hikers, adventure seekers, and nature photographers.',
             highlights: ['Central Circuit Trail Trekking', 'Giant Lobelia & Groundsel Zones', 'Lake Bujuku & Glacial Views', 'Bakonzo Cultural Experience'],
-            image: `${import.meta.env.BASE_URL}images/Rwenzori.jpg`,
+            image: `${import.meta.env.BASE_URL}images/Rwenzori.webp`,
             details: {
               duration: '6 Days',
               location: 'Kasese, Western Uganda',
@@ -1577,10 +1577,10 @@ export const siteData = {
                 { name: 'Kiharo Hut (3,147m)', lat: 0.3333, lng: 29.9333, description: 'Night 4 on Mountain' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/Rwenzori.jpg`,
-                `${import.meta.env.BASE_URL}images/image2.jpeg`,
-                `${import.meta.env.BASE_URL}images/Rwenzori.jpg`,
-                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.jpeg`
+                `${import.meta.env.BASE_URL}images/Rwenzori.webp`,
+                `${import.meta.env.BASE_URL}images/image2.webp`,
+                `${import.meta.env.BASE_URL}images/Rwenzori.webp`,
+                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.webp`
               ],
               itinerary: [
                 {
@@ -1678,7 +1678,7 @@ export const siteData = {
             destination: 'Kidepo Valley National Park - Northeastern Uganda',
             bestFor: 'Exclusive safari lovers, photographers, and those seeking raw, untouched nature.',
             highlights: ['Narus Valley Game Drives', 'Karamojong Manyatta Cultural Visit', 'Kanangorok Hot Springs', 'Cheetah & Ostrich Sightings'],
-            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.05.20.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.05.20.webp`,
             details: {
               duration: '3 Days',
               location: 'Kaabong, Northeastern Uganda',
@@ -1693,10 +1693,10 @@ export const siteData = {
                 { name: 'Morungole Mountains', lat: 3.8167, lng: 34.0500, description: 'IK Community Territory' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/pic8.jpg`,
-                `${import.meta.env.BASE_URL}images/pic2.jpg`,
-                `${import.meta.env.BASE_URL}images/pic15.jpg`,
-                `${import.meta.env.BASE_URL}images/pic18.jpg`
+                `${import.meta.env.BASE_URL}images/pic8.webp`,
+                `${import.meta.env.BASE_URL}images/pic2.webp`,
+                `${import.meta.env.BASE_URL}images/pic15.webp`,
+                `${import.meta.env.BASE_URL}images/pic18.webp`
               ],
               itinerary: [
                 {
@@ -1775,7 +1775,7 @@ export const siteData = {
             destination: 'Buganda, Bunyoro, Toro & Ankole Kingdoms',
             bestFor: 'Culture enthusiasts, history buffs, and travelers seeking deep local engagement.',
             highlights: ['Kasubi Tombs (UNESCO)', 'Sacred Nakayima Tree', 'Tooro Royal Palace', 'Ankole Cattle Milking Ceremony'],
-            image: `${import.meta.env.BASE_URL}images/batwa.jpg`,
+            image: `${import.meta.env.BASE_URL}images/batwa.webp`,
             details: {
               duration: '5 Days',
               location: 'Central & Western Uganda',
@@ -1790,10 +1790,10 @@ export const siteData = {
                 { name: 'Igongo Cultural Centre', lat: -0.5833, lng: 30.6500, description: 'Cultural Museum' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/batwa.jpg`,
-                `${import.meta.env.BASE_URL}images/pic17.jpg`,
-                `${import.meta.env.BASE_URL}images/pic21.jpg`,
-                `${import.meta.env.BASE_URL}images/pic1.jpg`
+                `${import.meta.env.BASE_URL}images/batwa.webp`,
+                `${import.meta.env.BASE_URL}images/pic17.webp`,
+                `${import.meta.env.BASE_URL}images/pic21.webp`,
+                `${import.meta.env.BASE_URL}images/pic1.webp`
               ],
               itinerary: [
                 {
@@ -1884,7 +1884,7 @@ export const siteData = {
             destination: 'Semuliki National Park - Western Uganda',
             bestFor: 'Nature lovers, birders, geology enthusiasts, and cultural travelers.',
             highlights: ['Sempaya Hot Springs (Biteete & Nyasimbi)', 'Batwa Pygmy Cultural Encounter', 'Lake Albert Boat Cruise', 'Rare Guinea-Congo Bird Species'],
-            image: `${import.meta.env.BASE_URL}images/Sempaya.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/Sempaya.webp`,
             details: {
               duration: '3 Days',
               location: 'Bundibugyo, Western Uganda',
@@ -1899,10 +1899,10 @@ export const siteData = {
                 { name: 'Ntoroko (Lake Albert)', lat: 1.0500, lng: 30.4000, description: 'Boat Cruise Location' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/Sempaya.jpeg`,
-                `${import.meta.env.BASE_URL}images/pic20.jpg`,
-                `${import.meta.env.BASE_URL}images/pic17.jpg`,
-                `${import.meta.env.BASE_URL}images/pic1.jpg`
+                `${import.meta.env.BASE_URL}images/Sempaya.webp`,
+                `${import.meta.env.BASE_URL}images/pic20.webp`,
+                `${import.meta.env.BASE_URL}images/pic17.webp`,
+                `${import.meta.env.BASE_URL}images/pic1.webp`
               ],
               itinerary: [
                 {
@@ -1981,7 +1981,7 @@ export const siteData = {
             destination: 'Karamoja Region - Northeastern Uganda',
             bestFor: 'Rugged hikers, cultural enthusiasts, and off-the-beaten-path travelers.',
             highlights: ['Imagit Peak Summit (2,950m+)', 'Wild Camping on the Ridge', 'Tepeth Community Engagement', 'Panoramic Karamoja Views'],
-            image: `${import.meta.env.BASE_URL}images/moroto1.jpg`,
+            image: `${import.meta.env.BASE_URL}images/moroto1.webp`,
             details: {
               duration: '3 Days',
               location: 'Moroto, Northeastern Uganda',
@@ -1996,10 +1996,10 @@ export const siteData = {
                 { name: 'Imagit Peak', lat: 2.5583, lng: 34.7583, description: 'Summit Viewpoint' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/moroto1.jpg`,
-                `${import.meta.env.BASE_URL}images/pic22.jpg`,
-                `${import.meta.env.BASE_URL}images/pic17.jpg`,
-                `${import.meta.env.BASE_URL}images/pic18.jpg`
+                `${import.meta.env.BASE_URL}images/moroto1.webp`,
+                `${import.meta.env.BASE_URL}images/pic22.webp`,
+                `${import.meta.env.BASE_URL}images/pic17.webp`,
+                `${import.meta.env.BASE_URL}images/pic18.webp`
               ],
               itinerary: [
                 {
@@ -2077,7 +2077,7 @@ export const siteData = {
             destination: 'Bwindi Impenetrable National Park',
             bestFor: 'Primate lovers and adventurers with a moderate level of fitness.',
             highlights: ['Uganda Equator stop & pictures', 'Scenic drive through the "Switzerland of Africa"', 'Bwindi Mountain Gorilla Trekking', 'Optional domestic flights available'],
-            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.webp`,
             details: {
               duration: '4 Days',
               location: 'Southwestern Uganda',
@@ -2090,10 +2090,10 @@ export const siteData = {
                 { name: 'Bwindi Impenetrable NP', lat: -1.0475, lng: 29.7022, description: 'Gorilla Trekking' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.jpeg`,
-                `${import.meta.env.BASE_URL}images/pic5.jpg`,
-                `${import.meta.env.BASE_URL}images/pic21.jpg`,
-                `${import.meta.env.BASE_URL}images/pic4.jpg`
+                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.webp`,
+                `${import.meta.env.BASE_URL}images/pic5.webp`,
+                `${import.meta.env.BASE_URL}images/pic21.webp`,
+                `${import.meta.env.BASE_URL}images/pic4.webp`
               ],
               itinerary: [
                 {
@@ -2160,7 +2160,7 @@ export const siteData = {
             destination: 'Bwindi Impenetrable National Park',
             bestFor: 'Luxury travelers, photographers, and those seeking a faster, more comfortable journey.',
             highlights: ['Scheduled Aerolink flight to Kihihi/Kisoro', 'Mountain Gorilla trekking (1-8 hours)', 'Stay at Mahogany Springs or Chameleon Hill', 'Scenic aerial views of the Kigezi highlands'],
-            image: `${import.meta.env.BASE_URL}images/gorillafly.jpg`,
+            image: `${import.meta.env.BASE_URL}images/gorillafly.webp`,
             details: {
               duration: '4 Days',
               location: 'Southwestern Uganda',
@@ -2173,10 +2173,10 @@ export const siteData = {
                 { name: 'Lodge (Buhoma/Rushaga)', lat: -0.9908, lng: 29.6153, description: 'Premium Stay' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.jpeg`,
-                `${import.meta.env.BASE_URL}images/pic5.jpg`,
-                `${import.meta.env.BASE_URL}images/pic21.jpg`,
-                `${import.meta.env.BASE_URL}images/pic4.jpg`
+                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.webp`,
+                `${import.meta.env.BASE_URL}images/pic5.webp`,
+                `${import.meta.env.BASE_URL}images/pic21.webp`,
+                `${import.meta.env.BASE_URL}images/pic4.webp`
               ],
               itinerary: [
                 {
@@ -2244,7 +2244,7 @@ export const siteData = {
             destination: 'Fort Portal, Queen Elizabeth & Bwindi',
             bestFor: 'High-end travelers seeking the most comprehensive and comfortable primate and wildlife experience.',
             highlights: ['Scheduled flights to Kasese and Bwindi', 'Chimpanzee tracking (Kibale & Kyambura)', 'Bigodi Swamp birding walk', 'Queen Elizabeth game drives & boat cruise', 'Mountain Gorilla trekking', 'Papaya Lake & Mazike Valley stays'],
-            image: `${import.meta.env.BASE_URL}images/ugra.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/ugra.webp`,
             details: {
               duration: '7 Days',
               location: 'Western & Southwestern Uganda',
@@ -2261,10 +2261,10 @@ export const siteData = {
                 { name: 'Kihihi / Kisoro Airfield', lat: -0.7100, lng: 29.7000, description: 'Flight to Entebbe' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/pic20.jpg`,
-                `${import.meta.env.BASE_URL}images/pic14.jpg`,
-                `${import.meta.env.BASE_URL}images/pic5.jpg`,
-                `${import.meta.env.BASE_URL}images/pic21.jpg`
+                `${import.meta.env.BASE_URL}images/pic20.webp`,
+                `${import.meta.env.BASE_URL}images/pic14.webp`,
+                `${import.meta.env.BASE_URL}images/pic5.webp`,
+                `${import.meta.env.BASE_URL}images/pic21.webp`
               ],
               itinerary: [
                 {
@@ -2355,7 +2355,7 @@ export const siteData = {
             destination: 'Kigali & Volcanoes National Park, Rwanda',
             bestFor: 'Luxury primate travelers and bucket-list adventurers.',
             highlights: ['Mountain gorilla trekking', 'Kigali Genocide Memorial', 'Virunga Volcano scenery', 'Batwa community visit', 'Crafts village & souvenir shopping'],
-            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.webp`,
             details: {
               duration: '4 Days',
               location: 'Kigali & Kinigi, Rwanda',
@@ -2370,10 +2370,10 @@ export const siteData = {
                 { name: 'Volcanoes National Park HQ', lat: -1.4800, lng: 29.5400, description: 'Gorilla Trekking' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.jpeg`,
-                `${import.meta.env.BASE_URL}images/batwa.jpg`,
+                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.webp`,
+                `${import.meta.env.BASE_URL}images/batwa.webp`,
                 `${import.meta.env.BASE_URL}images/akagera.webp`,
-                `${import.meta.env.BASE_URL}images/lions-tree.jpeg`
+                `${import.meta.env.BASE_URL}images/lions-tree.webp`
               ],
               itinerary: [
                 {
@@ -2461,9 +2461,9 @@ export const siteData = {
               ],
               gallery: [
                 `${import.meta.env.BASE_URL}images/nyungwe.webp`,
-                `${import.meta.env.BASE_URL}images/pic20.jpg`,
-                `${import.meta.env.BASE_URL}images/pic17.jpg`,
-                `${import.meta.env.BASE_URL}images/pic22.jpg`
+                `${import.meta.env.BASE_URL}images/pic20.webp`,
+                `${import.meta.env.BASE_URL}images/pic17.webp`,
+                `${import.meta.env.BASE_URL}images/pic22.webp`
               ],
               itinerary: [
                 {
@@ -2569,9 +2569,9 @@ export const siteData = {
               ],
               gallery: [
                 `${import.meta.env.BASE_URL}images/akagera.webp`,
-                `${import.meta.env.BASE_URL}images/pic2.jpg`,
-                `${import.meta.env.BASE_URL}images/pic5.jpg`,
-                `${import.meta.env.BASE_URL}images/pic8.jpg`
+                `${import.meta.env.BASE_URL}images/pic2.webp`,
+                `${import.meta.env.BASE_URL}images/pic5.webp`,
+                `${import.meta.env.BASE_URL}images/pic8.webp`
               ],
               itinerary: [
                 {
@@ -2650,7 +2650,7 @@ export const siteData = {
             destination: 'Uganda',
             bestFor: 'Travelers seeking a complete Uganda primates and wildlife experience.',
             highlights: ['Chimps in Kibale Forest', 'Crater Lakes walk (Fort Portal)', 'Queen Elizabeth game drive & Kazinga Channel', 'Mountain gorilla trekking in Bwindi', 'Optional domestic return flight'],
-            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.webp`,
             details: {
               duration: '7 Days',
               location: 'Western & Southwestern Uganda',
@@ -2667,11 +2667,11 @@ export const siteData = {
                 { name: 'Entebbe', lat: 0.0424, lng: 32.4435, description: 'Departure' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.jpeg`,
-                `${import.meta.env.BASE_URL}images/pic20.jpg`,
-                `${import.meta.env.BASE_URL}images/pic21.jpg`,
-                `${import.meta.env.BASE_URL}images/pic14.jpg`,
-                `${import.meta.env.BASE_URL}images/pic5.jpg`
+                `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.webp`,
+                `${import.meta.env.BASE_URL}images/pic20.webp`,
+                `${import.meta.env.BASE_URL}images/pic21.webp`,
+                `${import.meta.env.BASE_URL}images/pic14.webp`,
+                `${import.meta.env.BASE_URL}images/pic5.webp`
               ],
               itinerary: [
                 {
@@ -2762,7 +2762,7 @@ export const siteData = {
             destination: 'Ziwa, Murchison, Kibale, Queen Elizabeth & Bwindi',
             bestFor: 'Adventure seekers and wildlife enthusiasts wanting to see all of Uganda\'s "Big Seven" (Lions, Leopards, Elephants, Buffaloes, Rhinos, Gorillas, and Chimpanzees).',
             highlights: ['On-foot Rhino Tracking', 'World\'s Most Powerful Waterfall', 'Triple Chimp Tracking (Budongo, Kibale, Kyambura)', 'Bwindi Mountain Gorilla Trekking'],
-            image: `${import.meta.env.BASE_URL}images/image1.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/image1.webp`,
             details: {
               duration: '8 Days',
               location: 'Uganda Safari Circuit',
@@ -2781,11 +2781,11 @@ export const siteData = {
                 { name: 'Lake Bunyonyi', lat: -1.2883, lng: 29.9167, description: 'Relaxation & Reflection' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/rhino.jpeg`,
-                `${import.meta.env.BASE_URL}images/waterfalls.jpg`,
-                `${import.meta.env.BASE_URL}images/chimp.jpeg`,
-                `${import.meta.env.BASE_URL}images/lions-tree.jpeg`,
-                `${import.meta.env.BASE_URL}images/ug-gorilla.jpg`
+                `${import.meta.env.BASE_URL}images/rhino.webp`,
+                `${import.meta.env.BASE_URL}images/waterfalls.webp`,
+                `${import.meta.env.BASE_URL}images/chimp.webp`,
+                `${import.meta.env.BASE_URL}images/lions-tree.webp`,
+                `${import.meta.env.BASE_URL}images/ug-gorilla.webp`
               ],
               itinerary: [
                 {
@@ -2903,7 +2903,7 @@ export const siteData = {
             destination: 'Entebbe, Mabamba, Murchison, Budongo, Kibale & Bwindi',
             bestFor: 'Serious birders, ornithologists, and bird photography enthusiasts seeking Africa\'s most sought-after avian species.',
             highlights: ['Shoebill Stork search (Mabamba)', 'Green-breasted Pitta (Kibale)', 'Royal Mile Birding (Budongo)', '23 Albertine Rift Endemics (Bwindi)'],
-            image: `${import.meta.env.BASE_URL}images/bird.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/bird.webp`,
             details: {
               duration: '7 Days',
               location: 'Uganda Birding Circuits',
@@ -2922,9 +2922,9 @@ export const siteData = {
               ],
               gallery: [
                 `${import.meta.env.BASE_URL}images/shoebill.jpg`,
-                `${import.meta.env.BASE_URL}images/bird.jpeg`,
-                `${import.meta.env.BASE_URL}images/Nile.jpg`,
-                `${import.meta.env.BASE_URL}images/chimp.jpeg`
+                `${import.meta.env.BASE_URL}images/bird.webp`,
+                `${import.meta.env.BASE_URL}images/Nile.webp`,
+                `${import.meta.env.BASE_URL}images/chimp.webp`
               ],
               itinerary: [
                 {
@@ -3035,7 +3035,7 @@ export const siteData = {
             destination: 'Murchison, Kibale, Queen Elizabeth & Bwindi',
             bestFor: 'Wildlife and primate enthusiasts wanting a comprehensive safari.',
             highlights: ['Ziwa Rhino tracking', 'Murchison Falls boat cruise and hike', 'Kibale Chimpanzee tracking', 'Queen Elizabeth tree-climbing lions', 'Bwindi Mountain Gorilla Trekking', 'Crater Lakes walk & Kazinga Channel cruise'],
-            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.webp`,
             details: {
               duration: '10 Days',
               location: 'Uganda Safari Circuit',
@@ -3053,11 +3053,11 @@ export const siteData = {
                 { name: 'Entebbe', lat: 0.0424, lng: 32.4435, description: 'Departure' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/rhino.jpeg`,
-                `${import.meta.env.BASE_URL}images/waterfalls.jpg`,
-                `${import.meta.env.BASE_URL}images/chimp.jpeg`,
-                `${import.meta.env.BASE_URL}images/lions-tree.jpeg`,
-                `${import.meta.env.BASE_URL}images/ug-gorilla.jpg`
+                `${import.meta.env.BASE_URL}images/rhino.webp`,
+                `${import.meta.env.BASE_URL}images/waterfalls.webp`,
+                `${import.meta.env.BASE_URL}images/chimp.webp`,
+                `${import.meta.env.BASE_URL}images/lions-tree.webp`,
+                `${import.meta.env.BASE_URL}images/ug-gorilla.webp`
               ],
               itinerary: [
                 {
@@ -3170,7 +3170,7 @@ export const siteData = {
             destination: 'Kibale, Queen Elizabeth, Bwindi, Bunyonyi & Mburo',
             bestFor: 'Travelers seeking a complete Ugandan circuit with a mix of primates, savannah wildlife, and scenic relaxation.',
             highlights: ['Chimpanzee tracking in Kibale', 'Queen Elizabeth game drives & Kazinga boat cruise', 'Tree-climbing lions of Ishasha', 'Mountain Gorilla trekking in Bwindi', 'Canoeing & relaxation at Lake Bunyonyi', 'Walking safari in Lake Mburo National Park'],
-            image: `${import.meta.env.BASE_URL}images/wildlife.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/wildlife.webp`,
             details: {
               duration: '11 Days',
               location: 'Uganda Classic Circuit',
@@ -3188,10 +3188,10 @@ export const siteData = {
                 { name: 'Uganda Equator', lat: -0.0022, lng: 32.0622, description: 'Photo Stop & Lunch' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/wildlife.jpeg`,
-                `${import.meta.env.BASE_URL}images/chimp.jpeg`,
-                `${import.meta.env.BASE_URL}images/Elizabeth.jpeg`,
-                `${import.meta.env.BASE_URL}images/ug-gorilla.jpg`,
+                `${import.meta.env.BASE_URL}images/wildlife.webp`,
+                `${import.meta.env.BASE_URL}images/chimp.webp`,
+                `${import.meta.env.BASE_URL}images/Elizabeth.webp`,
+                `${import.meta.env.BASE_URL}images/ug-gorilla.webp`,
                 `${import.meta.env.BASE_URL}images/Mburo.webp`
               ],
               itinerary: [
@@ -3313,7 +3313,7 @@ export const siteData = {
             destination: 'Queen Elizabeth, Bwindi & Lake Bunyonyi',
             bestFor: 'Honeymooners, couples, and anniversary celebrations.',
             highlights: ['Private Kazinga Channel boat cruise', 'Ishasha tree-climbing lions', 'Bwindi Mountain Gorilla Trekking', 'Lake Bunyonyi sunrise canoe'],
-            image: `${import.meta.env.BASE_URL}images/bunyonyi.jpg`,
+            image: `${import.meta.env.BASE_URL}images/bunyonyi.webp`,
             details: {
               duration: '4 Days',
               location: 'Southwestern Uganda',
@@ -3328,10 +3328,10 @@ export const siteData = {
                 { name: 'Lake Bunyonyi', lat: -1.2883, lng: 29.9167, description: 'Sunrise Canoe & Island Picnic' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/pic21.jpg`,
-                `${import.meta.env.BASE_URL}images/pic5.jpg`,
-                `${import.meta.env.BASE_URL}images/pic14.jpg`,
-                `${import.meta.env.BASE_URL}images/pic22.jpg`
+                `${import.meta.env.BASE_URL}images/pic21.webp`,
+                `${import.meta.env.BASE_URL}images/pic5.webp`,
+                `${import.meta.env.BASE_URL}images/pic14.webp`,
+                `${import.meta.env.BASE_URL}images/pic22.webp`
               ],
               itinerary: [
                 {
@@ -3418,7 +3418,7 @@ export const siteData = {
             destination: 'Lake Bunyonyi - Kabale District',
             bestFor: 'Honeymooners, families, and travelers seeking peace, birding, and authentic cultural engagement.',
             highlights: ['Punishment Island (Akampene) history', 'Canoe & Motorboat Island Hopping', 'Batwa & Bakiga Cultural Visits', 'Hilltop Panoramic Viewpoint'],
-            image: `${import.meta.env.BASE_URL}images/bunyonyi.jpg`,
+            image: `${import.meta.env.BASE_URL}images/bunyonyi.webp`,
             details: {
               duration: '3 Days',
               location: 'Southwestern Uganda (Kabale)',
@@ -3434,10 +3434,10 @@ export const siteData = {
                 { name: 'Bwama Island', lat: -1.2950, lng: 29.9200, description: 'Leprosy Centre History' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/pic21.jpg`,
-                `${import.meta.env.BASE_URL}images/pic22.jpg`,
-                `${import.meta.env.BASE_URL}images/pic18.jpg`,
-                `${import.meta.env.BASE_URL}images/batwa.jpg`
+                `${import.meta.env.BASE_URL}images/pic21.webp`,
+                `${import.meta.env.BASE_URL}images/pic22.webp`,
+                `${import.meta.env.BASE_URL}images/pic18.webp`,
+                `${import.meta.env.BASE_URL}images/batwa.webp`
               ],
               itinerary: [
                 {
@@ -3520,7 +3520,7 @@ export const siteData = {
             destination: 'Central & Western Uganda',
             bestFor: 'Culture-focused travelers and historians.',
             highlights: ['Batwa community encounter', 'Karamoja Manyattas', 'Uganda Martyrs Shrine'],
-            image: `${import.meta.env.BASE_URL}images/batwa.jpg`,
+            image: `${import.meta.env.BASE_URL}images/batwa.webp`,
             details: {
               duration: '5 Days',
               location: 'Multiple Cultural Sites',
@@ -3550,7 +3550,7 @@ export const siteData = {
             destination: 'Uganda & Rwanda',
             bestFor: 'Wildlife enthusiasts seeking a comprehensive East African primate and savannah experience.',
             highlights: ['Ziwa Rhino tracking', 'Murchison Falls boat cruise & hike', 'Kibale Chimpanzee tracking', 'Queen Elizabeth tree-climbing lions', 'Rwanda Gorilla trekking', 'Kigali Genocide Memorial'],
-            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.jpeg`,
+            image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.webp`,
             details: {
               duration: '11 Days',
               location: 'Uganda & Rwanda',
@@ -3569,11 +3569,11 @@ export const siteData = {
                 { name: 'Kigali', lat: -1.9441, lng: 30.0619, description: 'Departure' }
               ],
               gallery: [
-                `${import.meta.env.BASE_URL}images/pic11.jpg`,
-                `${import.meta.env.BASE_URL}images/pic1.jpg`,
-                `${import.meta.env.BASE_URL}images/pic20.jpg`,
-                `${import.meta.env.BASE_URL}images/pic14.jpg`,
-                `${import.meta.env.BASE_URL}images/pic5.jpg`
+                `${import.meta.env.BASE_URL}images/pic11.webp`,
+                `${import.meta.env.BASE_URL}images/pic1.webp`,
+                `${import.meta.env.BASE_URL}images/pic20.webp`,
+                `${import.meta.env.BASE_URL}images/pic14.webp`,
+                `${import.meta.env.BASE_URL}images/pic5.webp`
               ],
               itinerary: [
                 {
@@ -3717,17 +3717,17 @@ export const siteData = {
       hero: {
         title: 'Vision & Mission',
         description: 'Come Again Tours and Travels promise to provide every client with a well-organized, enjoyable, and memorable safari experience.',
-        image: `${import.meta.env.BASE_URL}images/pic21.jpg`
+        image: `${import.meta.env.BASE_URL}images/pic21.webp`
       },
       mission: {
         title: 'Mission',
         content: 'To be a leading and highly professional tours operator that offers unique, adventure-filled, breathtaking, comfort, and memorable travel services; while promoting cultural exchange local tourism, and sustainable travel practices.',
-        image: `${import.meta.env.BASE_URL}images/pic14.jpg`
+        image: `${import.meta.env.BASE_URL}images/pic14.webp`
       },
       vision: {
         title: 'Vision',
         content: 'To be the most trusted and preferred travel and tour company, delivering unforgettable experiences and seamless journeys that inspire clients to explore the world with confidence and joy.',
-        image: `${import.meta.env.BASE_URL}images/pic8.jpg`
+        image: `${import.meta.env.BASE_URL}images/pic8.webp`
       },
       objectives: {
         title: 'Our Objectives',
@@ -3753,70 +3753,70 @@ export const siteData = {
             description: 'To maintain a team of well-trained, courteous, and efficient passionate travel experts.'
           }
         ],
-        image: `${import.meta.env.BASE_URL}images/Objectives.jpeg`
+        image: `${import.meta.env.BASE_URL}images/Objectives.webp`
       }
     },
     team: {
       hero: {
         title: 'Team',
         description: 'Our dedicated professionals are committed to providing unforgettable safari experiences. With deep local expertise, we ensure every journey through East Africa is seamless and unique.',
-        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg`
+        image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.webp`
       },
       members: [
         {
           name: 'Kawanguzi Wilson',
           position: 'Managing Director',
-          image: `${import.meta.env.BASE_URL}images/wilson.jpeg`
+          image: `${import.meta.env.BASE_URL}images/wilson.webp`
         },
         {
           name: 'Luliibe Hussein',
           position: 'Operations Manager',
-          image: `${import.meta.env.BASE_URL}images/Luliibe.jpeg`
+          image: `${import.meta.env.BASE_URL}images/Luliibe.webp`
         },
         {
           name: 'Bettina Ziporah',
           position: 'Sales & Marketing Manager',
-          image: `${import.meta.env.BASE_URL}images/Bettina.jpeg`
+          image: `${import.meta.env.BASE_URL}images/Bettina.webp`
         },
         {
           name: 'Aminah Abu baker',
           position: 'Reservation manager',
-          image: `${import.meta.env.BASE_URL}images/Aminah.jpeg`
+          image: `${import.meta.env.BASE_URL}images/Aminah.webp`
         },
         {
           name: 'Masitula Nangobi',
           position: 'Reservation officer',
-          image: `${import.meta.env.BASE_URL}images/masitula.jpeg`
+          image: `${import.meta.env.BASE_URL}images/masitula.webp`
         },
         {
           name: 'Nanyunja Ramlah',
           position: 'Accountant',
-          image: `${import.meta.env.BASE_URL}images/Nanyunja Ramlah.jpeg`
+          image: `${import.meta.env.BASE_URL}images/Nanyunja Ramlah.webp`
         },
         {
           name: 'Jan Havlicheck',
           position: 'Consultant',
-          image: `${import.meta.env.BASE_URL}images/Jan.jpeg`
+          image: `${import.meta.env.BASE_URL}images/Jan.webp`
         },
         {
           name: 'Asiima Crisen',
           position: 'IT & Systems Administrator',
-          image: `${import.meta.env.BASE_URL}images/asiima.png`
+          image: `${import.meta.env.BASE_URL}images/asiima.webp`
         },
         {
           name: 'Issa Ssesanga',
           position: 'Head Guide',
-          image: `${import.meta.env.BASE_URL}images/Issa.jpeg`
+          image: `${import.meta.env.BASE_URL}images/Issa.webp`
         },
         {
           name: 'Ramathan Muwonge',
           position: 'Guide',
-          image: `${import.meta.env.BASE_URL}images/Ramathan.jpeg`
+          image: `${import.meta.env.BASE_URL}images/Ramathan.webp`
         },
         {
           name: 'Patrick John Kikonyogo',
           position: 'Professional Driver-Guide',
-          image: `${import.meta.env.BASE_URL}images/kikonyogo.jpeg`
+          image: `${import.meta.env.BASE_URL}images/kikonyogo.webp`
         },
       ]
     }
@@ -3825,7 +3825,7 @@ export const siteData = {
     hero: {
       title: 'Contact',
       description: 'Come Again Tours and Travels For bookings, inquiries, and customized safari packages, reach out to us today:',
-      image: `${import.meta.env.BASE_URL}images/contact.jpg`
+      image: `${import.meta.env.BASE_URL}images/contact.webp`
     },
     intro: {
       paragraph: 'With Come Again Tours and Travels, you will explore the beauty of Uganda and beyond with confidence, comfort, and joy.',
@@ -3843,17 +3843,17 @@ export const siteData = {
     {
       title: 'Gorilla Trekking Safaris',
       description: 'Uganda is home to the rare and endangered mountain gorillas found in Bwindi Impenetrable National Park and Mgahinga Gorilla National Park. Come Again Tours and Travels organizes well-planned gorilla trekking packages.',
-      image: `${import.meta.env.BASE_URL}images/pic5.jpg`
+      image: `${import.meta.env.BASE_URL}images/pic5.webp`
     },
     {
       title: 'Wildlife Safaris',
       description: 'We offer classic wildlife safaris to Uganda\'s most famous national parks including: Queen Elizabeth National Park, Murchison Falls National Park, Kidepo Valley National Park, and Lake Mburo National Park among others.',
-      image: `${import.meta.env.BASE_URL}images/lions-tree.jpeg`
+      image: `${import.meta.env.BASE_URL}images/lions-tree.webp`
     },
     {
       title: 'Chimpanzee Tracking and Primate Safaris',
       description: 'Uganda is known as the primate capital of the world. At Come Again Tours and Travels, we provide thrilling chimpanzee tracking experiences in Kibale Forest, Budongo Forest, and Kyambura Gorge.',
-      image: `${import.meta.env.BASE_URL}images/chimp.jpeg`
+      image: `${import.meta.env.BASE_URL}images/chimp.webp`
     },
     {
       title: 'Hotel Bookings and Accommodation Arrangements',
@@ -3863,27 +3863,27 @@ export const siteData = {
     {
       title: 'Airport Pickups and Transportation Services',
       description: 'We provide reliable airport pickup and drop-off services at Entebbe International Airport. We also offer car hire services with professional drivers for all your travel needs.',
-      image: `${import.meta.env.BASE_URL}images/airport.jpeg`
+      image: `${import.meta.env.BASE_URL}images/airport.webp`
     },
     {
       title: 'Adventure and Leisure Travel',
       description: 'For those seeking adrenaline and relaxation, we offer white-water rafting, bungee jumping, boat cruises, and scenic leisure tours across the Pearl of Africa.',
-      image: `${import.meta.env.BASE_URL}images/rafting.jpg`
+      image: `${import.meta.env.BASE_URL}images/rafting.webp`
     },
     {
       title: 'Cultural and Community Tours',
       description: 'Experience the rich culture and traditions of Uganda. We organize community visits, cultural dance performances, and tours to historic heritage sites.',
-      image: `${import.meta.env.BASE_URL}images/batwa.jpg`
+      image: `${import.meta.env.BASE_URL}images/batwa.webp`
     },
     {
       title: 'City Tours and Educational Trips',
       description: 'Explore the vibrant cities of Uganda and East Africa. We also organize educational tours for students and researchers interested in various fields.',
-      image: `${import.meta.env.BASE_URL}images/city.jpg`
+      image: `${import.meta.env.BASE_URL}images/city.webp`
     },
     {
       title: 'Custom and Other Packages',
       description: 'We understand that every traveler has unique needs. We can customize your safari package to match your specific interests, time, and budget.',
-      image: `${import.meta.env.BASE_URL}images/bird.jpeg`
+      image: `${import.meta.env.BASE_URL}images/bird.webp`
     }
   ],
   reviews: [
@@ -3913,7 +3913,7 @@ export const siteData = {
       highlights: ['Gorilla trekking', 'Golden monkeys', 'Kigali city tour'],
       bestFor: 'Luxury primate travelers.',
       description: 'An immersive 5-day journey through Rwanda\'s pristine Volcanoes National Park.',
-      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.jpeg`
+      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-26-at-09.39.51-1024x684.webp`
     },
     {
       id: 2,
@@ -3924,7 +3924,7 @@ export const siteData = {
       highlights: ['Gorilla & chimp tracking', 'Multiple game drives', 'Boat cruises'],
       bestFor: 'First-time Uganda explorers.',
       description: 'Experience the classic beauty of Uganda\'s savanna and forests in this 7-day highlight tour.',
-      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.jpeg`
+      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.06.18-1.webp`
     },
     {
       id: 3,
@@ -3935,7 +3935,7 @@ export const siteData = {
       highlights: ['Big Five safari', 'Gorilla & chimp tracking', 'Sipi Falls'],
       bestFor: 'Luxury adventure seekers.',
       description: 'The ultimate 12-day journey covering the best of Uganda\'s wildlife and primate encounters.',
-      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.jpeg`
+      image: `${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.02.10.webp`
     }
   ],
   contact: {
@@ -3950,44 +3950,44 @@ export const siteData = {
   },
   gallery: {
     images: [
-      { id: 1, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image1.jpeg` },
-      { id: 2, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image2.jpeg` },
-      { id: 3, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image3.jpeg` },
-      { id: 4, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image4.jpeg` },
-      { id: 5, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image5.jpeg` },
-      { id: 6, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image6.jpeg` },
-      { id: 7, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image7.jpeg` },
-      { id: 8, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image8.jpeg` },
-      { id: 9, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image9.jpeg` },
-      { id: 10, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image10.jpeg` },
-      { id: 11, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image11.jpeg` },
-      { id: 12, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image12.jpeg` },
-      { id: 13, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image13.jpeg` },
-      { id: 14, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image14.jpeg` },
-      { id: 15, title: 'Safari Vehicle', url: `${import.meta.env.BASE_URL}images/vehicle1.jpeg` },
-      { id: 16, title: 'Safari Vehicle', url: `${import.meta.env.BASE_URL}images/vehicle2.jpeg` },
-      { id: 17, title: 'Safari Vehicle', url: `${import.meta.env.BASE_URL}images/vehicle3.jpeg` },
-      { id: 18, title: 'Safari Vehicle', url: `${import.meta.env.BASE_URL}images/vehicle4.jpeg` }
+      { id: 1, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image1.webp` },
+      { id: 2, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image2.webp` },
+      { id: 3, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image3.webp` },
+      { id: 4, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image4.webp` },
+      { id: 5, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image5.webp` },
+      { id: 6, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image6.webp` },
+      { id: 7, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image7.webp` },
+      { id: 8, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image8.webp` },
+      { id: 9, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image9.webp` },
+      { id: 10, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image10.webp` },
+      { id: 11, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image11.webp` },
+      { id: 12, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image12.webp` },
+      { id: 13, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image13.webp` },
+      { id: 14, title: 'Safari Experiences', url: `${import.meta.env.BASE_URL}images/image14.webp` },
+      { id: 15, title: 'Safari Vehicle', url: `${import.meta.env.BASE_URL}images/vehicle1.webp` },
+      { id: 16, title: 'Safari Vehicle', url: `${import.meta.env.BASE_URL}images/vehicle2.webp` },
+      { id: 17, title: 'Safari Vehicle', url: `${import.meta.env.BASE_URL}images/vehicle3.webp` },
+      { id: 18, title: 'Safari Vehicle', url: `${import.meta.env.BASE_URL}images/vehicle4.webp` }
     ],
     videos: [
-      { id: 1, title: 'Safari Highlight 1', thumbnail: `${import.meta.env.BASE_URL}images/image1.jpeg`, url: `${import.meta.env.BASE_URL}videos/video1.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 2, title: 'Safari Highlight 2', thumbnail: `${import.meta.env.BASE_URL}images/image2.jpeg`, url: `${import.meta.env.BASE_URL}videos/video2.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 3, title: 'Safari Highlight 3', thumbnail: `${import.meta.env.BASE_URL}images/image3.jpeg`, url: `${import.meta.env.BASE_URL}videos/video3.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 4, title: 'Safari Highlight 4', thumbnail: `${import.meta.env.BASE_URL}images/image4.jpeg`, url: `${import.meta.env.BASE_URL}videos/video4.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 5, title: 'Safari Highlight 5', thumbnail: `${import.meta.env.BASE_URL}images/image5.jpeg`, url: `${import.meta.env.BASE_URL}videos/video5.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 6, title: 'Safari Highlight 6', thumbnail: `${import.meta.env.BASE_URL}images/image6.jpeg`, url: `${import.meta.env.BASE_URL}videos/video6.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 7, title: 'Safari Highlight 7', thumbnail: `${import.meta.env.BASE_URL}images/image7.jpeg`, url: `${import.meta.env.BASE_URL}videos/video7.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 8, title: 'Safari Highlight 8', thumbnail: `${import.meta.env.BASE_URL}images/image8.jpeg`, url: `${import.meta.env.BASE_URL}videos/video8.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 9, title: 'Safari Highlight 9', thumbnail: `${import.meta.env.BASE_URL}images/image9.jpeg`, url: `${import.meta.env.BASE_URL}videos/video9.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 10, title: 'Safari Highlight 10', thumbnail: `${import.meta.env.BASE_URL}images/image10.jpeg`, url: `${import.meta.env.BASE_URL}videos/video10.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 11, title: 'Safari Highlight 11', thumbnail: `${import.meta.env.BASE_URL}images/image11.jpeg`, url: `${import.meta.env.BASE_URL}videos/video11.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 12, title: 'Safari Highlight 12', thumbnail: `${import.meta.env.BASE_URL}images/image12.jpeg`, url: `${import.meta.env.BASE_URL}videos/video12.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 13, title: 'Safari Highlight 13', thumbnail: `${import.meta.env.BASE_URL}images/image13.jpeg`, url: `${import.meta.env.BASE_URL}videos/video 13.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 14, title: 'Safari Highlight 14', thumbnail: `${import.meta.env.BASE_URL}images/image14.jpeg`, url: `${import.meta.env.BASE_URL}videos/video14.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 15, title: 'Safari Highlight 15', thumbnail: `${import.meta.env.BASE_URL}images/image1.jpeg`, url: `${import.meta.env.BASE_URL}videos/video15.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 16, title: 'Safari Highlight 16', thumbnail: `${import.meta.env.BASE_URL}images/image2.jpeg`, url: `${import.meta.env.BASE_URL}videos/video16.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 17, title: 'Safari Highlight 17', thumbnail: `${import.meta.env.BASE_URL}images/image3.jpeg`, url: `${import.meta.env.BASE_URL}videos/video17.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
-      { id: 18, title: 'Safari Highlight 18', thumbnail: `${import.meta.env.BASE_URL}images/image4.jpeg`, url: `${import.meta.env.BASE_URL}videos/video18.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' }
+      { id: 1, title: 'Safari Highlight 1', thumbnail: `${import.meta.env.BASE_URL}images/image1.webp`, url: `${import.meta.env.BASE_URL}videos/video1.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 2, title: 'Safari Highlight 2', thumbnail: `${import.meta.env.BASE_URL}images/image2.webp`, url: `${import.meta.env.BASE_URL}videos/video2.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 3, title: 'Safari Highlight 3', thumbnail: `${import.meta.env.BASE_URL}images/image3.webp`, url: `${import.meta.env.BASE_URL}videos/video3.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 4, title: 'Safari Highlight 4', thumbnail: `${import.meta.env.BASE_URL}images/image4.webp`, url: `${import.meta.env.BASE_URL}videos/video4.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 5, title: 'Safari Highlight 5', thumbnail: `${import.meta.env.BASE_URL}images/image5.webp`, url: `${import.meta.env.BASE_URL}videos/video5.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 6, title: 'Safari Highlight 6', thumbnail: `${import.meta.env.BASE_URL}images/image6.webp`, url: `${import.meta.env.BASE_URL}videos/video6.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 7, title: 'Safari Highlight 7', thumbnail: `${import.meta.env.BASE_URL}images/image7.webp`, url: `${import.meta.env.BASE_URL}videos/video7.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 8, title: 'Safari Highlight 8', thumbnail: `${import.meta.env.BASE_URL}images/image8.webp`, url: `${import.meta.env.BASE_URL}videos/video8.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 9, title: 'Safari Highlight 9', thumbnail: `${import.meta.env.BASE_URL}images/image9.webp`, url: `${import.meta.env.BASE_URL}videos/video9.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 10, title: 'Safari Highlight 10', thumbnail: `${import.meta.env.BASE_URL}images/image10.webp`, url: `${import.meta.env.BASE_URL}videos/video10.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 11, title: 'Safari Highlight 11', thumbnail: `${import.meta.env.BASE_URL}images/image11.webp`, url: `${import.meta.env.BASE_URL}videos/video11.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 12, title: 'Safari Highlight 12', thumbnail: `${import.meta.env.BASE_URL}images/image12.webp`, url: `${import.meta.env.BASE_URL}videos/video12.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 13, title: 'Safari Highlight 13', thumbnail: `${import.meta.env.BASE_URL}images/image13.webp`, url: `${import.meta.env.BASE_URL}videos/video 13.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 14, title: 'Safari Highlight 14', thumbnail: `${import.meta.env.BASE_URL}images/image14.webp`, url: `${import.meta.env.BASE_URL}videos/video14.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 15, title: 'Safari Highlight 15', thumbnail: `${import.meta.env.BASE_URL}images/image1.webp`, url: `${import.meta.env.BASE_URL}videos/video15.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 16, title: 'Safari Highlight 16', thumbnail: `${import.meta.env.BASE_URL}images/image2.webp`, url: `${import.meta.env.BASE_URL}videos/video16.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 17, title: 'Safari Highlight 17', thumbnail: `${import.meta.env.BASE_URL}images/image3.webp`, url: `${import.meta.env.BASE_URL}videos/video17.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' },
+      { id: 18, title: 'Safari Highlight 18', thumbnail: `${import.meta.env.BASE_URL}images/image4.webp`, url: `${import.meta.env.BASE_URL}videos/video18.mp4`, description: 'Explore our unforgettable wildlife safari journeys.' }
     ]
   }
 };

@@ -21,6 +21,10 @@
     <meta name="twitter:image" content="https://comeagaintoursandtravels.com/images/WhatsApp-Image-2026-02-24-at-15.00.50-1.jpeg" />
     <meta name="theme-color" content="#0c1106" />
 
+    <!-- Agentic Browsing & AI Discovery Standards (WebMCP / llms.txt / ARD) -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context Summary" />
+    <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" />
+
     <!-- Schema.org Structured Data for Search Engine Crawlers -->
     <script type="application/ld+json">
     {
@@ -69,9 +73,40 @@
     }
     </script>
 
+    <!-- Preload Critical LCP Hero Image -->
+    <link rel="preload" as="image" href="/images/gorilla1.webp" fetchpriority="high" type="image/webp" />
+
+    <!-- Google Fonts Preconnect & Asynchronous Loading (Eliminates Render Blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+    <link 
+      rel="preload" 
+      as="style" 
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" 
+    />
+    <link 
+      rel="stylesheet" 
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" 
+      media="print" 
+      onload="this.media='all'" 
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" />
+    </noscript>
+
+    <!-- Instant Critical Rendering Styles (Eliminates White Flash & Slashes FCP) -->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #0c1106;
+        color: #ffffff;
+      }
+      #root:empty {
+        min-height: 100vh;
+        background-color: #0c1106;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

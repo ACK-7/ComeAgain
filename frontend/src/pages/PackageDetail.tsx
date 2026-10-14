@@ -27,6 +27,7 @@ import {
   Zap
 } from 'lucide-react';
 import { siteData } from '../data/siteData';
+import { businessConfig } from '../data/businessConfig';
 import Footer from '../components/Footer';
 import RealRouteMap from '../components/RealRouteMap';
 import SEO from '../components/SEO';
@@ -188,7 +189,7 @@ const PackageDetail: React.FC = () => {
         {/* Letterhead */}
         <header className="flex justify-between items-center border-b-[3px] border-brand-green pb-8 mb-10">
           <div>
-            <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Logo" className="h-24 mb-2" />
+            <img src={`${import.meta.env.BASE_URL}images/logo.webp`} alt="Logo" className="h-24 mb-2" />
             <p className="text-xs uppercase font-bold tracking-[0.2em] text-brand-green">Safari & Adventure Experts</p>
           </div>
           <div className="text-right space-y-1">
@@ -768,7 +769,7 @@ const PackageDetail: React.FC = () => {
                         </button>
                         
                         <a 
-                          href={`https://wa.me/256774243747?text=${encodeURIComponent(`Hi Come Again Tours, I'm interested in booking the ${pkg.title}`)}`}
+                          href={businessConfig.whatsapp.getLink(`Hi Come Again Tours, I'm interested in booking the ${pkg.title}`)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-full py-5 border border-white/20 text-white text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover:bg-white hover:text-brand-dark transition-all duration-300 rounded-2xl"
@@ -861,7 +862,7 @@ const PackageDetail: React.FC = () => {
                    
                    <div className="flex items-center gap-3">
                       <a 
-                        href={`https://wa.me/256774243747?text=${encodeURIComponent(`Hi Come Again Tours, I'm interested in booking the ${pkg.title}`)}`}
+                        href={businessConfig.whatsapp.getLink(`Hi Come Again Tours, I'm interested in booking the ${pkg.title}`)}
                         className="p-4 bg-brand-green/10 text-brand-green rounded-xl hover:bg-brand-green hover:text-white transition-all hidden sm:flex"
                         title="Chat on WhatsApp"
                       >

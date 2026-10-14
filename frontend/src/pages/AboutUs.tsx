@@ -20,8 +20,8 @@ const AboutUs: React.FC = () => {
     'name': businessConfig.name,
     'legalName': businessConfig.legalName,
     'url': businessConfig.website.url,
-    'logo': `${businessConfig.website.url}/images/logo.png`,
-    'image': `${businessConfig.website.url}/images/logo.png`,
+    'logo': `${businessConfig.website.url}/images/logo.webp`,
+    'image': `${businessConfig.website.url}/images/logo.webp`,
     'telephone': businessConfig.phone.raw,
     'email': businessConfig.email.primary,
     'address': {
@@ -101,7 +101,7 @@ const AboutUs: React.FC = () => {
         <section className="relative min-h-[75vh] lg:min-h-[82vh] flex items-end overflow-hidden pb-16 pt-32">
           <div className="absolute inset-0 z-0">
             <img 
-              src="/images/hills.jpeg" 
+              src="/images/hills.webp" 
               alt="Come Again Tours and Travels Uganda Team and Safaris" 
               className="w-full h-full object-cover"
             />
@@ -175,7 +175,7 @@ const AboutUs: React.FC = () => {
             <div className="lg:col-span-5 relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                 <img
-                  src="/images/image1.jpeg"
+                  src="/images/image1.webp"
                   alt="Come Again Tours and Travels wildlife game drive"
                   className="w-full h-96 object-cover hover:scale-105 transition-transform duration-700"
                 />

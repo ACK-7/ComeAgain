@@ -148,7 +148,7 @@ const Blog: React.FC = () => {
             className="absolute inset-0 z-0"
           >
             <img
-              src={`${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.jpeg`}
+              src={`${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.49-1.webp`}
               alt="Safari Journal Hero"
               className="w-full h-full object-cover"
             />
@@ -626,7 +626,7 @@ const Blog: React.FC = () => {
         {/* ── 4. Newsletter / CTA — fixed background ──────────────────── */}
         <section
           className="relative py-48 px-4 min-h-[600px] flex items-center bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.50-1.jpeg)` }}
+          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-24-at-15.00.50-1.webp)` }}
         >
           <div className="absolute inset-0 bg-black/65 backdrop-blur-[1px]" />
 

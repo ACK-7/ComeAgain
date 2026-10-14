@@ -55,9 +55,9 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: 'Kawanguzi Wilson',
       role: 'Managing Director, Come Again Tours & Travels',
-      image: `${import.meta.env.BASE_URL}images/wilson.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/wilson.webp`,
     },
-    featuredImage: `${import.meta.env.BASE_URL}images/scene.jpeg`,
+    featuredImage: `${import.meta.env.BASE_URL}images/scene.webp`,
     tags: [
       'Uganda 2027',
       'Uganda Travel Guide',
@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
       slug: '11-days-classic-uganda-safari',
       duration: '11 Days / 10 Nights',
       price: '$4,250',
-      image: `${import.meta.env.BASE_URL}images/wildlife.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/wildlife.webp`,
       highlights: [
         'Mountain Gorilla trekking encounter in Bwindi Impenetrable National Park',
         'Chimpanzee tracking in Kibale Forest, Africa’s primate capital',
@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
           'Secure Permits Early: Peak dry season permits (June–September and December–February) sell out months ahead. Always book via an AUTO-accredited operator like Come Again Tours.',
           'Fitness & Footwear: Bring broken-in waterproof hiking boots with deep tread, long gardening gloves to grasp branches, and lightweight rain gear.',
         ],
-        image: `${import.meta.env.BASE_URL}images/Gorillaa.jpeg`,
+        image: `${import.meta.env.BASE_URL}images/Gorillaa.webp`,
         imageCaption: 'A habituated mountain gorilla resting serenely in Bwindi Impenetrable National Park.',
       },
       {
@@ -113,7 +113,7 @@ export const blogPosts: BlogPost[] = [
           'A highlight of any Queen Elizabeth safari is a boat cruise along the Kazinga Channel, an oasis where huge pods of hippopotamuses, Nile crocodiles, and elephant herds gather to drink and bathe under the afternoon sun.',
           'A safari in Queen Elizabeth National Park can be easily combined with other destinations to create a longer, seamless Uganda adventure.',
         ],
-        image: `${import.meta.env.BASE_URL}images/tree-lion.jpeg`,
+        image: `${import.meta.env.BASE_URL}images/tree-lion.webp`,
         imageCaption: 'Tree-climbing lions resting in the giant fig trees of Queen Elizabeth\'s Ishasha sector.',
         imagePosition: 'center 12%',
       },
@@ -124,7 +124,7 @@ export const blogPosts: BlogPost[] = [
           'The sheer force creates a thunderous roar and permanent rainbows hovering through the rising mist. The surrounding national park, Uganda’s largest conservation reserve, offers exceptional game viewing with Rothschild’s giraffes, elephants, lions, buffaloes, Jackson’s hartebeests, and oribi.',
           'A Murchison Falls safari seamlessly combines classic savannah game drives, relaxing river boat cruises to the base of the falls, delta cruises to spot the rare prehistoric Shoebill stork, and unforgettable viewpoints from the Top of the Falls.',
         ],
-        image: `${import.meta.env.BASE_URL}images/Murchison.jpeg`,
+        image: `${import.meta.env.BASE_URL}images/Murchison.webp`,
         imageCaption: 'The mighty Victoria Nile River bursting violently through the 7-metre cleft at Murchison Falls.',
       },
       {
@@ -134,7 +134,7 @@ export const blogPosts: BlogPost[] = [
           'The dense evergreen rainforest is home to over 1,500 chimpanzees alongside 12 other primate species—including red colobus, L’Hoest’s monkeys, and grey-cheeked mangabeys—plus hundreds of species of birds, butterflies, and giant forest trees.',
           'For travelers who enjoy active wilderness exploration, walking in the footsteps of wild chimpanzees as they forage, groom, and echo explosive pant-hoots across the canopy provides a dynamic, immersive experience quite distinct from traditional vehicle game drives.',
         ],
-        image: `${import.meta.env.BASE_URL}images/chimpazee.jpeg`,
+        image: `${import.meta.env.BASE_URL}images/chimpazee.webp`,
         imageCaption: 'Tracking wild chimpanzees in their natural canopy habitat in Kibale National Park.',
       },
       {
@@ -144,7 +144,7 @@ export const blogPosts: BlogPost[] = [
           'Visitors can enjoy relaxing boat cruises to the exact point of the Nile’s source, explore Jinja’s colonial heritage and vibrant artisan markets, or partake in thrilling outdoor adventures including world-renowned Grade 5 white-water rafting, river kayaking, tubing, quad biking, and horseback riding along the riverbank.',
           'The area is particularly attractive to travelers seeking an exhilarating combination of culture, scenery, and outdoor adventure, and Jinja fits effortlessly into wider Uganda itineraries.',
         ],
-        image: `${import.meta.env.BASE_URL}images/Nile.jpg`,
+        image: `${import.meta.env.BASE_URL}images/Nile.webp`,
         imageCaption: 'Tranquil sunset waters where the River Nile flows from Lake Victoria in Jinja.',
       },
       {
@@ -154,7 +154,7 @@ export const blogPosts: BlogPost[] = [
           'Travelers can enjoy scenic guided hikes connecting all three waterfalls, visit local community coffee growers for an authentic bean-to-cup Bugisu Arabica coffee experience, and take in breath-taking panoramas across the vast Karamoja plains below.',
           'The region provides a peaceful, temperate contrast to Uganda’s bustling cities and major savanna parks, making Sipi Falls an excellent addition to an adventure-focused or photography-driven Uganda itinerary.',
         ],
-        image: `${import.meta.env.BASE_URL}images/sipifalls.jpg`,
+        image: `${import.meta.env.BASE_URL}images/sipifalls.webp`,
         imageCaption: 'The majestic cascades of Sipi Falls framed by lush green terraces on Mount Elgon.',
       },
       {
@@ -164,7 +164,7 @@ export const blogPosts: BlogPost[] = [
           'Rising to glaciated peaks exceeding 5,100 metres—including Margherita Peak on Mount Stanley—the region features ancient bamboo forests, cascading waterfalls, glacial rivers, and surreal afro-alpine valleys blanketed with giant lobelias and groundsels.',
           'Both gentle day hikes through the lower foothill valleys and challenging multi-day summit trekking expeditions can be arranged for travelers who want to explore these mystical mountains at their own pace.',
         ],
-        image: `${import.meta.env.BASE_URL}images/Rwenzori.jpg`,
+        image: `${import.meta.env.BASE_URL}images/Rwenzori.webp`,
         imageCaption: 'The snow-capped peaks and pristine glacial valleys of the Rwenzori Mountains.',
       },
       {
@@ -175,7 +175,7 @@ export const blogPosts: BlogPost[] = [
           'Including cultural experiences in your safari itinerary makes your journey deeply personal and meaningful, giving you an authentic appreciation of Uganda far beyond its wildlife.',
         ],
         quote: 'Uganda is not just a destination you visit; it is a feeling of genuine warmth, breathtaking wildlife, and pristine nature that stays with you forever.',
-        image: `${import.meta.env.BASE_URL}images/culture.jpg`,
+        image: `${import.meta.env.BASE_URL}images/culture.webp`,
         imageCaption: 'Celebrating Uganda’s vibrant heritage, traditional music, and joyful community spirit.',
       },
       {
@@ -185,7 +185,7 @@ export const blogPosts: BlogPost[] = [
           'Traveling by road allows you to experience the authentic rhythm of Ugandan daily life, stopping at roadside fruit markets for sweet pineapples and roasted plantains, and crossing the Equator line for iconic photo opportunities.',
           'For travelers who prioritize comfort, safety, and convenience, car hire with a professional local driver-guide makes exploring between destinations effortless—especially during multi-day circuits across the country.',
         ],
-        image: `${import.meta.env.BASE_URL}images/cars.jpeg`,
+        image: `${import.meta.env.BASE_URL}images/cars.webp`,
         imageCaption: 'Our rugged, custom-fitted 4x4 Safari Land Cruisers ready for overland discovery.',
       },
       {
@@ -264,16 +264,16 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: 'Asiima & Senior Ranger Team',
       role: 'Lead Safari Expedition Planners',
-      image: `${import.meta.env.BASE_URL}images/asiima.png`,
+      image: `${import.meta.env.BASE_URL}images/asiima.webp`,
     },
-    featuredImage: `${import.meta.env.BASE_URL}images/ug-gorilla.jpg`,
+    featuredImage: `${import.meta.env.BASE_URL}images/ug-gorilla.webp`,
     tags: ['Gorilla Trekking', 'Bwindi Forest', 'Uganda Wildlife', 'Safari Planning'],
     linkedPackage: {
       title: '3 Days Bwindi Gorilla Trekking Safari',
       slug: '3-days-gorilla-safari',
       duration: '3 Days / 2 Nights',
       price: '$1,450',
-      image: `${import.meta.env.BASE_URL}images/Gorillaa.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/Gorillaa.webp`,
       highlights: [
         'Guaranteed official UWA Mountain Gorilla permit included',
         'Private 4x4 Safari Land Cruiser with pop-up roof',
@@ -301,7 +301,7 @@ export const blogPosts: BlogPost[] = [
           'Sectors Matter: Bwindi is divided into four distinct trailheads — Buhoma, Ruhija, Rushaga, and Nkuringo. Always coordinate your lodge with your permit sector to avoid 3-hour dawn transfers.',
           'Porter Advantage: Always hire a local community porter ($15–$20) at the briefing point. Not only does this assist your balance on steep volcanic slopes, but it directly finances education for local families.',
         ],
-        image: `${import.meta.env.BASE_URL}images/Gorillaa.jpeg`,
+        image: `${import.meta.env.BASE_URL}images/Gorillaa.webp`,
         imageCaption: 'A habituated mountain gorilla resting peacefully on the slopes of Bwindi Impenetrable Forest.',
       },
       {
@@ -336,7 +336,7 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: 'Ramathan & Expedition Team',
       role: 'Senior Safari Field Director',
-      image: `${import.meta.env.BASE_URL}images/Ramathan.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/Ramathan.webp`,
     },
     featuredImage: `${import.meta.env.BASE_URL}images/murhison-drone.webp`,
     tags: ['Murchison Falls', 'River Nile', 'Big 5 Safari', 'Boat Cruise'],
@@ -345,7 +345,7 @@ export const blogPosts: BlogPost[] = [
       slug: '3-days-murchison-falls-safari',
       duration: '3 Days / 2 Nights',
       price: '$1,450',
-      image: `${import.meta.env.BASE_URL}images/Murchison.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/Murchison.webp`,
       highlights: [
         'Ziwa Rhino Sanctuary on-foot tracking en-route',
         'Private boat cruise along the Victoria Nile to the base of the falls',
@@ -372,7 +372,7 @@ export const blogPosts: BlogPost[] = [
           'Ziwa Rhino Stopover: Because rhinos were historically poached out of national parks, always take the route via Ziwa Rhino Sanctuary to complete your Big 5 sighting on foot before entering Murchison.',
           'Northern Sector Drives: The game-rich tracks lie north of the Victoria Nile. Book lodges located on the northern side (or select our fly-in packages) to maximize early morning predator activity without queueing for ferries.',
         ],
-        image: `${import.meta.env.BASE_URL}images/Murchison.jpeg`,
+        image: `${import.meta.env.BASE_URL}images/Murchison.webp`,
         imageCaption: 'The mighty Victoria Nile plunging 43 metres into the canyon below.',
       },
     ],
@@ -400,16 +400,16 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: 'Come Again Concierge Desk',
       role: 'Client Experience Specialists',
-      image: `${import.meta.env.BASE_URL}images/asiima.png`,
+      image: `${import.meta.env.BASE_URL}images/asiima.webp`,
     },
-    featuredImage: `${import.meta.env.BASE_URL}images/cars.jpeg`,
+    featuredImage: `${import.meta.env.BASE_URL}images/cars.webp`,
     tags: ['Safari Tips', 'Packing List', 'First Time Africa', 'Travel Advice'],
     linkedPackage: {
       title: '7 Days Uganda Highlights & Gorilla Circuit',
       slug: '7-days-uganda-classic',
       duration: '7 Days / 6 Nights',
       price: '$2,850',
-      image: `${import.meta.env.BASE_URL}images/lions-tree.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/lions-tree.webp`,
       highlights: [
         'Comprehensive Big 5 wildlife game drives across Queen Elizabeth National Park',
         'Famous tree-climbing lions of Ishasha sector',
@@ -452,16 +452,16 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: 'Asiima & Senior Ranger Team',
       role: 'Primate Safari Specialists',
-      image: `${import.meta.env.BASE_URL}images/asiima.png`,
+      image: `${import.meta.env.BASE_URL}images/asiima.webp`,
     },
-    featuredImage: `${import.meta.env.BASE_URL}images/chimp.jpeg`,
+    featuredImage: `${import.meta.env.BASE_URL}images/chimp.webp`,
     tags: ['Chimpanzee Trekking', 'Kibale Forest', 'Primates', 'Uganda Safari'],
     linkedPackage: {
       title: '5 Days Primates & Wildlife Safari',
       slug: '5-days-primates-safari',
       duration: '5 Days / 4 Nights',
       price: '$2,150',
-      image: `${import.meta.env.BASE_URL}images/chimpazee.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/chimpazee.webp`,
       highlights: [
         'Kibale Forest chimpanzee tracking permit',
         'Queen Elizabeth National Park savanna safari & tree-climbing lions',
@@ -492,9 +492,9 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: 'Come Again Adventure Desk',
       role: 'Expedition Coordinators',
-      image: `${import.meta.env.BASE_URL}images/asiima.png`,
+      image: `${import.meta.env.BASE_URL}images/asiima.webp`,
     },
-    featuredImage: `${import.meta.env.BASE_URL}images/rafting.jpg`,
+    featuredImage: `${import.meta.env.BASE_URL}images/rafting.webp`,
     tags: ['Jinja', 'River Nile', 'White Water Rafting', 'Adventure Uganda'],
     sections: [
       {
@@ -519,9 +519,9 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: 'Cultural Concierge',
       role: 'Heritage Guides',
-      image: `${import.meta.env.BASE_URL}images/asiima.png`,
+      image: `${import.meta.env.BASE_URL}images/asiima.webp`,
     },
-    featuredImage: `${import.meta.env.BASE_URL}images/Kampala.jpg`,
+    featuredImage: `${import.meta.env.BASE_URL}images/Kampala.webp`,
     tags: ['Kampala', 'Uganda Culture', 'Buganda Heritage', 'African Food'],
     sections: [
       {

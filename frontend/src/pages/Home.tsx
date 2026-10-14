@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import PackageCard from '../components/PackageCard';
-import Footer from '../components/Footer';
 import TrustBadges from '../components/TrustBadges';
-import GuideProfiles from '../components/GuideProfiles';
-import { siteData } from '../data/siteData';
+import { homeContent as home } from '../data/homeData';
+import { featuredHomePackages } from '../data/featuredHomePackages';
 import { Sparkles, Calculator, Backpack } from 'lucide-react';
 import SEO from '../components/SEO';
 import { useCustomSafariModal } from '../context/CustomSafariModalContext';
 import { Link } from 'react-router-dom';
 import TourismMarquee from '../components/TourismMarquee';
-import TripadvisorReviews from '../components/TripadvisorReviews';
 import GorillaPermitNotice from '../components/GorillaPermitNotice';
-import SafariFAQ from '../components/SafariFAQ';
-import LiveParkWeather from '../components/LiveParkWeather';
-import SafariPackingGuideModal from '../components/SafariPackingGuideModal';
 import HomepageSeoHubs from '../components/HomepageSeoHubs';
+
+// Lazy-load below-the-fold heavy components to drastically reduce mobile TBT & bundle size
+const LiveParkWeather = lazy(() => import('../components/LiveParkWeather'));
+const TripadvisorReviews = lazy(() => import('../components/TripadvisorReviews'));
+const SafariFAQ = lazy(() => import('../components/SafariFAQ'));
+const GuideProfiles = lazy(() => import('../components/GuideProfiles'));
+const Footer = lazy(() => import('../components/Footer'));
+const SafariPackingGuideModal = lazy(() => import('../components/SafariPackingGuideModal'));
 
 import type { Variants } from 'framer-motion';
 
@@ -47,7 +50,7 @@ const Home: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "name": "Come Again Tours and Travels",
-    "image": "https://www.comeagaintoursandtravels.com/images/logo.png",
+    "image": "https://www.comeagaintoursandtravels.com/images/logo.webp",
     "@id": "",
     "url": "https://www.comeagaintoursandtravels.com",
     "telephone": "+256-774-243-747",
@@ -82,7 +85,9 @@ const Home: React.FC = () => {
         <HomepageSeoHubs />
 
         {/* Live Real-Time Safari Weather Widget */}
-        <LiveParkWeather />
+        <Suspense fallback={<div className="min-h-[120px] bg-brand-dark" />}>
+          <LiveParkWeather />
+        </Suspense>
 
         {/* 2. Packages Intro & Grid */}
         <section className="py-16 px-4 bg-brand-dark overflow-hidden">
@@ -96,8 +101,8 @@ const Home: React.FC = () => {
                   transition={{ duration: 1, ease: "easeOut" }}
                   className="text-7xl md:text-8xl font-serif text-brand-green leading-none text-center lg:text-left"
                 >
-                  {siteData.home.packagesIntro.title.split(' ')[0]} <br/>
-                  <span className="text-white lg:ml-20">{siteData.home.packagesIntro.title.split(' ')[1]}</span>
+                  {home.packagesIntro.title.split(' ')[0]} <br/>
+                  <span className="text-white lg:ml-20">{home.packagesIntro.title.split(' ')[1]}</span>
                 </motion.h2>
               </div>
               <div className="lg:w-1/2">
@@ -108,7 +113,7 @@ const Home: React.FC = () => {
                   transition={{ duration: 1, delay: 0.3 }}
                   className="text-gray-400 text-lg leading-relaxed md:text-left"
                 >
-                  {siteData.home.packagesIntro.description}
+                  {home.packagesIntro.description}
                 </motion.p>
               </div>
             </div>
@@ -125,12 +130,7 @@ const Home: React.FC = () => {
               viewport={{ once: true, amount: 0.05 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
             >
-              {siteData.packagesPage.sections[0].packages
-                .filter(pkg => 
-                  ['11-days-classic-uganda-safari', '7-days-fly-pearl-of-africa', '3-days-fly-murchison-falls'].includes(pkg.slug || '')
-                )
-                .slice(0, 3) 
-                .map((pkg, idx) => (
+              {featuredHomePackages.map((pkg, idx) => (
                 <motion.div key={pkg.slug || idx} variants={itemVariants}>
                   <PackageCard packageData={pkg} />
                 </motion.div>
@@ -173,12 +173,12 @@ const Home: React.FC = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="relative text-left"
               >
-                 <span className="text-brand-green font-bold tracking-[0.4em] mb-4 block uppercase text-sm">{siteData.home.about.subheading}</span>
+                 <span className="text-brand-green font-bold tracking-[0.4em] mb-4 block uppercase text-sm">{home.about.subheading}</span>
                  <h2 className="text-5xl md:text-7xl font-serif mb-8 text-white leading-tight">
-                    {siteData.home.about.heading}
+                    {home.about.heading}
                  </h2>
                  <p className="text-gray-400 text-lg leading-[1.8] mb-12 max-w-xl">
-                    {siteData.home.about.description}
+                    {home.about.description}
                  </p>
                  <motion.a 
                     whileHover={{ scale: 1.05 }}
@@ -198,7 +198,7 @@ const Home: React.FC = () => {
                 className="relative"
               >
                  <div className=" overflow-hidden border-[10px] border-brand-muted/30 ">
-                    <img src={siteData.home.about.image} alt="About Us" className="w-[1500px] h-[600px] object-cover" />
+                    <img src={home.about.image} alt="About Us" className="w-[1500px] h-[600px] object-cover" />
                  </div>
                  <div className="absolute -bottom-10 -right-10 w-50 h-40 bg-brand-green/20  blur-3xl -z-10" />
               </motion.div>
@@ -223,9 +223,9 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               className="mb-20"
             >
-              <span className="text-brand-dark font-bold text-sm uppercase tracking-widest block mb-4">{siteData.home.services.header}</span>
+              <span className="text-brand-dark font-bold text-sm uppercase tracking-widest block mb-4">{home.services.header}</span>
               <h2 className="text-4xl md:text-5xl font-serif text-brand-green max-w-4xl leading-tight">
-                {siteData.home.services.promise}
+                {home.services.promise}
               </h2>
             </motion.div>
 
@@ -236,7 +236,7 @@ const Home: React.FC = () => {
               viewport={{ once: true, amount: 0.1 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"
             >
-              {siteData.home.services.items.slice(0, 3).map((service, idx) => (
+              {home.services.items.slice(0, 3).map((service, idx) => (
                 <motion.div 
                   key={idx} 
                   variants={itemVariants}
@@ -271,7 +271,7 @@ const Home: React.FC = () => {
               viewport={{ once: true, amount: 0.1 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto"
             >
-              {siteData.home.services.items.slice(3, 5).map((service, idx) => (
+              {home.services.items.slice(3, 5).map((service, idx) => (
                 <motion.div 
                   key={idx} 
                   variants={itemVariants}
@@ -353,7 +353,7 @@ const Home: React.FC = () => {
                 transition={{ duration: 1.5 }}
                 className="lg:w-1/3 relative min-h-[400px] lg:min-h-full"
               >
-                 <img src={siteData.home.whyChooseUs.image} alt="Lions in Tree" className="absolute inset-0 w-full h-full object-cover" />
+                 <img src={home.whyChooseUs.image} alt="Lions in Tree" className="absolute inset-0 w-full h-full object-cover" />
               </motion.div>
 
               <div className="lg:w-2/3 py-24 px-8 lg:px-20 flex items-center text-left">
@@ -364,15 +364,15 @@ const Home: React.FC = () => {
                   transition={{ duration: 1, ease: "easeOut" }}
                  >
                     <span className="text-brand-dark font-bold text-[13px] uppercase tracking-widest mb-4 block">
-                       {siteData.home.whyChooseUs.subheading}
+                       {home.whyChooseUs.subheading}
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif text-brand-green mb-16 leading-tight">
-                       {siteData.home.whyChooseUs.heading}
+                       {home.whyChooseUs.heading}
                     </h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                        <ul className="space-y-6">
-                          {siteData.home.whyChooseUs.featuresColumn1.map((feature, idx) => (
+                          {home.whyChooseUs.featuresColumn1.map((feature, idx) => (
                             <motion.li 
                               key={idx} 
                               initial={{ opacity: 0, x: 10 }}
@@ -387,7 +387,7 @@ const Home: React.FC = () => {
                           ))}
                        </ul>
                        <ul className="space-y-6">
-                          {siteData.home.whyChooseUs.featuresColumn2.map((feature, idx) => (
+                          {home.whyChooseUs.featuresColumn2.map((feature, idx) => (
                             <motion.li 
                               key={idx} 
                               initial={{ opacity: 0, x: 10 }}
@@ -409,18 +409,24 @@ const Home: React.FC = () => {
         </section>
 
         {/* 6. Luxury TripAdvisor Reviews Showcase */}
-        <TripadvisorReviews />
+        <Suspense fallback={<div className="min-h-[300px] bg-brand-dark" />}>
+          <TripadvisorReviews />
+        </Suspense>
 
         {/* 7. Essential Safari FAQ Accordion */}
-        <SafariFAQ />
+        <Suspense fallback={<div className="min-h-[200px] bg-brand-dark" />}>
+          <SafariFAQ />
+        </Suspense>
 
         {/* 6.5 Safari Guides & Field Experts */}
-        <GuideProfiles />
+        <Suspense fallback={<div className="min-h-[250px] bg-brand-dark" />}>
+          <GuideProfiles />
+        </Suspense>
 
         {/* 7. Scenic Action Section */}
         <section 
           className="relative py-16 px-4 overflow-hidden min-h-[600px] flex items-center bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: `url(${siteData.home.cta.backgroundImage})` }}
+          style={{ backgroundImage: `url(${home.cta.backgroundImage})` }}
         >
            <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
 
@@ -431,7 +437,7 @@ const Home: React.FC = () => {
                 viewport={{ once: true }}
                 className="text-6xl md:text-8xl font-serif text-brand-green mb-10 leading-[1.1]"
               >
-                 {siteData.home.cta.heading}
+                 {home.cta.heading}
               </motion.h2>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
@@ -440,7 +446,7 @@ const Home: React.FC = () => {
                 transition={{ delay: 0.2 }}
                 className="text-white text-xl md:text-2xl font-serif max-w-4xl mb-16 leading-relaxed"
               >
-                 {siteData.home.cta.description}
+                 {home.cta.description}
               </motion.p>
 
               <motion.div 
@@ -461,8 +467,8 @@ const Home: React.FC = () => {
                  <div className="hidden md:block w-[1px] h-12 bg-white/30" />
                  <div className="flex flex-col">
                     <span className="text-white text-[10px] font-bold uppercase tracking-widest mb-1">Or give us a call:</span>
-                    <a href={`tel:${siteData.home.cta.phone}`} className="text-brand-green text-3xl font-serif font-bold hover:text-brand-accent transition-colors">
-                       {siteData.home.cta.phone}
+                    <a href={`tel:${home.cta.phone}`} className="text-brand-green text-3xl font-serif font-bold hover:text-brand-accent transition-colors">
+                       {home.cta.phone}
                     </a>
                  </div>
               </motion.div>
@@ -472,13 +478,19 @@ const Home: React.FC = () => {
         {/* 8. Removed Stats Section as per request */}
       </main>
 
-      <Footer />
+      <Suspense fallback={<div className="min-h-[200px] bg-brand-dark" />}>
+        <Footer />
+      </Suspense>
 
       {/* Safari Packing Checklist Modal */}
-      <SafariPackingGuideModal
-        isOpen={isPackingModalOpen}
-        onClose={() => setIsPackingModalOpen(false)}
-      />
+      {isPackingModalOpen && (
+        <Suspense fallback={null}>
+          <SafariPackingGuideModal
+            isOpen={isPackingModalOpen}
+            onClose={() => setIsPackingModalOpen(false)}
+          />
+        </Suspense>
+      )}
     </div>
   );
 };

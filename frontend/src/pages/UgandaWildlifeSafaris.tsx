@@ -64,28 +64,28 @@ const UgandaWildlifeSafaris: React.FC = () => {
       slug: '/murchison-falls-safaris',
       animals: 'Lions, Elephants, Giraffes, Hippos, Nile Crocodiles',
       highlight: 'World’s most powerful waterfall & Victoria Nile boat cruise',
-      image: '/images/elephant.jpeg',
+      image: '/images/elephant.webp',
     },
     {
       name: 'Queen Elizabeth National Park',
       slug: '/queen-elizabeth-national-park-safaris',
       animals: 'Tree-climbing Lions, Leopards, Buffalos, Kazinga Hippos',
       highlight: 'Kazinga Channel boat safari & Ishasha wilderness',
-      image: '/images/lions-tree.jpeg',
+      image: '/images/lions-tree.webp',
     },
     {
       name: 'Kidepo Valley National Park',
       slug: '/package/3-days-kidepo-wilderness',
       animals: 'Cheetahs, Lions on Kopjes, Ostriches, Huge Buffalo herds',
       highlight: 'Africa’s true untouched wilderness in the remote Northeast',
-      image: '/images/scene.jpeg',
+      image: '/images/scene.webp',
     },
     {
       name: 'Lake Mburo National Park',
       slug: '/package/2-days-lake-mburo-safari',
       animals: 'Zebras, Elands, Impalas, Giraffes, Leopards',
       highlight: 'Walking safaris, horseback safaris & night game drives',
-      image: '/images/image8.jpeg',
+      image: '/images/image8.webp',
     },
   ];
 
@@ -104,7 +104,7 @@ const UgandaWildlifeSafaris: React.FC = () => {
         <section className="relative min-h-[75vh] lg:min-h-[82vh] flex items-end overflow-hidden pb-16 pt-32">
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/WhatsApp-Image-2026-02-24-at-15.06.18-1.jpeg"
+              src="/images/WhatsApp-Image-2026-02-24-at-15.06.18-1.webp"
               alt="Uganda wildlife safari savannah game drive"
               className="w-full h-full object-cover"
             />

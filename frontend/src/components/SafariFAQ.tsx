@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, HelpCircle, MessageCircle, PhoneCall } from 'lucide-react';
 import { siteData } from '../data/siteData';
+import { businessConfig } from '../data/businessConfig';
 
 export interface FAQItem {
   question: string;
@@ -131,7 +132,7 @@ const SafariFAQ: React.FC = () => {
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/256774243747"
+              href={businessConfig.whatsapp.getLink('Hello Come Again Tours! I have a question about planning my Uganda safari.')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#22c55e] text-white font-bold text-xs uppercase tracking-wider transition-transform active:scale-95 shadow-md"

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /.well-known/
 
 Sitemap: https://www.comeagaintoursandtravels.com/sitemap.xml
-Sitemap: https://comeagaintoursandtravels.com/sitemap.xml
+Agentmap: https://www.comeagaintoursandtravels.com/.well-known/ai-catalog.json

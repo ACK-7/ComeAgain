@@ -21,7 +21,7 @@ const Gallery: React.FC = () => {
         <section className="relative h-[80vh] flex items-end overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
-              src={`${import.meta.env.BASE_URL}images/leopard-footer.jpeg`}
+              src={`${import.meta.env.BASE_URL}images/leopard-footer.webp`}
               alt="Gallery Background"
               className="w-full h-full object-cover grayscale-[40%]"
             />

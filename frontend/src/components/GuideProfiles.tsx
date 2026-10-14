@@ -16,7 +16,7 @@ export const GuideProfiles: React.FC = () => {
       specialty: 'Mountain Gorillas (Bwindi), Chimpanzees & Savanna Mammals',
       languages: 'English, Swahili, Luganda, Arabic, Lusoga',
       bio: 'With 20+ years of hands-on field experience, Issa is Come Again\'s esteemed Head Guide, master tracker, and multilingual naturalist.',
-      image: `${import.meta.env.BASE_URL}images/Issa.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/Issa.webp`,
       imagePosition: 'center 35%',
     },
     {
@@ -27,7 +27,7 @@ export const GuideProfiles: React.FC = () => {
       specialty: 'Big 5 Game Drives, Murchison Falls & Kidepo Valley',
       languages: 'English, Swahili, Luganda, Runyankore',
       bio: 'A dedicated savanna tracker renowned for predator sightings and birding knowledge, navigating Uganda\'s northern and western corridors across Murchison Falls, Queen Elizabeth, and Kidepo Valley.',
-      image: `${import.meta.env.BASE_URL}images/Ramathan.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/Ramathan.webp`,
       imagePosition: 'center 38%',
     },
     {
@@ -38,7 +38,7 @@ export const GuideProfiles: React.FC = () => {
       specialty: 'All Uganda & Rwanda Game Parks, Cross-Border Safaris & Navigation',
       languages: 'English, Swahili, Luganda, Runyankore',
       bio: 'A certified professional driver-guide from Kakiri, Wakiso District, with active operational knowledge of game parks across Uganda and Rwanda, focused on safe driving and genuine guest care.',
-      image: `${import.meta.env.BASE_URL}images/kikonyogo.jpeg`,
+      image: `${import.meta.env.BASE_URL}images/kikonyogo.webp`,
       imagePosition: 'center 35%',
     },
   ];

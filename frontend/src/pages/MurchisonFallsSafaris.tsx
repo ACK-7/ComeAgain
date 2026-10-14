@@ -74,7 +74,7 @@ const MurchisonFallsSafaris: React.FC = () => {
         <section className="relative min-h-[75vh] lg:min-h-[82vh] flex items-end overflow-hidden pb-16 pt-32">
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/elephant.jpeg"
+              src="/images/elephant.webp"
               alt="Murchison Falls National Park safari wildlife and elephant"
               className="w-full h-full object-cover"
             />
@@ -164,7 +164,7 @@ const MurchisonFallsSafaris: React.FC = () => {
             <div className="lg:col-span-5 space-y-6">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <img
-                  src="/images/image2.jpeg"
+                  src="/images/image2.webp"
                   alt="Murchison Falls boat safari and river"
                   className="w-full h-80 object-cover"
                 />

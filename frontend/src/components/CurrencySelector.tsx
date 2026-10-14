@@ -32,6 +32,8 @@ const CurrencySelector: React.FC<CurrencySelectorProps> = ({ compact = false }) 
             : 'px-3.5 py-1.5 text-xs bg-white/10 border-white/25 text-white hover:bg-white/20 hover:border-brand-green/60 shadow-sm backdrop-blur-md'
         }`}
         aria-label="Select Currency"
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
       >
         <Globe className="w-3.5 h-3.5 text-brand-green shrink-0" />
         <span>{currentCurrencyInfo.flag}</span>

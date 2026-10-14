@@ -257,7 +257,7 @@ const VisionMission: React.FC = () => {
         {/* 5. Final CTA Section — fixed background */}
         <section
           className="relative py-48 px-4 min-h-[600px] flex items-center bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-20-at-20.30.59.jpeg)` }}
+          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/WhatsApp-Image-2026-02-20-at-20.30.59.webp)` }}
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
 

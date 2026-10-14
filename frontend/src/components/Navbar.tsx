@@ -24,7 +24,7 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import CurrencySelector from './CurrencySelector';
 import { useCustomSafariModal } from '../context/CustomSafariModalContext';
-import { siteData } from '../data/siteData';
+import { homeContent } from '../data/homeData';
 import { businessConfig } from '../data/businessConfig';
 
 const Navbar: React.FC = () => {
@@ -127,7 +127,7 @@ const Navbar: React.FC = () => {
 
             {/* Social Icons from Footer Data */}
             <div className="flex items-center gap-3 text-gray-300">
-              {siteData.home.footer.socials.map((social) => {
+              {homeContent.footer.socials.map((social) => {
                 const getSocialIcon = () => {
                   switch (social.icon) {
                     case 'facebook': return <Facebook className="w-3.5 h-3.5" />;
@@ -168,7 +168,7 @@ const Navbar: React.FC = () => {
             <Link to="/" className="flex-shrink-0 flex items-center group py-2">
               <img 
                 className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md" 
-                src={`${import.meta.env.BASE_URL}images/logo.png`} 
+                src={`${import.meta.env.BASE_URL}images/logo.webp`} 
                 alt="Come Again Tours and Travels" 
               />
             </Link>
@@ -196,6 +196,10 @@ const Navbar: React.FC = () => {
                 className="relative h-20 flex items-center"
               >
                 <button
+                  onClick={() => setSafarisDropdownOpen(!safarisDropdownOpen)}
+                  aria-expanded={safarisDropdownOpen}
+                  aria-haspopup="true"
+                  aria-label="Uganda Safaris menu"
                   className={`px-3.5 py-2 flex items-center gap-1 transition-all ${
                     isSafarisActive ? 'text-brand-green font-bold' : 'text-white/90 hover:text-brand-green'
                   }`}
@@ -308,6 +312,10 @@ const Navbar: React.FC = () => {
                 className="relative h-20 flex items-center"
               >
                 <button
+                  onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                  aria-expanded={aboutDropdownOpen}
+                  aria-haspopup="true"
+                  aria-label="About Us menu"
                   className={`px-3.5 py-2 flex items-center gap-1 transition-all ${
                     isAboutActive ? 'text-brand-green font-bold' : 'text-white/90 hover:text-brand-green'
                   }`}
@@ -385,6 +393,10 @@ const Navbar: React.FC = () => {
                 className="relative h-20 flex items-center"
               >
                 <button
+                  onClick={() => setPlanningDropdownOpen(!planningDropdownOpen)}
+                  aria-expanded={planningDropdownOpen}
+                  aria-haspopup="true"
+                  aria-label="Safari Planning Guide menu"
                   className={`px-3.5 py-2 flex items-center gap-1 transition-all ${
                     isGuidesActive ? 'text-brand-green font-bold' : 'text-white/90 hover:text-brand-green'
                   }`}
@@ -466,7 +478,8 @@ const Navbar: React.FC = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 rounded-xl text-white hover:text-brand-green focus:outline-none bg-white/10"
-                aria-label="Toggle menu"
+                aria-label="Toggle navigation"
+                aria-expanded={isOpen}
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -591,7 +604,7 @@ const Navbar: React.FC = () => {
 
             {/* Social Icons in Mobile */}
             <div className="pt-4 flex items-center justify-center gap-5 text-gray-300">
-              {siteData.home.footer.socials.map((social) => {
+              {homeContent.footer.socials.map((social) => {
                 const getSocialIcon = () => {
                   switch (social.icon) {
                     case 'facebook': return <Facebook className="w-4 h-4" />;

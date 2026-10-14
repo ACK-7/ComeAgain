@@ -35,7 +35,7 @@ const Services: React.FC = () => {
             className="absolute inset-0 z-0"
           >
             <img
-              src={`${import.meta.env.BASE_URL}images/elephant.jpeg`}
+              src={`${import.meta.env.BASE_URL}images/elephant.webp`}
               alt="Elephant Hero"
               className="w-full h-full object-cover"
             />
@@ -173,7 +173,7 @@ const Services: React.FC = () => {
         {/* 5. Final CTA Section — fixed background */}
         <section
           className="relative py-48 px-4 min-h-[600px] flex items-center bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/services-imagine.jpg)` }}
+          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/services-imagine.webp)` }}
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
 
