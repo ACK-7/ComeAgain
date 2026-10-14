@@ -121,43 +121,54 @@ const Hero: React.FC = () => {
                   initial={{ opacity: 0, y: 25 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, ease: 'easeOut' }}
-                  className="text-[2.2rem] sm:text-[3.2rem] md:text-[4.4rem] xl:text-[5.4rem] text-white mb-2 sm:mb-4 drop-shadow-2xl leading-[1.04] max-w-4xl tracking-tight"
+                  className="text-[2.2rem] sm:text-[3.2rem] md:text-[4.2rem] xl:text-[5rem] text-white mb-2 sm:mb-4 drop-shadow-2xl leading-[1.04] max-w-4xl tracking-tight"
                   style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                  dangerouslySetInnerHTML={{ __html: slides[currentSlide].title }}
-                />
+                >
+                  Discover Uganda and East Africa <br className="hidden sm:block" />
+                  <span className="text-brand-green">with Come Again Tours and Travels</span>
+                </motion.h1>
 
                 {/* Subtitle */}
                 <motion.p
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
-                  className="text-base sm:text-xl md:text-2xl xl:text-3xl text-white/95 drop-shadow-md max-w-2xl mb-4 sm:mb-6 md:mb-8"
+                  className="text-base sm:text-xl md:text-2xl xl:text-3xl text-white/95 drop-shadow-md max-w-3xl mb-4 sm:mb-6 md:mb-8"
                   style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontWeight: 300 }}
                 >
-                  {slides[currentSlide].subtitle}
+                  Uganda-based tour operator offering bespoke Uganda safaris, mountain gorilla trekking in Bwindi, wildlife experiences, and 4x4 car hire with professional drivers.
                 </motion.p>
 
-                {/* Action Buttons */}
+                {/* Action Buttons: 3 Strong Booking Buttons */}
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.3 }}
-                  className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 mb-4 sm:mb-6 w-full sm:w-auto"
+                  className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 mb-4 sm:mb-6 w-full sm:w-auto"
                 >
                   <Link
-                    to="/packages"
-                    className="px-6 sm:px-8 py-3 sm:py-4 bg-brand-green text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-2xl flex items-center justify-center gap-2 transform hover:-translate-y-0.5 text-center"
+                    to="/uganda-safaris"
+                    className="px-5 sm:px-7 py-3 sm:py-3.5 bg-brand-green text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-2xl flex items-center justify-center gap-2 transform hover:-translate-y-0.5 text-center"
                   >
-                    <Compass className="w-4 h-4" /> Explore Safari Packages
+                    <Compass className="w-4 h-4" /> Plan My Uganda Safari
                   </Link>
 
                   <button
                     type="button"
                     onClick={() => openModal({})}
-                    className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 border border-white/30 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2 shadow-xl transform hover:-translate-y-0.5 text-center"
+                    className="px-5 sm:px-7 py-3 sm:py-3.5 bg-white/15 border border-white/30 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2 shadow-xl transform hover:-translate-y-0.5 text-center"
                   >
-                    <Sparkles className="w-4 h-4 text-amber-300" /> Plan Custom Trip (Free Quote)
+                    <Sparkles className="w-4 h-4 text-amber-300" /> Request a Quote
                   </button>
+
+                  <a
+                    href="https://wa.me/256786016031?text=Hello%20Come%20Again%20Tours!%20I%20would%20like%20to%20plan%20a%20safari."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 sm:px-7 py-3 sm:py-3.5 bg-[#25D366] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-xl flex items-center justify-center gap-2 transform hover:-translate-y-0.5 text-center"
+                  >
+                    Chat With Us on WhatsApp
+                  </a>
                 </motion.div>
 
                 {/* Social Proof Micro Bar */}

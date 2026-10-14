@@ -5,6 +5,7 @@ import { blogPosts } from '../data/blogData';
 import { Link } from 'react-router-dom';
 import RegulatoryPartners from './RegulatoryPartners';
 import SafariTermsModal from './SafariTermsModal';
+import { businessConfig } from '../data/businessConfig';
 
 const Footer: React.FC = () => {
   const footerData = siteData.home.footer;
@@ -30,33 +31,43 @@ const Footer: React.FC = () => {
       <div className="py-16 px-8 sm:px-12 lg:px-20 xl:px-24 2xl:px-28 w-full">
         {/* 5-Column Layout with Equal Spacing */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 xl:gap-12 text-white w-full">
-          {/* 1. Safari Planning & Quick Links */}
+          {/* 1. Safari Planning & Core Destinations */}
           <div className="flex flex-col items-start text-left">
-            <h4 className="text-2xl font-serif font-bold mb-6 text-white">Safari Planning</h4>
+            <h4 className="text-2xl font-serif font-bold mb-6 text-white">Uganda Safaris</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/packages" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Safari Packages
+                <Link to="/uganda-safaris" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Uganda Safaris Hub
                 </Link>
               </li>
               <li>
-                <Link to="/gorilla-permits-guide" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Gorilla Permits Guide
+                <Link to="/bwindi-gorilla-trekking" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Bwindi Gorilla Trekking
                 </Link>
               </li>
               <li>
-                <Link to="/safari-cost-calculator" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Safari Cost Calculator
+                <Link to="/queen-elizabeth-national-park-safaris" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Queen Elizabeth Safaris
                 </Link>
               </li>
               <li>
-                <Link to="/best-time-to-visit-uganda" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Best Time to Visit
+                <Link to="/murchison-falls-safaris" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Murchison Falls Safaris
+                </Link>
+              </li>
+              <li>
+                <Link to="/kibale-chimpanzee-safaris" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Kibale Chimp Trekking
+                </Link>
+              </li>
+              <li>
+                <Link to="/car-hire-uganda" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> 4x4 Car Hire with Driver
                 </Link>
               </li>
               <li>
                 <Link to="/destination" className="text-white hover:text-brand-green transition-colors text-sm font-medium flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Destinations
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span> Destinations (All Parks)
                 </Link>
               </li>
             </ul>
@@ -109,11 +120,32 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-start text-left">
             <h4 className="text-2xl font-serif font-bold mb-6 text-white">Reach Out</h4>
             <ul className="space-y-3.5 text-xs sm:text-sm font-medium text-gray-200">
-              <li>Tel: {footerData.contact.tel}</li>
-              <li>Office line: {footerData.contact.office}</li>
-              <li className="break-all">Email: {footerData.contact.email}</li>
-              <li>Postal address: {footerData.contact.postal}</li>
-              <li>Location: {footerData.contact.location}</li>
+              <li>
+                <a 
+                  href={businessConfig.whatsapp.getLink()} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-brand-green transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-[#25D366] font-bold">WhatsApp:</span> {businessConfig.whatsapp.display}
+                </a>
+              </li>
+              <li>
+                <a href={businessConfig.phone.telLink} className="hover:text-brand-green transition-colors">
+                  <span className="text-white font-bold">Phone:</span> {businessConfig.phone.display}
+                </a>
+              </li>
+              <li className="break-all">
+                <a href={businessConfig.email.mailto} className="hover:text-brand-green transition-colors">
+                  <span className="text-white font-bold">Email:</span> {businessConfig.email.primary}
+                </a>
+              </li>
+              <li>
+                <span className="text-white font-bold">Location:</span> {businessConfig.location}
+              </li>
+              <li>
+                <span className="text-white font-bold">Website:</span> {businessConfig.website.display}
+              </li>
               <li className="pt-3">
                 <a 
                   href={siteData.home.testimonials.tripadvisorUrl} 

@@ -52,6 +52,43 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- High-Value SEO Pillars & Destination Hubs -->
+  <url>
+    <loc>https://www.comeagaintoursandtravels.com/uganda-safaris</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.comeagaintoursandtravels.com/bwindi-gorilla-trekking</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.comeagaintoursandtravels.com/queen-elizabeth-national-park-safaris</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.comeagaintoursandtravels.com/murchison-falls-safaris</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.comeagaintoursandtravels.com/kibale-chimpanzee-safaris</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.comeagaintoursandtravels.com/uganda-wildlife-safaris</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.comeagaintoursandtravels.com/car-hire-uganda</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- High-Intent Planning Hubs & Tools -->
   <url>
     <loc>https://comeagaintoursandtravels.com/gorilla-permits-guide</loc>

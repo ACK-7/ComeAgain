@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
 import { motion, type Variants } from 'framer-motion';
-import { Mail, MapPin, Phone, Send, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CheckCircle, Globe, MessageSquare } from 'lucide-react';
 import SEO from '../components/SEO';
+import { businessConfig } from '../data/businessConfig';
 
 const Contact: React.FC = () => {
   const { contactPage } = siteData;
@@ -71,21 +72,34 @@ const Contact: React.FC = () => {
 
   const contactItems = [
     {
+      icon: <MessageSquare className="w-5 h-5 text-[#25D366]" />,
+      label: 'WhatsApp (Instant Chat)',
+      value: `${businessConfig.whatsapp.display} (${businessConfig.whatsapp.international})`,
+      href: businessConfig.whatsapp.getLink('Hello Come Again Tours and Travels! I would like to request a quote.'),
+      highlight: true,
+    },
+    {
       icon: <Phone className="w-5 h-5" />,
-      label: 'Call Us',
-      value: contactPage.getInTouch.phone,
-      href: `tel:${contactPage.getInTouch.phone}`,
+      label: 'Phone Call (24/7 Desk)',
+      value: `${businessConfig.phone.display} (${businessConfig.phone.international})`,
+      href: businessConfig.phone.telLink,
     },
     {
       icon: <Mail className="w-5 h-5" />,
-      label: 'Email Us',
-      value: contactPage.getInTouch.email,
-      href: `mailto:${contactPage.getInTouch.email}`,
+      label: 'Official Email',
+      value: businessConfig.email.primary,
+      href: businessConfig.email.mailto,
+    },
+    {
+      icon: <Globe className="w-5 h-5" />,
+      label: 'Website',
+      value: businessConfig.website.display,
+      href: businessConfig.website.url,
     },
     {
       icon: <MapPin className="w-5 h-5" />,
-      label: 'Our Office',
-      value: contactPage.getInTouch.location,
+      label: 'Physical Address',
+      value: `${businessConfig.name}, ${businessConfig.location}`,
       href: 'https://maps.google.com/?q=Kampala,Uganda',
     },
   ];
@@ -93,9 +107,10 @@ const Contact: React.FC = () => {
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
       <SEO 
-        title="Contact Us | Come Again Tours & Travels"
-        description="Get in touch with Come Again Tours & Travels. Contact us via phone or email to book your unforgettable Uganda safari experience."
-        url="https://comeagaintoursandtravels.com/contact"
+        title="Contact / Request a Quote | Come Again Tours and Travels"
+        description="Contact Come Again Tours and Travels Kampala, Uganda. WhatsApp: 0786016031, Phone: 0774243747, Email: info@comeagaintoursandtravels.com. Request a free safari quote."
+        url={`${businessConfig.website.url}/contact`}
+        canonical={`${businessConfig.website.url}/contact`}
       />
       <main>
         {/* 1. Hero — 90vh + Ken Burns */}
@@ -249,8 +264,31 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.85 }}
               className="md:col-span-8"
             >
-              <div className="bg-white p-12 shadow-sm border border-brand-green/5">
-                <h3 className="text-3xl font-serif text-brand-dark mb-2">Message Us</h3>
+              <div className="bg-white p-8 sm:p-12 shadow-sm border border-brand-green/10 text-left">
+                {/* Prominent Instant WhatsApp Action Card */}
+                <div className="mb-8 p-5 bg-[#e8f5e9] border border-[#25D366]/40 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                    <span className="text-[#1b5e20] text-xs font-bold uppercase tracking-wider block mb-1">
+                      Prefer Instant Communication?
+                    </span>
+                    <h4 className="text-brand-dark font-serif font-bold text-lg">
+                      Chat Directly on WhatsApp: {businessConfig.whatsapp.display}
+                    </h4>
+                    <p className="text-xs text-gray-600 mt-0.5">
+                      Fastest response from our Kampala reservations desk.
+                    </p>
+                  </div>
+                  <a
+                    href={businessConfig.whatsapp.getLink('Hello Come Again Tours and Travels! I would like to request a safari / car hire quote.')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 bg-[#25D366] text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-[#1ebe5d] transition-all shadow-md shrink-0 flex items-center gap-2"
+                  >
+                    <MessageSquare className="w-4 h-4" /> Open WhatsApp
+                  </a>
+                </div>
+
+                <h3 className="text-3xl font-serif text-brand-dark mb-2">Request a Quote / Send Message</h3>
                 <motion.div
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}

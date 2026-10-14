@@ -29,6 +29,15 @@ const SafariCostEstimator = lazy(() => import('./pages/SafariCostEstimator'));
 const BestTimeToVisit = lazy(() => import('./pages/BestTimeToVisit'));
 const PlanMyTrip = lazy(() => import('./pages/PlanMyTrip'));
 
+// Dedicated High-Value SEO Pillars
+const UgandaSafaris = lazy(() => import('./pages/UgandaSafaris'));
+const BwindiGorillaTrekking = lazy(() => import('./pages/BwindiGorillaTrekking'));
+const QueenElizabethSafaris = lazy(() => import('./pages/QueenElizabethSafaris'));
+const MurchisonFallsSafaris = lazy(() => import('./pages/MurchisonFallsSafaris'));
+const KibaleChimpanzeeSafaris = lazy(() => import('./pages/KibaleChimpanzeeSafaris'));
+const UgandaWildlifeSafaris = lazy(() => import('./pages/UgandaWildlifeSafaris'));
+const CarHireUganda = lazy(() => import('./pages/CarHireUganda'));
+
 // Loading fallback component
 const PageLoader = () => (
   <div className="min-h-[60vh] flex items-center justify-center">
@@ -57,8 +66,17 @@ const ContentWrapper = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/request-a-quote" element={<Contact />} />
           
           {/* High-Intent SEO & Lead Generation Hubs */}
+          <Route path="/uganda-safaris" element={<UgandaSafaris />} />
+          <Route path="/bwindi-gorilla-trekking" element={<BwindiGorillaTrekking />} />
+          <Route path="/queen-elizabeth-national-park-safaris" element={<QueenElizabethSafaris />} />
+          <Route path="/murchison-falls-safaris" element={<MurchisonFallsSafaris />} />
+          <Route path="/kibale-chimpanzee-safaris" element={<KibaleChimpanzeeSafaris />} />
+          <Route path="/uganda-wildlife-safaris" element={<UgandaWildlifeSafaris />} />
+          <Route path="/car-hire-uganda" element={<CarHireUganda />} />
+          <Route path="/uganda-car-hire" element={<CarHireUganda />} />
           <Route path="/plan-my-trip" element={<PlanMyTrip />} />
           <Route path="/custom-safari" element={<PlanMyTrip />} />
           <Route path="/gorilla-permits-guide" element={<GorillaPermitsGuide />} />

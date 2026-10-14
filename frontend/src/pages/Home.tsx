@@ -16,6 +16,7 @@ import GorillaPermitNotice from '../components/GorillaPermitNotice';
 import SafariFAQ from '../components/SafariFAQ';
 import LiveParkWeather from '../components/LiveParkWeather';
 import SafariPackingGuideModal from '../components/SafariPackingGuideModal';
+import HomepageSeoHubs from '../components/HomepageSeoHubs';
 
 import type { Variants } from 'framer-motion';
 
@@ -46,9 +47,9 @@ const Home: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "name": "Come Again Tours and Travels",
-    "image": "https://comeagaintoursandtravels.com/images/logo.png",
+    "image": "https://www.comeagaintoursandtravels.com/images/logo.png",
     "@id": "",
-    "url": "https://comeagaintoursandtravels.com",
+    "url": "https://www.comeagaintoursandtravels.com",
     "telephone": "+256-774-243-747",
     "address": {
       "@type": "PostalAddress",
@@ -62,9 +63,9 @@ const Home: React.FC = () => {
     <div className="bg-brand-dark min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
       <SEO 
         title="Uganda Safaris, Tours & Car Hire | Come Again Tours and Travels"
-        description="Discover Uganda and East Africa with Come Again Tours & Travels. Bespoke mountain gorilla trekking in Bwindi, wildlife safaris, and 4x4 car hire with professional drivers. Licensed by UTB & AUTO."
-        url="https://comeagaintoursandtravels.com/"
-        canonical="https://comeagaintoursandtravels.com/"
+        description="Explore Uganda with Come Again Tours and Travels. Book Uganda safaris, gorilla trekking, wildlife tours and car hire with professional drivers."
+        url="https://www.comeagaintoursandtravels.com/"
+        canonical="https://www.comeagaintoursandtravels.com/"
         schema={localBusinessSchema}
       />
       <main>
@@ -76,6 +77,9 @@ const Home: React.FC = () => {
 
         {/* Trust Badges Bar */}
         <TrustBadges variant="dark" />
+
+        {/* Core Dedicated SEO Destinations & Car Hire Hubs */}
+        <HomepageSeoHubs />
 
         {/* Live Real-Time Safari Weather Widget */}
         <LiveParkWeather />

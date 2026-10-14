@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import { businessConfig } from '../data/businessConfig';
+
 const WhatsAppButton: React.FC = () => {
-  const whatsappNumber = '+256786016031';
-  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+  const whatsappUrl = businessConfig.whatsapp.getLink();
 
   return (
     <motion.a

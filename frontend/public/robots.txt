@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://www.comeagaintoursandtravels.com/sitemap.xml
 Sitemap: https://comeagaintoursandtravels.com/sitemap.xml
