@@ -1,0 +1,5 @@
+
+/release/
+/.preview/
+/backend/.env.preview
+/frontend/lint-results.json

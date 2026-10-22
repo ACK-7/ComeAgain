@@ -17,12 +17,31 @@ class ContactController extends Controller
             'lastName' => 'required|string|max:50',
             'email' => 'required|email|max:150',
             'phone' => 'nullable|string|max:20',
-            'message' => 'required|string|max:2000',
+            'message' => 'required|string|max:5000',
+            'source' => 'nullable|in:contact_form,safari_planner,package_booking,custom_quote,car_hire',
+            'country' => 'nullable|string|max:100',
+            'packageInterest' => 'nullable|string|max:255',
+            'travelDate' => 'nullable|date',
+            'durationDays' => 'nullable|integer|min:1|max:365',
+            'travelersCount' => 'nullable|integer|min:1|max:1000',
+            'estimatedBudget' => 'nullable|string|max:100',
         ]);
+
+        // Persist first: notification outages must never lose a customer inquiry.
+        $inquiry = \App\Models\Inquiry::create([
+            'client_name' => trim($validated['firstName'].' '.$validated['lastName']),
+            'email' => strtolower($validated['email']), 'phone' => $validated['phone'] ?? null,
+            'message' => $validated['message'], 'status' => 'new', 'notes' => [],
+            'source' => $validated['source'] ?? 'contact_form', 'country' => $validated['country'] ?? null,
+            'package_interest' => $validated['packageInterest'] ?? null,
+            'travel_date' => $validated['travelDate'] ?? null, 'duration_days' => $validated['durationDays'] ?? null,
+            'travelers_count' => $validated['travelersCount'] ?? 1, 'estimated_budget' => $validated['estimatedBudget'] ?? null,
+        ]);
+        \Illuminate\Support\Facades\Cache::forget('admin_dashboard_stats');
 
         // 1. Dispatch Email Notification
         try {
-            Mail::to('info@comeagaintoursandtravels.com')->send(new ContactFormMail($validated));
+            Mail::to(\App\Models\ManagedContent::where('kind', 'settings')->where('key', 'business')->first()?->data['primaryEmail'] ?? 'info@comeagaintoursandtravels.com')->send(new ContactFormMail($validated));
         } catch (\Throwable $e) {
             Log::error('Email notification failed: ' . $e->getMessage());
         }
@@ -35,7 +54,7 @@ class ContactController extends Controller
         }
 
         return response()->json([
-            'message' => 'Message sent successfully.'
+            'message' => 'Your inquiry has been received.', 'reference' => $inquiry->id
         ]);
     }
 
@@ -50,19 +69,11 @@ class ContactController extends Controller
 
         $email = strtolower(trim($validated['email']));
 
-        // 1. Persist to MySQL Database
-        try {
-            \App\Models\Subscriber::firstOrCreate(
-                ['email' => $email],
-                [
-                    'source' => $request->input('source', 'blog'),
-                    'ip_address' => $request->ip(),
-                    'is_active' => true,
-                ]
-            );
-        } catch (\Throwable $e) {
-            Log::error('Failed to save subscriber to database: ' . $e->getMessage());
-        }
+        $subscriber = \App\Models\Subscriber::firstOrCreate(
+            ['email' => $email], ['source' => 'website', 'ip_address' => $request->ip(), 'is_active' => true]
+        );
+        if ($subscriber->wasRecentlyCreated) \App\Services\NewsletterSubscriptionService::sendWelcomeEmail($email);
+        \Illuminate\Support\Facades\Cache::forget('admin_dashboard_stats');
 
         // 2. Persist to storage/app/subscribers.json (redundant backup)
         try {

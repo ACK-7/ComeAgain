@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, Music, ArrowRight } from 'lucide-react';
 import { siteData } from '../data/siteData';
-import { blogPosts } from '../data/blogData';
+import { useBlogPosts } from '../services/websiteContent';
 import { Link } from 'react-router-dom';
 import RegulatoryPartners from './RegulatoryPartners';
 import SafariTermsModal from './SafariTermsModal';
@@ -10,7 +10,8 @@ import { businessConfig } from '../data/businessConfig';
 const Footer: React.FC = () => {
   const footerData = siteData.home.footer;
   const [isTermsOpen, setIsTermsOpen] = useState(false);
-  const latestPosts = blogPosts.slice(0, 2);
+  const { posts } = useBlogPosts();
+  const latestPosts = posts.slice(0, 2);
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -148,7 +149,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="pt-3">
                 <a 
-                  href={siteData.home.testimonials.tripadvisorUrl} 
+                  href={businessConfig.socials.tripadvisor} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 group"
@@ -173,7 +174,7 @@ const Footer: React.FC = () => {
               {footerData.socials.map((social) => (
                 <li key={social.name}>
                   <a 
-                    href={social.href} 
+                    href={social.icon === 'facebook' ? businessConfig.socials.facebook : social.icon === 'instagram' ? businessConfig.socials.instagram : social.href} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="flex items-center gap-3 hover:text-brand-green transition-colors text-sm sm:text-base font-medium"

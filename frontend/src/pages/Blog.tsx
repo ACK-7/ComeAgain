@@ -1,10 +1,11 @@
+import { getApiBaseUrl } from '../services/apiClient';
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { Clock, Tag, ArrowRight, ArrowUpRight, Search, X, CheckCircle2, AlertCircle, Loader2, ExternalLink, Calendar, Compass, ShieldCheck } from 'lucide-react';
 import SEO from '../components/SEO';
-import { blogPosts } from '../data/blogData';
+import { useBlogPosts } from '../services/websiteContent';
 import { fetchTourismNews, type TourismNewsItem } from '../services/newsService';
 import { useCustomSafariModal } from '../context/CustomSafariModalContext';
 
@@ -35,6 +36,7 @@ const cardVariants: Variants = {
 
 // ─── Component ──────────────────────────────────────────────────────────────
 const Blog: React.FC = () => {
+  const { posts: blogPosts, loading, error } = useBlogPosts();
   const [searchParams] = useSearchParams();
   const [active, setActive] = useState<Category>('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -73,7 +75,7 @@ const Blog: React.FC = () => {
     setSubscribeMessage('');
 
     try {
-      const baseUrl = (import.meta.env.VITE_API_URL || 'https://api.comeagaintoursandtravels.com/api').replace(/\/+$/, '');
+      const baseUrl = getApiBaseUrl();
       const endpoint = baseUrl.endsWith('/api') ? `${baseUrl}/subscribe` : `${baseUrl}/api/subscribe`;
 
       const res = await fetch(endpoint, {
@@ -100,7 +102,8 @@ const Blog: React.FC = () => {
     }
   };
 
-  const featured = blogPosts.find((p) => p.featured) || blogPosts[0];
+  // The newest published story leads the journal, regardless of old feature flags.
+  const featured = blogPosts[0];
 
   // Real-time keyword & category filter for Stories
   const filteredPosts = blogPosts.filter((p) => {
@@ -128,8 +131,12 @@ const Blog: React.FC = () => {
 
   const showFeaturedSection = !searchQuery.trim() && active === 'All';
   const gridPosts = showFeaturedSection
-    ? filteredPosts.filter((p) => !p.featured)
+    ? filteredPosts.filter((p) => p.slug !== featured?.slug)
     : filteredPosts;
+
+  if (loading) return <p role="status" className="p-12 text-center">Loading safari journal...</p>;
+  if (error) return <p role="alert" className="p-12 text-center">{error}</p>;
+  if (!featured) return <div className="p-12 text-center"><p>New safari stories are coming soon.</p><Link to="/">Return home</Link></div>;
 
   return (
     <div className="bg-[#0c1106] min-h-screen text-white selection:bg-brand-green selection:text-white overflow-x-hidden">
@@ -211,7 +218,7 @@ const Blog: React.FC = () => {
                 className="flex items-center gap-4 mb-10"
               >
                 <span className="text-brand-green font-black text-[11px] uppercase tracking-[0.4em]">
-                  Featured Story
+                  Latest Story
                 </span>
                 <div className="flex-1 h-[1px] bg-brand-green/20" />
               </motion.div>

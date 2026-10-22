@@ -1,3 +1,4 @@
+import { getApiBaseUrl } from '../services/apiClient';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight, ExternalLink, Quote, ShieldCheck, Award } from 'lucide-react';
@@ -102,13 +103,13 @@ const TripadvisorReviews: React.FC = () => {
 
   useEffect(() => {
     let isMounted = true;
-    const baseUrl = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000').replace(/\/+$/, '');
+    const baseUrl = getApiBaseUrl();
     const endpoint = baseUrl.endsWith('/api') ? `${baseUrl}/reviews` : `${baseUrl}/api/reviews`;
 
     fetch(endpoint)
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
-        if (isMounted && data && Array.isArray(data.data) && data.data.length > 0) {
+        if (isMounted && data && Array.isArray(data.data)) {
           setReviews(data.data);
         }
       })
@@ -124,6 +125,7 @@ const TripadvisorReviews: React.FC = () => {
   const nextReview = () => setCurrentIndex((prev) => (prev + 1) % total);
   const prevReview = () => setCurrentIndex((prev) => (prev - 1 + total) % total);
 
+  if (!total) return null;
   const review = reviews[currentIndex] || reviews[0];
   const tripadvisorUrl = siteData.home.testimonials.tripadvisorUrl;
 

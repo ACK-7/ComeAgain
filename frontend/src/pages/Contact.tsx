@@ -1,3 +1,4 @@
+import { getApiBaseUrl } from '../services/apiClient';
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import { siteData } from '../data/siteData';
@@ -32,7 +33,7 @@ const Contact: React.FC = () => {
     setErrors({});
 
     try {
-      const baseUrl = (import.meta.env.VITE_API_URL || 'https://api.comeagaintoursandtravels.com/api').replace(/\/+$/, '');
+      const baseUrl = getApiBaseUrl();
       const endpoint = baseUrl.endsWith('/api') ? `${baseUrl}/contact` : `${baseUrl}/api/contact`;
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -74,14 +75,14 @@ const Contact: React.FC = () => {
     {
       icon: <MessageSquare className="w-5 h-5 text-[#25D366]" />,
       label: 'WhatsApp (Instant Chat)',
-      value: `${businessConfig.whatsapp.display} (${businessConfig.whatsapp.international})`,
+      value: `${businessConfig.whatsapp.international}`,
       href: businessConfig.whatsapp.getLink('Hello Come Again Tours and Travels! I would like to request a quote.'),
       highlight: true,
     },
     {
       icon: <Phone className="w-5 h-5" />,
       label: 'Phone Call (24/7 Desk)',
-      value: `${businessConfig.phone.display} (${businessConfig.phone.international})`,
+      value: `${businessConfig.phone.international}`,
       href: businessConfig.phone.telLink,
     },
     {

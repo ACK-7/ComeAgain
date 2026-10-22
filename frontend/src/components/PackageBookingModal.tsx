@@ -1,3 +1,4 @@
+import { getApiBaseUrl } from '../services/apiClient';
 import React, { useState, useId } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -39,6 +40,7 @@ const PackageBookingModal: React.FC = () => {
   
   // Status
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [bookingRef, setBookingRef] = useState('');
 
@@ -107,6 +109,7 @@ Hello Come Again Tours, I would like to confirm availability and lock in our res
     const bedLabel = bedOptions.find(b => b.id === bedPreference)?.label || bedPreference;
 
     const payload = {
+      source: 'package_booking', country, packageInterest: bookingData.title, travelDate: startDate || null, travelersCount: adults + children, estimatedBudget: `$${estimatedTotalUSD}`,
       firstName: firstName || 'Safari',
       lastName: lastName || 'Guest',
       email,
@@ -123,20 +126,20 @@ Country: ${country}
 Special Requests: ${specialRequests}`
     };
 
+    setSubmitError('');
     try {
-      const baseUrl = (import.meta.env.VITE_API_URL || 'https://api.comeagaintoursandtravels.com/api').replace(/\/+$/, '');
-      const endpoint = baseUrl.endsWith('/api') ? `${baseUrl}/contact` : `${baseUrl}/api/contact`;
-      await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      const response = await fetch(`${getApiBaseUrl()}/contact`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
-      }).catch((err) => console.error('Booking submission error:', err));
-    } catch (err) {
-      console.error('Booking submission failed:', err);
-    } finally {
-      setIsSubmitting(false);
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'Your inquiry could not be submitted. Please try again.');
+      setBookingRef(result.reference);
       setSubmitted(true);
-    }
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'Connection failed. Please try again.');
+    } finally { setIsSubmitting(false); }
+
   };
 
   return (
@@ -261,6 +264,7 @@ Special Requests: ${specialRequests}`
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+          {submitError && <p role="alert" className="p-3 text-sm text-red-700 bg-red-50">{submitError}</p>}
                 
                 {/* 1. Dates & Guest Configuration */}
                 <div>

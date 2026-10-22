@@ -37,7 +37,7 @@ export const businessConfig = {
      */
     getLink: (customMessage?: string) => {
       const msg = customMessage || 'Hello Come Again Tours and Travels! I would like to inquire about a safari / car hire in Uganda.';
-      return `https://wa.me/256786016031?text=${encodeURIComponent(msg)}`;
+      return `https://wa.me/${businessConfig.whatsapp.number}?text=${encodeURIComponent(msg)}`;
     },
   },
   email: {

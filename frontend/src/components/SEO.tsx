@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { businessConfig } from '../data/businessConfig';
 
 interface SEOProps {
   title: string;
@@ -17,11 +18,13 @@ const SEO: React.FC<SEOProps> = ({
   description,
   name = "Come Again Tours and Travels",
   type = "website",
-  url = "https://comeagaintoursandtravels.com",
+  url,
   image = "/images/logo.webp",
   schema,
   canonical,
 }) => {
+  const pageUrl = canonical ?? `${businessConfig.website.url}${window.location.pathname === '/' ? '/' : window.location.pathname.replace(/\/$/, '')}`;
+  const socialUrl = url ? url.replace(/^https:\/\/comeagaintoursandtravels\.com(?=\/|$)/, businessConfig.website.url) : pageUrl;
   const defaultOrganizationSchema = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
@@ -75,13 +78,13 @@ const SEO: React.FC<SEOProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="robots" content="index, follow" />
-      {canonical && <link rel="canonical" href={canonical} />}
+      <link rel="canonical" href={pageUrl} />
       
       {/* Open Graph tags (Facebook, WhatsApp, LinkedIn) */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={socialUrl} />
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content={name} />
 

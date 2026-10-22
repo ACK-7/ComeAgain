@@ -1,10 +1,11 @@
+import { getApiBaseUrl } from '../services/apiClient';
 import React, { useState, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import PackageCard from '../components/PackageCard';
 import TrustBadges from '../components/TrustBadges';
 import { homeContent as home } from '../data/homeData';
-import { featuredHomePackages } from '../data/featuredHomePackages';
+import type { SafariPackageItem } from '../admin/types/adminTypes';
 import { Sparkles, Calculator, Backpack } from 'lucide-react';
 import SEO from '../components/SEO';
 import { useCustomSafariModal } from '../context/CustomSafariModalContext';
@@ -26,6 +27,30 @@ import type { Variants } from 'framer-motion';
 const Home: React.FC = () => {
   const { openModal } = useCustomSafariModal();
   const [isPackingModalOpen, setIsPackingModalOpen] = useState(false);
+  const [homePackages, setHomePackages] = useState<SafariPackageItem[]>([]);
+
+  React.useEffect(() => {
+    const fetchFeatured = async () => {
+      try {
+        const baseUrl = getApiBaseUrl();
+
+        const res = await fetch(`${baseUrl}/packages`, {
+          headers: { Accept: 'application/json' },
+          signal: AbortSignal.timeout(6000),
+        });
+
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.data)) {
+            const featured = json.data.filter((p: SafariPackageItem) => p.featured);
+            setHomePackages(featured.slice(0, 6));
+          }
+        }
+      } catch { /* Keep the public section empty when content is unavailable. */ }
+    };
+
+    fetchFeatured();
+  }, []);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -130,7 +155,7 @@ const Home: React.FC = () => {
               viewport={{ once: true, amount: 0.05 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
             >
-              {featuredHomePackages.map((pkg, idx) => (
+              {homePackages.map((pkg, idx) => (
                 <motion.div key={pkg.slug || idx} variants={itemVariants}>
                   <PackageCard packageData={pkg} />
                 </motion.div>
@@ -184,9 +209,9 @@ const Home: React.FC = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     href="/about" 
-                    className="inline-block px-10 py-4 bg-brand-green hover:bg-white hover:text-brand-dark text-white font-bold transition-all uppercase tracking-widest text-xs text-center border-2 border-transparent hover:border-brand-green"
+                    className="inline-block px-10 py-4 bg-brand-green hover:bg-white text-brand-dark font-bold transition-all uppercase tracking-widest text-xs text-center border-2 border-transparent hover:border-brand-green"
                  >
-                    Read More
+                    Learn about Come Again Tours
                  </motion.a>
               </motion.div>
 
@@ -198,7 +223,7 @@ const Home: React.FC = () => {
                 className="relative"
               >
                  <div className=" overflow-hidden border-[10px] border-brand-muted/30 ">
-                    <img src={home.about.image} alt="About Us" className="w-[1500px] h-[600px] object-cover" />
+                    <img src={home.about.image} alt="About Us" loading="lazy" decoding="async" className="w-[1500px] h-[600px] object-cover" />
                  </div>
                  <div className="absolute -bottom-10 -right-10 w-50 h-40 bg-brand-green/20  blur-3xl -z-10" />
               </motion.div>
@@ -213,7 +238,7 @@ const Home: React.FC = () => {
             transition={{ duration: 1.5 }}
             className="absolute inset-0 pointer-events-none"
           >
-            <img src={`${import.meta.env.BASE_URL}images/Busowoko-falls-rafting15-1024x679.jpeg`} className="w-full h-full object-cover grayscale opacity-5" alt="" />
+            <img src={`${import.meta.env.BASE_URL}images/rafting.webp`} loading="lazy" decoding="async" className="w-full h-full object-cover grayscale opacity-5" alt="" />
           </motion.div>
 
           <div className="relative z-10 max-w-7xl mx-auto text-left">
@@ -224,7 +249,7 @@ const Home: React.FC = () => {
               className="mb-20"
             >
               <span className="text-brand-dark font-bold text-sm uppercase tracking-widest block mb-4">{home.services.header}</span>
-              <h2 className="text-4xl md:text-5xl font-serif text-brand-green max-w-4xl leading-tight">
+              <h2 className="text-4xl md:text-5xl font-serif text-[#246b32] max-w-4xl leading-tight">
                 {home.services.promise}
               </h2>
             </motion.div>
@@ -258,7 +283,7 @@ const Home: React.FC = () => {
                     )}
                   </div>
                   <div className="h-48 overflow-hidden rounded-xl mt-auto">
-                    <img src={service.image} alt={service.title} className="w-full h-full object-cover grayscale-[20%] transition-transform duration-500 hover:scale-110" />
+                    <img src={service.image} alt={service.title} loading="lazy" decoding="async" className="w-full h-full object-cover grayscale-[20%] transition-transform duration-500 hover:scale-110" />
                   </div>
                 </motion.div>
               ))}
@@ -293,7 +318,7 @@ const Home: React.FC = () => {
                     )}
                   </div>
                   <div className="h-64 overflow-hidden rounded-xl mt-auto">
-                    <img src={service.image} alt={service.title} className="w-full h-full object-cover grayscale-[20%] transition-transform duration-500 hover:scale-110" />
+                    <img src={service.image} alt={service.title} loading="lazy" decoding="async" className="w-full h-full object-cover grayscale-[20%] transition-transform duration-500 hover:scale-110" />
                   </div>
                 </motion.div>
               ))}
@@ -305,7 +330,7 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               className="mt-16 text-center"
             >
-              <a href="/services" className="inline-block px-12 py-4 bg-brand-green hover:bg-brand-dark text-white font-bold transition-all uppercase tracking-[0.2em] text-sm shadow-lg">VIEW ALL</a>
+              <a href="/services" className="inline-block px-12 py-4 bg-brand-green hover:bg-brand-dark text-brand-dark hover:text-white font-bold transition-all uppercase tracking-[0.2em] text-sm shadow-lg">VIEW ALL SERVICES</a>
             </motion.div>
           </div>
         </section>
@@ -329,7 +354,7 @@ const Home: React.FC = () => {
               <button
                 type="button"
                 onClick={() => openModal({})}
-                className="w-full sm:w-auto px-8 py-4 bg-brand-green text-white font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:text-brand-dark transition-all shadow-xl flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 bg-brand-green text-brand-dark font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white transition-all shadow-xl flex items-center justify-center gap-2"
               >
                 <Sparkles className="w-4 h-4" /> Plan Custom Trip (Free Quote)
               </button>
@@ -353,7 +378,7 @@ const Home: React.FC = () => {
                 transition={{ duration: 1.5 }}
                 className="lg:w-1/3 relative min-h-[400px] lg:min-h-full"
               >
-                 <img src={home.whyChooseUs.image} alt="Lions in Tree" className="absolute inset-0 w-full h-full object-cover" />
+                 <img src={home.whyChooseUs.image} alt="Lions in Tree" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
               </motion.div>
 
               <div className="lg:w-2/3 py-24 px-8 lg:px-20 flex items-center text-left">
@@ -366,7 +391,7 @@ const Home: React.FC = () => {
                     <span className="text-brand-dark font-bold text-[13px] uppercase tracking-widest mb-4 block">
                        {home.whyChooseUs.subheading}
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif text-brand-green mb-16 leading-tight">
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif text-[#246b32] mb-16 leading-tight">
                        {home.whyChooseUs.heading}
                     </h2>
                     
@@ -425,9 +450,9 @@ const Home: React.FC = () => {
 
         {/* 7. Scenic Action Section */}
         <section 
-          className="relative py-16 px-4 overflow-hidden min-h-[600px] flex items-center bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: `url(${home.cta.backgroundImage})` }}
+          className="relative py-16 px-4 overflow-hidden min-h-[600px] flex items-center"
         >
+           <img src={home.cta.backgroundImage} alt="" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
            <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
 
            <div className="relative z-10 max-w-5xl mx-auto text-left">
@@ -460,7 +485,7 @@ const Home: React.FC = () => {
                    whileHover={{ scale: 1.05 }}
                    whileTap={{ scale: 0.95 }}
                    href="/contact"
-                   className="px-8 py-3 bg-brand-green text-white font-bold text-xs tracking-widest uppercase hover:bg-white hover:text-brand-dark transition-all"
+                   className="px-8 py-3 bg-brand-green text-brand-dark font-bold text-xs tracking-widest uppercase hover:bg-white transition-all"
                  >
                    BOOK WITH US NOW
                  </motion.a>

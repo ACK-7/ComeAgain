@@ -85,10 +85,12 @@ const HomepageSeoHubs: React.FC = () => {
                 <img
                   src={hub.image}
                   alt={hub.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                <span className="absolute top-4 left-4 bg-brand-green/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">
+                <span className="absolute top-4 left-4 bg-brand-green/90 backdrop-blur-md text-brand-dark text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">
                   {hub.tag}
                 </span>
                 <h3 className="absolute bottom-4 left-5 right-5 text-xl sm:text-2xl font-serif font-bold text-white group-hover:text-brand-green transition-colors leading-tight">

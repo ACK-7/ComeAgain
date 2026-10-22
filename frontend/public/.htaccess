@@ -2,6 +2,10 @@
   RewriteEngine On
   RewriteBase /
 
+  # Preserve bearer authentication when Apache/FastCGI invokes PHP.
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
   # 1. Force HTTPS
   RewriteCond %{HTTPS} off
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -10,11 +14,27 @@
   RewriteCond %{HTTP_HOST} ^comeagaintoursandtravels\.com$ [NC]
   RewriteRule ^ https://www.comeagaintoursandtravels.com%{REQUEST_URI} [L,R=301]
 
-  # 3. Allow direct access to physical files & directories (sitemap.xml, robots.txt, llms.txt, etc.)
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
+  # Keep one public URL for each page, including older campaign aliases.
+  RewriteRule ^request-a-quote/?$ /contact [L,R=301]
+  RewriteRule ^uganda-car-hire/?$ /car-hire-uganda [L,R=301]
+  RewriteRule ^custom-safari/?$ /plan-my-trip [L,R=301]
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule ^(.+)/$ /$1 [L,R=301]
+
+  # Route the Laravel API and signed newsletter actions before SPA routing.
+  RewriteRule ^api(?:/.*)?$ api/index.php [L,QSA]
+  RewriteRule ^(?:unsubscribe|resubscribe)$ api/index.php [L,QSA]
+
+  # Serve files directly, then only the routes the React app actually handles.
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  RewriteRule ^(?:destination|services|packages|about|about/vision-mission|about/our-team|gallery|blog|contact|uganda-safaris|bwindi-gorilla-trekking|queen-elizabeth-national-park-safaris|murchison-falls-safaris|kibale-chimpanzee-safaris|uganda-wildlife-safaris|car-hire-uganda|plan-my-trip|gorilla-permits-guide|safari-cost-calculator|best-time-to-visit-uganda)$ /index.html [L]
+  RewriteRule ^(?:package|blog|guides)/[^/]+$ /index.html [L]
+  RewriteRule ^admin(?:/.*)?$ /index.html [L]
+  RewriteRule ^$ /index.html [L]
+  RewriteRule . - [R=404,L]
 </IfModule>
 
 # LiteSpeed Server: Ensure sitemap, robots.txt, llms.txt, .well-known, and all crawlers/checking tools are NEVER blocked
@@ -41,7 +61,6 @@
 <IfModule mod_mime.c>
   AddType application/xml .xml
   AddType text/plain .txt
-  AddType text/markdown .txt
   AddType application/json .json
   AddType image/webp .webp
   AddType image/svg+xml .svg
@@ -101,3 +120,8 @@
   # Security & MIME sniffing protection
   Header always set X-Content-Type-Options "nosniff"
 </IfModule>
+
+# Secrets, source files and setup utilities must never be public.
+<FilesMatch "^(\.env.*|composer\.(json|lock)|artisan|setup\.php)$">
+  Require all denied
+</FilesMatch>

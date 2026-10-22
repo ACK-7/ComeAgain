@@ -48,9 +48,9 @@ export const TrustBadges: React.FC<TrustBadgesProps> = ({ variant = 'dark' }) =>
           <span className="text-brand-green font-bold text-xs uppercase tracking-[0.3em] block mb-2">
             Why Discerning Travelers Choose Come Again
           </span>
-          <h3 className={`text-2xl md:text-3xl font-serif font-bold ${isDark ? 'text-white' : 'text-brand-dark'}`}>
+          <h2 className={`text-2xl md:text-3xl font-serif font-bold ${isDark ? 'text-white' : 'text-brand-dark'}`}>
             Global Safari Standards & Seamless Uganda Operations
-          </h3>
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -70,9 +70,9 @@ export const TrustBadges: React.FC<TrustBadgesProps> = ({ variant = 'dark' }) =>
               <div className="mb-4 inline-flex p-3 rounded-xl bg-brand-green/10">
                 {badge.icon}
               </div>
-              <h4 className="font-serif font-bold text-base mb-2 leading-snug">
+              <h3 className="font-serif font-bold text-base mb-2 leading-snug">
                 {badge.title}
-              </h4>
+              </h3>
               <p className={`text-xs leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                 {badge.desc}
               </p>

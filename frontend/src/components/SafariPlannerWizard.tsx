@@ -1,3 +1,4 @@
+import { getApiBaseUrl } from '../services/apiClient';
 import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
@@ -152,6 +153,7 @@ export const SafariPlannerWizard: React.FC<SafariPlannerWizardProps> = ({
 }) => {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   // Form State
@@ -240,6 +242,7 @@ export const SafariPlannerWizard: React.FC<SafariPlannerWizardProps> = ({
     setIsSubmitting(true);
 
     const payload = {
+      source: 'safari_planner', country, packageInterest: initialPackageTitle || 'Custom safari', travelersCount: adults + children, estimatedBudget: budgetRange,
       firstName: firstName || 'Safari',
       lastName: lastName || 'Traveler',
       email,
@@ -259,20 +262,20 @@ Dietary: ${dietaryRequirements}
 Special Notes: ${specialNotes}`
     };
 
+    setSubmitError('');
     try {
-      const baseUrl = (import.meta.env.VITE_API_URL || 'https://api.comeagaintoursandtravels.com/api').replace(/\/+$/, '');
-      const endpoint = baseUrl.endsWith('/api') ? `${baseUrl}/contact` : `${baseUrl}/api/contact`;
-      await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      const response = await fetch(`${getApiBaseUrl()}/contact`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
-      }).catch((err) => console.error('Wizard submission error:', err));
-    } catch (err) {
-      console.error('Wizard submission failed:', err);
-    } finally {
-      setIsSubmitting(false);
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'Your inquiry could not be submitted. Please try again.');
+      
       setSubmitted(true);
-    }
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'Connection failed. Please try again.');
+    } finally { setIsSubmitting(false); }
+
   };
 
   const totalSteps = 4;
@@ -749,6 +752,7 @@ Special Notes: ${specialNotes}`
             {/* ================= STEP 4: CONTACT & SUBMIT ================= */}
             {step === 4 && (
               <form onSubmit={handleSubmit} className="space-y-4 text-left">
+          {submitError && <p role="alert" className="p-3 text-sm text-red-700 bg-red-50">{submitError}</p>}
                 <div className="bg-brand-green/5 border border-brand-green/20 rounded-2xl p-4 mb-4 flex items-start gap-3">
                   <ShieldCheck className="w-5 h-5 text-brand-green shrink-0 mt-0.5" />
                   <div className="text-xs text-gray-700">

@@ -19,10 +19,11 @@ import {
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import TrustBadges from '../components/TrustBadges';
-import { blogPosts } from '../data/blogData';
+import { useBlogPosts } from '../services/websiteContent';
 import { useCustomSafariModal } from '../context/CustomSafariModalContext';
 
 const BlogPost: React.FC = () => {
+  const { posts: blogPosts, loading, error } = useBlogPosts();
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { openBookingModal, openModal } = useCustomSafariModal();
@@ -43,6 +44,8 @@ const BlogPost: React.FC = () => {
 
   const post = blogPosts.find((p) => p.slug === slug);
 
+  if (loading) return <p className="p-12 text-center" role="status">Loading safari journal...</p>;
+  if (error) return <p className="p-12 text-center" role="alert">{error}</p>;
   // If article not found
   if (!post) {
     return (
@@ -151,6 +154,7 @@ const BlogPost: React.FC = () => {
         description={post.metaDescription}
         image={post.featuredImage}
         url={shareUrl}
+        canonical={`https://www.comeagaintoursandtravels.com/blog/${post.slug}`}
         schema={schemas}
       />
 

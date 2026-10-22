@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { apiRequest } from '../services/apiClient';
+import type { FleetVehicle } from '../admin/types/adminTypes';
 import { Link } from 'react-router-dom';
 import { 
   Sparkles, 
@@ -53,44 +55,14 @@ const CarHireUganda: React.FC = () => {
     ],
   };
 
-  const vehicles = [
-    {
-      name: 'Custom Safari Land Cruiser (Extended)',
-      seats: '7-8 Window Seats',
-      luggage: 'Spacious Trunk + Roof Rack',
-      features: 'Pop-up roof for 360° wildlife photography, on-board charging ports (USB/inverter), cooler box, high-clearance 4WD, dual spare tyres.',
-      bestFor: 'Extended Uganda safaris, wildlife photographers, family groups & rough terrain.',
-      image: '/images/vehicle1.webp',
-      rate: 'From $150 – $180 / day (Includes driver-guide)',
-    },
-    {
-      name: 'Safari Minivan / Super Custom 4x4',
-      seats: '6-8 Passengers',
-      luggage: 'Generous Luggage Space',
-      features: 'Pop-up viewing roof, air conditioning, power steering, raised suspension for national park tracks, radio communication.',
-      bestFor: 'Midrange wildlife tours, budget family travel & group airport transfers.',
-      image: '/images/vehicle2.webp',
-      rate: 'From $90 – $110 / day (Includes driver-guide)',
-    },
-    {
-      name: 'Toyota Land Cruiser Prado TX / TZ',
-      seats: '4-5 Passengers',
-      luggage: 'Standard Luggage',
-      features: 'Full-time 4WD, comfortable leather interior, roof rack or optional rooftop tent, fuel-efficient diesel engine.',
-      bestFor: 'Couples, corporate travel in Kampala, self-drive enthusiasts & business visitors.',
-      image: '/images/vehicle3.webp',
-      rate: 'From $70 – $90 / day (Self-drive or with driver)',
-    },
-    {
-      name: 'Toyota RAV4 4x4 (Compact SUV)',
-      seats: '2-4 Passengers',
-      luggage: 'Compact Luggage',
-      features: 'Full-time 4WD, automatic transmission, outstanding fuel economy, air conditioning.',
-      bestFor: 'Budget couples, solo adventurers & city tours across Uganda.',
-      image: '/images/vehicle4.webp',
-      rate: 'From $45 – $55 / day (Self-drive)',
-    },
-  ];
+  const [vehicles, setVehicles] = useState<{ name: string; seats: string; luggage: string; features: string; bestFor: string; image: string; rate: string }[]>([]);
+  useEffect(() => {
+    apiRequest<FleetVehicle[]>('/fleet').then(items => setVehicles(items.map(v => ({
+      name: v.name, seats: `${v.capacityPassengers} Passengers`, luggage: 'Contact us for luggage arrangements',
+      features: v.features.join(', '), bestFor: v.category.replaceAll('_', ' '), image: v.imageUrl,
+      rate: [v.dailyRateWithDriverUSD > 0 ? `From $${v.dailyRateWithDriverUSD} / day with driver` : '', v.dailyRateSelfDriveUSD > 0 ? `From $${v.dailyRateSelfDriveUSD} / day self-drive` : ''].filter(Boolean).join(' · ') || 'Contact us for rates',
+    })))).catch(() => {});
+  }, []);
 
   return (
     <div className="bg-brand-dark min-h-screen text-white selection:bg-brand-green selection:text-white">

@@ -1,3 +1,4 @@
+import { apiRequest } from './apiClient';
 export interface TourismNewsItem {
   id?: number;
   title: string;
@@ -94,24 +95,5 @@ export const FALLBACK_TOURISM_NEWS: TourismNewsItem[] = [
 ];
 
 export async function fetchTourismNews(): Promise<TourismNewsItem[]> {
-  try {
-    const baseUrl = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000').replace(/\/+$/, '');
-    const endpoint = baseUrl.endsWith('/api') ? `${baseUrl}/tourism-news` : `${baseUrl}/api/tourism-news`;
-
-    const res = await fetch(endpoint, {
-      method: 'GET',
-      headers: { Accept: 'application/json' },
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      if (Array.isArray(data.data) && data.data.length > 0) {
-        return data.data;
-      }
-    }
-  } catch (err) {
-    console.warn('Tourism news fetch fallback applied:', err);
-  }
-
-  return FALLBACK_TOURISM_NEWS;
+  return apiRequest<TourismNewsItem[]>('/tourism-news').catch(() => []);
 }

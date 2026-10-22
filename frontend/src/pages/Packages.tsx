@@ -1,3 +1,4 @@
+import { getApiBaseUrl } from '../services/apiClient';
 import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Footer from '../components/Footer';
@@ -15,14 +16,16 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/SEO';
 
-function matchesDestinationFilter(pkg: { details?: { location?: string }; title?: string }, dest: string): boolean {
+function matchesDestinationFilter(pkg: { details?: { location?: string }; title?: string; destination?: string }, dest: string): boolean {
   if (!dest || dest === 'All' || dest === 'all') return true;
-  const loc = (pkg.details?.location || '').toLowerCase();
+  const loc = (pkg.destination || pkg.details?.location || '').toLowerCase();
   const title = (pkg.title || '').toLowerCase();
   const d = dest.toLowerCase();
 
   if (d === 'uganda') {
-    return loc.includes('uganda') || loc.includes('murchison') || loc.includes('bwindi') || loc.includes('queen elizabeth') || loc.includes('kibale') || loc.includes('kidepo') || loc.includes('jinja') || loc.includes('mburo');
+    const isForeign = loc.includes('rwanda') || loc.includes('kenya') || loc.includes('tanzania') || loc.includes('dubai') ||
+                      title.includes('rwanda') || title.includes('kenya') || title.includes('tanzania') || title.includes('dubai');
+    return !isForeign || loc.includes('uganda') || loc.includes('murchison') || loc.includes('bwindi') || loc.includes('queen elizabeth') || loc.includes('kibale') || loc.includes('kidepo') || loc.includes('jinja') || loc.includes('mburo');
   }
   if (d === 'rwanda') {
     return loc.includes('rwanda') || title.includes('rwanda') || loc.includes('volcanoes') || loc.includes('kigali') || loc.includes('akagera');
@@ -38,14 +41,40 @@ function matchesDestinationFilter(pkg: { details?: { location?: string }; title?
 }
 
 const Packages: React.FC = () => {
-  const { hero, sections } = siteData.packagesPage;
+  const { hero } = siteData.packagesPage;
   const [searchParams, setSearchParams] = useSearchParams();
+
+  // Published database content is authoritative.
+  const [packagesList, setPackagesList] = useState<import('../admin/types/adminTypes').SafariPackageItem[]>([]);
 
   const [activeCategory, setActiveCategory] = useState<PackageFilterTheme>('All');
   const [activeDuration, setActiveDuration] = useState<DurationFilterValue>('All');
   const [activeDestination, setActiveDestination] = useState<string>('All');
   const resultsRef = useRef<HTMLDivElement>(null);
   const skipInitialScroll = useRef(true);
+
+  // Fetch live published packages from backend database
+  useEffect(() => {
+    const fetchLivePackages = async () => {
+      try {
+        const baseUrl = getApiBaseUrl();
+
+        const res = await fetch(`${baseUrl}/packages`, {
+          headers: { Accept: 'application/json' },
+          signal: AbortSignal.timeout(6000),
+        });
+
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.data)) {
+            setPackagesList(json.data);
+          }
+        }
+      } catch { /* No stale static offers when the API is unavailable. */ }
+    };
+
+    fetchLivePackages();
+  }, []);
 
   // Sync URL search parameters (from Hero quick-search bar or direct links)
   useEffect(() => {
@@ -73,18 +102,20 @@ const Packages: React.FC = () => {
   }, [searchParams]);
 
   const filteredSections = useMemo(() => {
-    return sections
-      .map((section) => ({
-        ...section,
-        packages: section.packages.filter(
-          (pkg) =>
-            matchesCategoryFilter(pkg, activeCategory) &&
-            matchesDurationFilter(pkg, activeDuration) &&
-            matchesDestinationFilter(pkg, activeDestination)
-        ),
-      }))
-      .filter((section) => section.packages.length > 0);
-  }, [sections, activeCategory, activeDuration, activeDestination]);
+    const matched = packagesList.filter(
+      (pkg) =>
+        matchesCategoryFilter(pkg, activeCategory) &&
+        matchesDurationFilter(pkg, activeDuration) &&
+        matchesDestinationFilter(pkg, activeDestination)
+    );
+
+    return [
+      {
+        title: 'Safari Packages',
+        packages: matched,
+      },
+    ].filter((section) => section.packages.length > 0);
+  }, [packagesList, activeCategory, activeDuration, activeDestination]);
 
   const totalResults = useMemo(
     () => filteredSections.reduce((sum, s) => sum + s.packages.length, 0),

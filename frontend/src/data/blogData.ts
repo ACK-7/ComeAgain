@@ -18,6 +18,7 @@ export interface LinkedPackage {
 }
 
 export interface BlogPost {
+  status?: 'published' | 'draft' | 'archived';
   slug: string;
   title: string;
   subtitle: string;

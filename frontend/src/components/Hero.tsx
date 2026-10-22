@@ -152,7 +152,7 @@ const Hero: React.FC = () => {
                 >
                   <Link
                     to="/uganda-safaris"
-                    className="px-5 sm:px-7 py-3 sm:py-3.5 bg-brand-green text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-2xl flex items-center justify-center gap-2 transform hover:-translate-y-0.5 text-center"
+                    className="px-5 sm:px-7 py-3 sm:py-3.5 bg-brand-green text-brand-dark font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white transition-all duration-300 shadow-2xl flex items-center justify-center gap-2 transform hover:-translate-y-0.5 text-center"
                   >
                     <Compass className="w-4 h-4" /> Plan My Uganda Safari
                   </Link>
@@ -204,7 +204,7 @@ const Hero: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
-                      className="p-1 hover:text-brand-green transition-colors"
+                      className="min-w-11 min-h-11 inline-flex items-center justify-center hover:text-brand-green transition-colors"
                       aria-label="Previous slide"
                     >
                       <ChevronUp className="w-3.5 h-3.5 -rotate-90" />
@@ -215,7 +215,7 @@ const Hero: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-                      className="p-1 hover:text-brand-green transition-colors"
+                      className="min-w-11 min-h-11 inline-flex items-center justify-center hover:text-brand-green transition-colors"
                       aria-label="Next slide"
                     >
                       <ChevronDown className="w-3.5 h-3.5 -rotate-90" />
@@ -279,6 +279,8 @@ const Hero: React.FC = () => {
                               <img 
                                 src={slide.backgroundImage} 
                                 alt={`Thumbnail preview for safari slide ${slideIdx + 1}`}
+                                loading="lazy"
+                                decoding="async"
                                 width="34"
                                 height="34"
                                 className="w-full h-full object-cover" 
@@ -394,6 +396,8 @@ const Hero: React.FC = () => {
                         <img 
                           src={slide.backgroundImage} 
                           alt={`Thumbnail preview for safari slide ${slideIdx + 1}`}
+                          loading="lazy"
+                          decoding="async"
                           width="58"
                           height="58"
                           className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-500" 
@@ -504,7 +508,7 @@ const Hero: React.FC = () => {
             <div>
               <button
                 type="submit"
-                className="w-full py-3 sm:py-3.5 px-6 bg-brand-green hover:bg-white text-white hover:text-brand-dark font-bold text-xs uppercase tracking-widest rounded-xl sm:rounded-2xl transition-all duration-300 shadow-xl flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="w-full py-3 sm:py-3.5 px-6 bg-brand-green hover:bg-white text-brand-dark font-bold text-xs uppercase tracking-widest rounded-xl sm:rounded-2xl transition-all duration-300 shadow-xl flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <Search className="w-4 h-4" /> Find Safaris
               </button>
@@ -545,11 +549,13 @@ const Hero: React.FC = () => {
                   key={index}
                   type="button"
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    currentSlide === index ? 'w-6 bg-brand-green' : 'w-2 bg-white/30 hover:bg-white/60'
-                  }`}
+                  className="w-11 h-11 inline-flex items-center justify-center rounded-full"
                   aria-label={`Go to slide ${index + 1}`}
-                />
+                >
+                  <span className={`h-1.5 rounded-full transition-all duration-300 ${
+                    currentSlide === index ? 'w-6 bg-brand-green' : 'w-2 bg-white/30'
+                  }`} />
+                </button>
               ))}
             </div>
           </div>

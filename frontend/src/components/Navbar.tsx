@@ -466,7 +466,7 @@ const Navbar: React.FC = () => {
 
               <button
                 onClick={() => openModal({})}
-                className="px-6 py-3 bg-brand-green text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-xl hover:shadow-brand-green/30 flex items-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="px-6 py-3 bg-brand-green text-brand-dark font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white transition-all duration-300 shadow-xl hover:shadow-brand-green/30 flex items-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <Sparkles className="w-3.5 h-3.5 text-amber-200" /> Plan Your Trip
               </button>
@@ -497,7 +497,7 @@ const Navbar: React.FC = () => {
                 setIsOpen(false);
                 openModal({});
               }}
-              className="w-full py-4 bg-brand-green text-white font-bold text-xs uppercase tracking-widest rounded-2xl hover:bg-brand-dark transition-all shadow-lg flex items-center justify-center gap-2 mb-4"
+              className="w-full py-4 bg-brand-green text-brand-dark font-bold text-xs uppercase tracking-widest rounded-2xl hover:bg-brand-dark hover:text-white transition-all shadow-lg flex items-center justify-center gap-2 mb-4"
             >
               <Sparkles className="w-4 h-4 text-amber-200" /> Plan Custom Safari (Free Quote)
             </button>

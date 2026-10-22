@@ -1,3 +1,4 @@
+import { getApiBaseUrl } from '../services/apiClient';
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
@@ -88,10 +89,50 @@ const PackageDetail: React.FC = () => {
     window.print();
   };
 
-  // Find the package in siteData
-  const pkg = siteData.packagesPage.sections
-    .flatMap(section => section.packages)
-    .find(p => (p as any).slug === slug);
+  const [livePkg, setLivePkg] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  React.useEffect(() => {
+    const fetchPackage = async () => {
+      if (!slug) return;
+      setIsLoading(true);
+      setLivePkg(null);
+      try {
+        const baseUrl = getApiBaseUrl();
+
+        const res = await fetch(`${baseUrl}/packages/${slug}`, {
+          headers: { Accept: 'application/json' },
+          signal: AbortSignal.timeout(6000),
+        });
+
+        if (res.status === 404) setLivePkg(null);
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && json.data) {
+            setLivePkg(json.data);
+          }
+        }
+      } catch {
+        // Failed requests must not republish static or draft packages.
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPackage();
+  }, [slug]);
+
+  const pkg = livePkg;
+
+  if (isLoading && !pkg) {
+    return (
+      <div className="min-h-screen bg-[#FDFCFB] flex flex-col items-center justify-center text-brand-dark">
+        <SEO title="Loading Safari... | Come Again Tours" description="Loading safari itinerary details." />
+        <div className="w-12 h-12 border-4 border-brand-green/20 border-t-brand-green rounded-full animate-spin mb-4" />
+        <p className="text-sm font-bold uppercase tracking-widest text-brand-dark/60">Loading Safari Itinerary...</p>
+      </div>
+    );
+  }
 
   if (!pkg) {
     return (
@@ -109,7 +150,9 @@ const PackageDetail: React.FC = () => {
   }
 
   const details = (pkg as any).details;
-  const gallery = details?.gallery || [pkg.image];
+  const gallery = details?.gallery && Array.isArray(details.gallery) && details.gallery.length > 0
+    ? details.gallery
+    : [pkg.image || '/images/Gorillaa.webp'];
 
   const touristTripSchema = {
     "@context": "https://schema.org",

@@ -53,3 +53,20 @@ h1, h2, h3, h4, h5, h6 {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Admin Dashboard Theme Support */
+.admin-theme-dark {
+  --admin-bg: #0a0f08;
+  --admin-card: #11190e;
+  --admin-card-inner: #162312;
+  --admin-header: rgba(12, 18, 8, 0.9);
+  --admin-sidebar: #0c1208;
+  --admin-border: #223519;
+  --admin-border-subtle: #1c2c15;
+  --admin-text-main: #ffffff;
+  --admin-text-muted: #9ca3af;
+  --admin-input-bg: #141f12;
+  background-color: var(--admin-bg);
+  color: var(--admin-text-main);
+  min-height: 100vh;
+}
