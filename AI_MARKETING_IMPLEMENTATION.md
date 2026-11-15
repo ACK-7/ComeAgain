@@ -144,7 +144,7 @@ All AI API calls and third-party secrets stay **server-side in Laravel**. The Re
 | TypeScript | 5.x | Type safety |
 | Tailwind CSS | 4 | Styling |
 | Laravel | 13 | API, jobs, mail, admin |
-| PHP | 8.3+ | Backend runtime |
+| PHP | 8.4+ | Backend runtime |
 | MySQL | 8.x | Primary database |
 | Apache/cPanel | — | Production hosting |
 
