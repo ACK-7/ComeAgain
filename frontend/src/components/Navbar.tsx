@@ -119,7 +119,7 @@ const Navbar: React.FC = () => {
               </Link>
               <span>•</span>
               <Link to="/gallery" className="hover:text-brand-green transition-colors">
-                Photo Gallery
+                Gallery
               </Link>
             </div>
 
@@ -579,7 +579,7 @@ const Navbar: React.FC = () => {
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-2 text-xs text-gray-300 hover:text-brand-green py-1"
                 >
-                  <Camera className="w-4 h-4 text-brand-green" /> Wildlife Photo Gallery
+                  <Camera className="w-4 h-4 text-brand-green" /> Gallery
                 </Link>
               </div>
             </div>

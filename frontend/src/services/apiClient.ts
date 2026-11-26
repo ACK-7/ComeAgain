@@ -5,7 +5,16 @@ export function getApiBaseUrl(): string {
   return `${base.replace(/\/+$/, '').replace(/\/api$/, '')}/api`;
 }
 export const TOKEN_KEY = 'comeagain_staff_token';
+export interface AdminApiNotice {
+  requestKey: string;
+  pathname: string;
+  message?: string;
+}
 export async function apiRequest<T>(path: string, options: RequestInit = {}, authenticated = false): Promise<T> {
+  const notice: AdminApiNotice = {
+    requestKey: `${options.method ?? 'GET'} ${path}`,
+    pathname: window.location.pathname,
+  };
   const headers = new Headers(options.headers);
   headers.set('Accept', 'application/json');
   if (options.body && !(options.body instanceof FormData)) headers.set('Content-Type', 'application/json');
@@ -24,10 +33,13 @@ export async function apiRequest<T>(path: string, options: RequestInit = {}, aut
       const errors = json?.errors as Record<string, string[]> | undefined;
       throw new Error(errors ? Object.values(errors).flat().join(' ') : json?.message || `Request failed (${response.status}). Please try again.`);
     }
+    if (authenticated) window.dispatchEvent(new CustomEvent('admin-api-recovered', { detail: notice }));
     return json.data as T;
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'The server could not be reached.';
-    if (authenticated) window.dispatchEvent(new CustomEvent('admin-api-error', { detail: message }));
+    const message = error instanceof TypeError
+      ? `Could not reach the server for ${notice.requestKey}. Check the backend connection and retry.`
+      : error instanceof Error ? error.message : 'The server could not be reached.';
+    if (authenticated) window.dispatchEvent(new CustomEvent('admin-api-error', { detail: { ...notice, message } }));
     throw error;
   }
 }

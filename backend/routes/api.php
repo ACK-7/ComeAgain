@@ -62,11 +62,16 @@ use App\Http\Controllers\Admin\ContentController;
 use App\Http\Middleware\AdminAccess;
 Route::post('/admin/login', [AuthController::class, 'login'])->middleware('throttle:20,1');
 Route::get('/settings', [ContentController::class, 'settings']);
+Route::get('/gallery', [\App\Http\Controllers\Admin\GalleryController::class, 'publicIndex']);
 foreach (['blog', 'fleet', 'reviews'] as $kind) {
     Route::get('/'.$kind, fn () => app(ContentController::class)->publicIndex($kind));
 }
 Route::prefix('admin')->middleware(AdminAccess::class)->group(function () {
     Route::post('/media', [\App\Http\Controllers\Admin\MediaController::class, 'store']);
+    Route::middleware(AdminAccess::class.':content_editor')->group(function () {
+        Route::get('/gallery', [\App\Http\Controllers\Admin\GalleryController::class, 'index']);
+        Route::put('/gallery', [\App\Http\Controllers\Admin\GalleryController::class, 'save']);
+    });
     Route::get('/me', [AuthController::class, 'me']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::middleware(AdminAccess::class.':content_editor')->group(function () {
@@ -93,4 +98,4 @@ Route::prefix('admin')->middleware(AdminAccess::class)->group(function () {
     });
 });
 
-Route::get('/media/{filename}', [\App\Http\Controllers\Admin\MediaController::class, 'show'])->where('filename', '[A-Za-z0-9]+\.(jpg|jpeg|png|webp)');
+Route::get('/media/{filename}', [\App\Http\Controllers\Admin\MediaController::class, 'show'])->where('filename', '[A-Za-z0-9]+\.(jpg|jpeg|png|webp|mp4|webm)');

@@ -54,6 +54,7 @@ const AdminReviews = lazy(() => import('./admin/pages/AdminReviews'));
 const AdminSubscribers = lazy(() => import('./admin/pages/AdminSubscribers'));
 const AdminTourismNews = lazy(() => import('./admin/pages/AdminTourismNews'));
 const AdminStaff = lazy(() => import('./admin/pages/AdminStaff'));
+const AdminGallery = lazy(() => import('./admin/pages/AdminGallery'));
 const AdminSettings = lazy(() => import('./admin/pages/AdminSettings'));
 const AdminSystemHealth = lazy(() => import('./admin/pages/AdminSystemHealth'));
 
@@ -132,6 +133,7 @@ const AppContent = () => {
               <Route path="packages" element={<AdminPackages />} />
               <Route path="fleet" element={<AdminFleet />} />
               <Route path="blog" element={<AdminBlog />} />
+              <Route path="gallery" element={<AdminGallery />} />
               <Route path="reviews" element={<AdminReviews />} />
               <Route path="subscribers" element={<AdminSubscribers />} />
               <Route path="tourism-news" element={<AdminTourismNews />} />

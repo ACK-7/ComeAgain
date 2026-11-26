@@ -6,6 +6,7 @@ import {
   Compass,
   Car,
   FileText,
+  Images,
   Star,
   Mail,
   Newspaper,
@@ -76,6 +77,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ onCloseMobile }) => 
     {
       title: 'Content & Reputation',
       items: [
+        { label: 'Gallery · Images & Videos', path: '/admin/gallery', icon: Images },
         { label: 'Safari Blog & Guides', path: '/admin/blog', icon: FileText },
         { label: 'Reviews & Feedback', path: '/admin/reviews', icon: Star },
         { label: 'AI Tourism News', path: '/admin/tourism-news', icon: Newspaper },

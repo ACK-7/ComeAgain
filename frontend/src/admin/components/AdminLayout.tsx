@@ -4,21 +4,41 @@ import { AdminSidebar } from './AdminSidebar';
 import { AdminHeader } from './AdminHeader';
 import { CommandPalette } from './CommandPalette';
 import { useAdminAuth } from '../context/AdminAuthContext';
+import type { AdminApiNotice } from '../../services/apiClient';
 
 export const AdminLayout: React.FC = () => {
   const { user, isAuthenticated, isLoading } = useAdminAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
 
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState<Record<string, AdminApiNotice>>({});
   const location = useLocation();
+  const errorKey = (notice: AdminApiNotice) => `${notice.pathname}:${notice.requestKey}`;
+  const currentErrors = Object.entries(errors).filter(([, notice]) => notice.pathname === location.pathname);
   useEffect(() => {
-    const report = (event: Event) => setError((event as CustomEvent<string>).detail);
+    const report = (event: Event) => {
+      const notice = (event as CustomEvent<AdminApiNotice>).detail;
+      setErrors(previous => ({ ...previous, [errorKey(notice)]: notice }));
+    };
+    const recover = (event: Event) => {
+      const notice = (event as CustomEvent<AdminApiNotice>).detail;
+      setErrors(previous => {
+        const key = errorKey(notice);
+        if (!previous[key]) return previous;
+        const next = { ...previous };
+        delete next[key];
+        return next;
+      });
+    };
     window.addEventListener('admin-api-error', report);
-    return () => window.removeEventListener('admin-api-error', report);
+    window.addEventListener('admin-api-recovered', recover);
+    return () => {
+      window.removeEventListener('admin-api-error', report);
+      window.removeEventListener('admin-api-recovered', recover);
+    };
   }, []);
   const allowed = user?.role === 'super_admin' || (user?.role === 'content_editor'
-    ? ['/admin', '/admin/packages', '/admin/blog', '/admin/reviews', '/admin/tourism-news']
+    ? ['/admin', '/admin/packages', '/admin/blog', '/admin/gallery', '/admin/reviews', '/admin/tourism-news']
     : ['/admin', '/admin/inquiries', '/admin/subscribers', '/admin/fleet']).includes(location.pathname.replace(/\/$/, '') || '/admin');
 
   if (isLoading) {
@@ -68,7 +88,7 @@ export const AdminLayout: React.FC = () => {
         />
 
         <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto">
-          {error && <div role="alert" className="mb-4 rounded-xl border border-red-400 bg-red-950 p-4 text-sm text-white flex justify-between gap-4"><span>{error}</span><button onClick={() => setError('')} aria-label="Dismiss error">Dismiss</button></div>}
+          {currentErrors.map(([key, notice]) => <div key={key} role="alert" className="mb-4 rounded-xl border border-red-400 bg-red-950 p-4 text-sm text-white flex justify-between gap-4"><span>{notice.message}</span><button onClick={() => setErrors(previous => { const next = { ...previous }; delete next[key]; return next; })} aria-label="Dismiss error">Dismiss</button></div>)}
           {allowed ? <Outlet /> : <p role="alert">Your account does not have access to this section.</p>}
         </main>
       </div>

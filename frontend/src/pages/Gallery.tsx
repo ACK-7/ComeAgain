@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer';
-import { siteData } from '../data/siteData';
+import { galleryApi, type GalleryItem } from '../services/gallery';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, X } from 'lucide-react';
 
@@ -9,7 +9,22 @@ const Gallery: React.FC = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
-  const { images, videos } = siteData.gallery;
+  const [perPage, setPerPage] = useState(12);
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
+  const [retry, setRetry] = useState(0);
+  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  useEffect(() => {
+    let active = true;
+    galleryApi.publicItems(page, activeTab === 'images' ? 'image' : 'video', perPage).then(data => { if (active) { setItems(data.items); setLastPage(data.last_page); setPage(data.page); } })
+      .catch(() => { if (active) setError('The gallery is temporarily unavailable. Please refresh to try again.'); })
+      .finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
+  }, [page, activeTab, perPage, retry]);
+  const images = items.filter(item => item.type === 'image');
+  const videos = items.filter(item => item.type === 'video');
 
   const closeLightbox = () => setLightboxIndex(null);
   const closeVideo = () => setActiveVideo(null);
@@ -62,7 +77,7 @@ const Gallery: React.FC = () => {
         <section className="relative z-10 max-w-7xl mx-auto px-4 mb-16">
           <div className="flex justify-center space-x-8 border-b border-white/10 pb-4">
             <button
-              onClick={() => setActiveTab('images')}
+              onClick={() => { if (activeTab === 'images') return; setLoading(true); setError(''); setItems([]); setPage(1); setActiveTab('images'); }}
               className={`text-2xl font-serif tracking-wide transition-colors relative ${
                 activeTab === 'images' ? 'text-brand-green' : 'text-gray-500 hover:text-white'
               }`}
@@ -73,7 +88,7 @@ const Gallery: React.FC = () => {
               )}
             </button>
             <button
-              onClick={() => setActiveTab('videos')}
+              onClick={() => { if (activeTab === 'videos') return; setLoading(true); setError(''); setItems([]); setPage(1); setActiveTab('videos'); }}
               className={`text-2xl font-serif tracking-wide transition-colors relative ${
                 activeTab === 'videos' ? 'text-brand-green' : 'text-gray-500 hover:text-white'
               }`}
@@ -88,8 +103,17 @@ const Gallery: React.FC = () => {
 
         {/* 3. Content Area */}
         <section className="relative z-10 max-w-7xl mx-auto px-4 min-h-[50vh]">
+          <label className="mb-6 flex items-center justify-end gap-3 text-sm text-gray-300">
+            <span>Items per page</span>
+            <select value={perPage} onChange={e => { setLightboxIndex(null); setActiveVideo(null); setLoading(true); setError(''); setPage(1); setPerPage(Number(e.target.value)); }} className="rounded-lg border border-white/20 bg-[#0c1106] px-3 py-2 text-white focus:outline-none focus:border-brand-green">
+              {[12, 24, 36, 48].map(size => <option key={size} value={size}>{size}</option>)}
+            </select>
+          </label>
+          {loading && <p role="status" className="py-16 text-center text-gray-400">Loading gallery…</p>}
+          {error && <p role="alert" className="py-16 text-center text-gray-400">{error} <button onClick={() => { setLoading(true); setError(''); setRetry(value => value + 1); }} className="underline">Retry</button></p>}
+          {!loading && !error && !(activeTab === 'images' ? images : videos).length && <p className="py-16 text-center text-gray-400">{activeTab === 'images' ? 'New photos are coming soon.' : 'New videos are coming soon.'}</p>}
           <AnimatePresence mode="wait">
-            {activeTab === 'images' ? (
+            {!loading && !error && (activeTab === 'images' ? (
               <motion.div
                 key="images"
                 initial={{ opacity: 0, x: -20 }}
@@ -108,6 +132,7 @@ const Gallery: React.FC = () => {
                     <img
                       src={img.url}
                       alt={img.title}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -145,6 +170,8 @@ const Gallery: React.FC = () => {
                     <div className="relative aspect-video overflow-hidden rounded-md border border-brand-green/20 bg-black">
                       <video
                         src={vid.url}
+                        poster={vid.thumbnail || undefined}
+                        preload="none"
                         muted
                         loop
                         playsInline
@@ -163,8 +190,13 @@ const Gallery: React.FC = () => {
                   </motion.div>
                 ))}
               </motion.div>
-            )}
+            ))}
           </AnimatePresence>
+          {!error && <nav aria-label="Gallery pagination" className="flex items-center justify-center gap-5 py-10">
+            <button disabled={loading || page <= 1} onClick={() => { setLightboxIndex(null); setActiveVideo(null); setLoading(true); setPage(page - 1); }} className="rounded-lg border border-white/20 px-4 py-2 disabled:opacity-30">Previous</button>
+            <span role="status">Page {page} of {lastPage}</span>
+            <button disabled={loading || page >= lastPage} onClick={() => { setLightboxIndex(null); setActiveVideo(null); setLoading(true); setPage(page + 1); }} className="rounded-lg border border-white/20 px-4 py-2 disabled:opacity-30">Next</button>
+          </nav>}
         </section>
       </main>
 
@@ -178,6 +210,7 @@ const Gallery: React.FC = () => {
             className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center"
           >
             <button
+              aria-label="Close photo"
               onClick={closeLightbox}
               className="absolute top-6 right-6 text-white hover:text-brand-green p-2 transition-colors"
             >
@@ -205,6 +238,7 @@ const Gallery: React.FC = () => {
             className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center"
           >
             <button
+              aria-label="Close video"
               onClick={closeVideo}
               className="absolute top-6 right-6 text-white hover:text-brand-green p-2 transition-colors z-10"
             >

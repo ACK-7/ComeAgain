@@ -52,6 +52,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
     { label: 'Safari Packages & Itineraries', icon: Compass, path: '/admin/packages', category: 'Catalog' },
     { label: 'Car Hire & Safari Fleet', icon: Car, path: '/admin/fleet', category: 'Catalog' },
     { label: 'Newsletter Subscribers & Export', icon: Mail, path: '/admin/subscribers', category: 'Marketing' },
+    { label: 'Gallery Photos & Videos', icon: FileText, path: '/admin/gallery', category: 'Content' },
     { label: 'Safari Blog & Travel Guides', icon: FileText, path: '/admin/blog', category: 'Content' },
     { label: 'Customer Reviews & Ratings', icon: Star, path: '/admin/reviews', category: 'Content' },
     { label: 'AI Tourism News Monitor', icon: Newspaper, path: '/admin/tourism-news', category: 'Marketing' },

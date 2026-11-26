@@ -94,7 +94,9 @@ php artisan route:cache
 php artisan view:cache
 ```
 
-Uploaded images are served by `/api/media/{filename}`; no storage symlink is required. Set PHP `upload_max_filesize` to at least `6M` and `post_max_size` to at least `8M` to support the dashboard's 5 MB limit. Ensure the cPanel account can write Laravel `storage/` and `bootstrap/cache`; do not use world-writable permissions.
+Uploaded images and videos are served by `/api/media/{filename}`; no storage symlink is required. Set PHP `upload_max_filesize` to at least `52M` and `post_max_size` to at least `56M` to support gallery videos up to 50 MB (images remain limited to 5 MB). Ensure the cPanel account can write Laravel `storage/` and `bootstrap/cache`; do not use world-writable permissions.
+
+The gallery manager is at `/admin/gallery` for content editors and super admins. Deploy `config/gallery.php` with the backend: it preserves the existing 18 photos and 18 videos on first use, without a migration or seeder. Later changes are stored in `managed_content`. Deploy the frontend and backend together and rebuild the Laravel configuration/route caches. Saving publishes immediately; hiding or removing an entry leaves its underlying file intact. Verify add, edit, reorder, hide, and remove on `/gallery`, including video playback and seeking. Direct video URLs must point to playable MP4/WebM files, not YouTube pages.
 
 ## Verify before announcing the update
 
