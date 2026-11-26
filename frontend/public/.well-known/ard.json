@@ -1,0 +1,11 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:comeagaintoursandtravels.com:safari-guide",
+      "displayName": "Come Again Tours and Travels Safari Guide",
+      "description": "Public reference for East Africa safari packages, destinations, travel guides, and trip planning.",
+      "type": "text/plain",
+      "url": "https://www.comeagaintoursandtravels.com/llms.txt"
+    }
+  ]
+}
